@@ -6,7 +6,6 @@ from typer.testing import CliRunner
 
 from techfeeds.cli import app
 
-
 ROOT = Path(__file__).resolve().parents[1]
 RUNNER = CliRunner()
 
