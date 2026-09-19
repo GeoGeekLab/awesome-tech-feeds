@@ -5,7 +5,6 @@ from shutil import copytree
 
 from techfeeds.compile import compile_registry, generated_files_match
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 
