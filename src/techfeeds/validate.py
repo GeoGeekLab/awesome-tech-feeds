@@ -28,9 +28,7 @@ def _canonical_url(url: str) -> str:
     return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, parts.query, ""))
 
 
-def _schema_errors(
-    validator: Draft202012Validator, data: Any, path: Path, root: Path
-) -> list[str]:
+def _schema_errors(validator: Draft202012Validator, data: Any, path: Path, root: Path) -> list[str]:
     errors: list[str] = []
     for error in sorted(validator.iter_errors(data), key=lambda item: list(item.path)):
         location = ".".join(str(part) for part in error.path)
@@ -69,9 +67,7 @@ def validate_registry(root: Path) -> list[str]:
             continue
 
         if path.stem != source_id:
-            errors.append(
-                f"{path.relative_to(root)}: filename must match source id {source_id!r}"
-            )
+            errors.append(f"{path.relative_to(root)}: filename must match source id {source_id!r}")
 
         if source_id in source_ids:
             errors.append(
@@ -126,8 +122,7 @@ def validate_registry(root: Path) -> list[str]:
             collection_ids.add(collection_id)
             if path.stem != collection_id:
                 errors.append(
-                    f"{path.relative_to(root)}: filename must match collection id "
-                    f"{collection_id!r}"
+                    f"{path.relative_to(root)}: filename must match collection id {collection_id!r}"
                 )
         for source_id in data.get("sources", []):
             if source_id not in source_ids:
