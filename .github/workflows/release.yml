@@ -30,7 +30,8 @@ jobs:
           git push origin "${tag}"
 
   release:
-    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [prepare-tag]
+    if: always() && (startsWith(github.ref, 'refs/tags/v') || needs.prepare-tag.result == 'success')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +39,16 @@ jobs:
         with:
           python-version: "3.13"
           cache: pip
+      - name: Resolve release tag
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            tag="${GITHUB_REF_NAME}"
+          else
+            tag="${GITHUB_REF_NAME#release/}"
+          fi
+          echo "RELEASE_TAG=${tag}" >> "${GITHUB_ENV}"
+          echo "RELEASE_VERSION=${tag#v}" >> "${GITHUB_ENV}"
       - name: Install
         run: python -m pip install -e .
       - name: Validate registry
@@ -54,16 +65,17 @@ jobs:
           import re
           from pathlib import Path
 
-          version = os.environ["GITHUB_REF_NAME"].removeprefix("v")
+          version = os.environ["RELEASE_VERSION"]
           changelog = Path("CHANGELOG.md").read_text(encoding="utf-8")
           pattern = rf"(?ms)^## {re.escape(version)}(?:[^\n]*)\n(.*?)(?=^## |\Z)"
           match = re.search(pattern, changelog)
-          notes = match.group(1).strip() if match else f"Release {os.environ['GITHUB_REF_NAME']}"
+          notes = match.group(1).strip() if match else f"Release {os.environ['RELEASE_TAG']}"
           Path("release-notes.md").write_text(notes + "\n", encoding="utf-8")
           PY
       - uses: softprops/action-gh-release@v2
         with:
-          name: Awesome Tech Feeds ${{ github.ref_name }}
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: Awesome Tech Feeds ${{ env.RELEASE_TAG }}
           body_path: release-notes.md
           make_latest: true
           files: |
