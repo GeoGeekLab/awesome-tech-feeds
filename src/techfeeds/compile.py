@@ -81,9 +81,7 @@ def _catalog(
         )
         for source_id in collection["sources"]:
             source = by_id[source_id]
-            lines.append(
-                f"- [{source['name']}]({source['website']}) — `{source['id']}`"
-            )
+            lines.append(f"- [{source['name']}]({source['website']}) — `{source['id']}`")
         lines.append("")
     output.write_text("\n".join(lines), encoding="utf-8")
 
