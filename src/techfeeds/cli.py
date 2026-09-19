@@ -34,7 +34,7 @@ def main(
         callback=_version,
         is_eager=True,
         help="Show the installed version and exit.",
-    )
+    ),
 ) -> None:
     """Validate, compile, and probe the Awesome Tech Feeds registry."""
 
