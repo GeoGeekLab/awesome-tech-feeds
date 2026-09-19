@@ -60,10 +60,10 @@ def parse_feed(
     if tag.endswith("rss") or tag.endswith("rdf"):
         items = root.findall(".//item")
         for item in items[:50]:
-            for child in list(item):
-                child_name = child.tag.lower()
+            for item_child in list(item):
+                child_name = item_child.tag.lower()
                 if child_name.endswith(("pubdate", "date", "updated")):
-                    parsed = _parse_date(child.text)
+                    parsed = _parse_date(item_child.text)
                     if parsed:
                         dates.append(parsed)
         latest = max(dates).isoformat() if dates else None
@@ -76,8 +76,8 @@ def parse_feed(
         entries = root.findall(f"{namespace}entry")
         for entry in entries[:50]:
             for key in ("published", "updated"):
-                child = entry.find(f"{namespace}{key}")
-                parsed = _parse_date(child.text if child is not None else None)
+                date_node = entry.find(f"{namespace}{key}")
+                parsed = _parse_date(date_node.text if date_node is not None else None)
                 if parsed:
                     dates.append(parsed)
         latest = max(dates).isoformat() if dates else None
