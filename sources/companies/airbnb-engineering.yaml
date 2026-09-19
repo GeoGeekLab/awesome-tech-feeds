@@ -1,0 +1,21 @@
+schema_version: 1
+id: airbnb-engineering
+name: "Airbnb Engineering & Data Science"
+kind: company
+language: en
+website: https://medium.com/airbnb-engineering
+feeds:
+  - url: https://medium.com/feed/airbnb-engineering
+    format: rss
+    role: primary
+    official: true
+topics:
+  - distributed-systems
+  - data
+  - web
+  - mobile
+traits:
+  - first-party
+  - company-engineering
+  - deep-dive
+status: active

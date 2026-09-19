@@ -1,0 +1,20 @@
+schema_version: 1
+id: spotify-engineering
+name: "Spotify Engineering"
+kind: company
+language: en
+website: https://engineering.atspotify.com/
+feeds:
+  - url: https://engineering.atspotify.com/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - distributed-systems
+  - data
+  - engineering-management
+traits:
+  - first-party
+  - company-engineering
+  - analysis
+status: active

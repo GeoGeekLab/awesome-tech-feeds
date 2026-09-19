@@ -1,0 +1,20 @@
+schema_version: 1
+id: microsoft-dotnet
+name: "Microsoft .NET Blog"
+kind: company
+language: en
+website: https://devblogs.microsoft.com/dotnet/
+feeds:
+  - url: https://devblogs.microsoft.com/dotnet/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - dotnet
+  - programming
+  - devtools
+traits:
+  - first-party
+  - release-notes
+  - tutorial
+status: active

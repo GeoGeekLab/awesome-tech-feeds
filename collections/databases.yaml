@@ -1,0 +1,9 @@
+schema_version: 1
+id: databases
+name: Databases
+description: Database internals, data systems, query languages, and production practice.
+sources:
+- antirez
+- jooq-blog
+- simon-willison
+- dropbox-tech

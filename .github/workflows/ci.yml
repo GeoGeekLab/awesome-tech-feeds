@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install -e '.[dev]'
+      - name: Ruff
+        run: ruff check .
+      - name: Format
+        run: ruff format --check .
+      - name: Mypy
+        run: mypy
+      - name: Registry contract
+        run: |
+          techfeeds validate
+          techfeeds compile --check
+      - name: Tests
+        run: pytest --cov=techfeeds --cov-report=term-missing
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Build
+        run: |
+          python -m pip install build twine
+          python -m build
+          python -m twine check dist/*
+      - name: Wheel smoke test
+        run: |
+          python -m venv .wheel-smoke
+          .wheel-smoke/bin/python -m pip install dist/*.whl
+          .wheel-smoke/bin/techfeeds --version

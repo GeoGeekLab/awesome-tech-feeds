@@ -1,0 +1,19 @@
+schema_version: 1
+id: arxiv-ai
+name: "arXiv cs.AI"
+kind: research
+language: en
+website: https://arxiv.org/list/cs.AI/recent
+feeds:
+  - url: https://rss.arxiv.org/rss/cs.AI
+    format: rss
+    role: primary
+    official: true
+topics:
+  - ai
+  - research
+traits:
+  - first-party
+  - research
+  - high-frequency
+status: active

@@ -1,0 +1,22 @@
+schema_version: 1
+id: swyx
+name: "swyx"
+kind: individual
+language: en
+website: https://www.swyx.io/
+feeds:
+  - url: https://www.swyx.io/rss.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - ai
+  - llm
+  - web
+  - devtools
+traits:
+  - original
+  - analysis
+  - practitioner
+  - independent
+status: active

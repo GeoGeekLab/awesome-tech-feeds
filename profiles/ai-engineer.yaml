@@ -1,0 +1,13 @@
+schema_version: 1
+id: ai-engineer
+name: AI Engineer
+collections:
+- ai
+- systems
+- databases
+boost_topics:
+- llm
+- machine-learning
+- agents
+exclude_traits: []
+recommended_daily_budget: 15

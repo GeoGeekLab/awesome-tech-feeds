@@ -1,0 +1,21 @@
+schema_version: 1
+id: eli-bendersky
+name: "Eli Bendersky"
+kind: individual
+language: en
+website: https://eli.thegreenplace.net/
+feeds:
+  - url: https://eli.thegreenplace.net/feeds/all.atom.xml
+    format: atom
+    role: primary
+    official: true
+topics:
+  - programming
+  - python
+  - go
+traits:
+  - original
+  - tutorial
+  - deep-dive
+  - independent
+status: active

@@ -1,0 +1,19 @@
+schema_version: 1
+id: arxiv-lg
+name: "arXiv cs.LG"
+kind: research
+language: en
+website: https://arxiv.org/list/cs.LG/recent
+feeds:
+  - url: https://rss.arxiv.org/rss/cs.LG
+    format: rss
+    role: primary
+    official: true
+topics:
+  - machine-learning
+  - research
+traits:
+  - first-party
+  - research
+  - high-frequency
+status: active

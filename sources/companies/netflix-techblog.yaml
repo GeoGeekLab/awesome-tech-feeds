@@ -1,0 +1,22 @@
+schema_version: 1
+id: netflix-techblog
+name: "Netflix TechBlog"
+kind: company
+language: en
+website: https://netflixtechblog.com/
+feeds:
+  - url: https://netflixtechblog.com/feed
+    format: rss
+    role: primary
+    official: true
+topics:
+  - distributed-systems
+  - infrastructure
+  - data
+  - performance
+traits:
+  - first-party
+  - company-engineering
+  - deep-dive
+  - practitioner
+status: active

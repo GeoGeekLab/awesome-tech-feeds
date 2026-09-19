@@ -1,0 +1,21 @@
+schema_version: 1
+id: github-engineering
+name: "GitHub Engineering"
+kind: company
+language: en
+website: https://github.blog/engineering/
+feeds:
+  - url: https://github.blog/engineering/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - devtools
+  - infrastructure
+  - security
+  - programming
+traits:
+  - first-party
+  - company-engineering
+  - practitioner
+status: active

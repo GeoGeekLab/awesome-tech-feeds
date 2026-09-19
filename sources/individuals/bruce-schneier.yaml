@@ -1,0 +1,19 @@
+schema_version: 1
+id: bruce-schneier
+name: "Schneier on Security"
+kind: individual
+language: en
+website: https://www.schneier.com/
+feeds:
+  - url: https://www.schneier.com/feed/atom/
+    format: atom
+    role: primary
+    official: true
+topics:
+  - security
+  - privacy
+traits:
+  - analysis
+  - security-research
+  - independent
+status: active

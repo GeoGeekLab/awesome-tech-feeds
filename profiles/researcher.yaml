@@ -1,0 +1,11 @@
+schema_version: 1
+id: researcher
+name: Researcher
+collections:
+- ai
+boost_topics:
+- research
+- machine-learning
+exclude_traits:
+- community
+recommended_daily_budget: 12

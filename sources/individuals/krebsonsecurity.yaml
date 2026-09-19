@@ -1,0 +1,19 @@
+schema_version: 1
+id: krebsonsecurity
+name: "Krebs on Security"
+kind: publication
+language: en
+website: https://krebsonsecurity.com/
+feeds:
+  - url: https://krebsonsecurity.com/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - security
+traits:
+  - original
+  - analysis
+  - security-research
+  - independent
+status: active

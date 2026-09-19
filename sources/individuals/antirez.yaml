@@ -1,0 +1,21 @@
+schema_version: 1
+id: antirez
+name: "antirez"
+kind: individual
+language: en
+website: https://antirez.com/
+feeds:
+  - url: https://antirez.com/rss
+    format: rss
+    role: primary
+    official: true
+topics:
+  - databases
+  - programming
+  - open-source
+traits:
+  - original
+  - practitioner
+  - deep-dive
+  - independent
+status: active

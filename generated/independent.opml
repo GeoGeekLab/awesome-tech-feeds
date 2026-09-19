@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="2.0">
+  <head>
+    <title>Awesome Tech Feeds — Independent Writers</title>
+  </head>
+  <body>
+    <outline type="rss" text="Simon Willison’s Weblog" title="Simon Willison’s Weblog" xmlUrl="https://simonwillison.net/atom/everything/" htmlUrl="https://simonwillison.net/" techFeedsId="simon-willison" />
+    <outline type="rss" text="Julia Evans" title="Julia Evans" xmlUrl="https://jvns.ca/atom.xml" htmlUrl="https://jvns.ca/" techFeedsId="julia-evans" />
+    <outline type="rss" text="Martin Fowler" title="Martin Fowler" xmlUrl="https://martinfowler.com/feed.atom" htmlUrl="https://martinfowler.com/" techFeedsId="martin-fowler" />
+    <outline type="rss" text="Dan Luu" title="Dan Luu" xmlUrl="https://danluu.com/atom.xml" htmlUrl="https://danluu.com/" techFeedsId="dan-luu" />
+    <outline type="rss" text="antirez" title="antirez" xmlUrl="https://antirez.com/rss" htmlUrl="https://antirez.com/" techFeedsId="antirez" />
+    <outline type="rss" text="Brendan Gregg" title="Brendan Gregg" xmlUrl="https://www.brendangregg.com/blog/rss.xml" htmlUrl="https://www.brendangregg.com/blog/" techFeedsId="brendan-gregg" />
+    <outline type="rss" text="Mitchell Hashimoto" title="Mitchell Hashimoto" xmlUrl="https://mitchellh.com/feed.xml" htmlUrl="https://mitchellh.com/" techFeedsId="mitchell-hashimoto" />
+    <outline type="rss" text="Eli Bendersky" title="Eli Bendersky" xmlUrl="https://eli.thegreenplace.net/feeds/all.atom.xml" htmlUrl="https://eli.thegreenplace.net/" techFeedsId="eli-bendersky" />
+    <outline type="rss" text="Troy Hunt" title="Troy Hunt" xmlUrl="https://www.troyhunt.com/rss/" htmlUrl="https://www.troyhunt.com/" techFeedsId="troy-hunt" />
+    <outline type="rss" text="Schneier on Security" title="Schneier on Security" xmlUrl="https://www.schneier.com/feed/atom/" htmlUrl="https://www.schneier.com/" techFeedsId="bruce-schneier" />
+    <outline type="rss" text="Krebs on Security" title="Krebs on Security" xmlUrl="https://krebsonsecurity.com/feed/" htmlUrl="https://krebsonsecurity.com/" techFeedsId="krebsonsecurity" />
+    <outline type="rss" text="Overreacted" title="Overreacted" xmlUrl="https://overreacted.io/rss.xml" htmlUrl="https://overreacted.io/" techFeedsId="overreacted" />
+    <outline type="rss" text="swyx" title="swyx" xmlUrl="https://www.swyx.io/rss.xml" htmlUrl="https://www.swyx.io/" techFeedsId="swyx" />
+    <outline type="rss" text="阮一峰的网络日志" title="阮一峰的网络日志" xmlUrl="https://www.ruanyifeng.com/blog/atom.xml" htmlUrl="https://www.ruanyifeng.com/blog/" techFeedsId="ruanyifeng" />
+  </body>
+</opml>

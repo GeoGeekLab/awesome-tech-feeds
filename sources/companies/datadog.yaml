@@ -1,0 +1,20 @@
+schema_version: 1
+id: datadog
+name: "Datadog Blog"
+kind: company
+language: en
+website: https://www.datadoghq.com/blog/
+feeds:
+  - url: https://www.datadoghq.com/blog/index.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - observability
+  - infrastructure
+  - cloud
+traits:
+  - first-party
+  - company-engineering
+  - tutorial
+status: active

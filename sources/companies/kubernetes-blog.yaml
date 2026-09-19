@@ -1,0 +1,20 @@
+schema_version: 1
+id: kubernetes-blog
+name: "Kubernetes Blog"
+kind: project
+language: en
+website: https://kubernetes.io/blog/
+feeds:
+  - url: https://kubernetes.io/feed.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - kubernetes
+  - containers
+  - infrastructure
+traits:
+  - first-party
+  - release-notes
+  - tutorial
+status: active

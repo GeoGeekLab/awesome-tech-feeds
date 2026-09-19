@@ -1,0 +1,20 @@
+schema_version: 1
+id: tailscale
+name: "Tailscale Blog"
+kind: company
+language: en
+website: https://tailscale.com/blog/
+feeds:
+  - url: https://tailscale.com/blog/index.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - networking
+  - security
+  - infrastructure
+traits:
+  - first-party
+  - company-engineering
+  - practitioner
+status: active

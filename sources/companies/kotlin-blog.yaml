@@ -1,0 +1,19 @@
+schema_version: 1
+id: kotlin-blog
+name: "Kotlin Blog"
+kind: company
+language: en
+website: https://blog.jetbrains.com/kotlin/
+feeds:
+  - url: https://blog.jetbrains.com/kotlin/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - programming
+  - devtools
+traits:
+  - first-party
+  - release-notes
+  - tutorial
+status: active

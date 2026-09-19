@@ -1,0 +1,20 @@
+schema_version: 1
+id: company-engineering
+name: Company Engineering
+description: First-party engineering writing from teams operating production systems
+  at scale.
+sources:
+- cloudflare
+- github-engineering
+- netflix-techblog
+- uber-engineering
+- slack-engineering
+- discord-engineering
+- dropbox-tech
+- airbnb-engineering
+- meta-engineering
+- shopify-engineering
+- spotify-engineering
+- fly-io
+- oxide-computer
+- tailscale

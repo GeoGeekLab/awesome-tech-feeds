@@ -1,0 +1,20 @@
+schema_version: 1
+id: overreacted
+name: "Overreacted"
+kind: individual
+language: en
+website: https://overreacted.io/
+feeds:
+  - url: https://overreacted.io/rss.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - javascript
+  - web
+  - programming
+traits:
+  - original
+  - deep-dive
+  - independent
+status: active

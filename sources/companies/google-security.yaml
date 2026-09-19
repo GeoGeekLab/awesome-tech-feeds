@@ -1,0 +1,19 @@
+schema_version: 1
+id: google-security
+name: "Google Online Security Blog"
+kind: company
+language: en
+website: https://security.googleblog.com/
+feeds:
+  - url: https://security.googleblog.com/feeds/posts/default
+    format: atom
+    role: primary
+    official: true
+topics:
+  - security
+  - privacy
+traits:
+  - first-party
+  - security-research
+  - analysis
+status: active

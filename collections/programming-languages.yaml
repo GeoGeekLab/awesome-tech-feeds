@@ -1,0 +1,11 @@
+schema_version: 1
+id: programming-languages
+name: Programming Languages
+description: Language design, ecosystems, releases, and deep programming practice.
+sources:
+- go-blog
+- rust-blog
+- kotlin-blog
+- eli-bendersky
+- dan-luu
+- martin-fowler

@@ -1,0 +1,24 @@
+schema_version: 1
+id: simon-willison
+name: "Simon Willison’s Weblog"
+kind: individual
+language: en
+website: https://simonwillison.net/
+feeds:
+  - url: https://simonwillison.net/atom/everything/
+    format: atom
+    role: primary
+    official: true
+topics:
+  - ai
+  - llm
+  - python
+  - databases
+  - web
+traits:
+  - original
+  - practitioner
+  - deep-dive
+  - independent
+  - high-frequency
+status: active

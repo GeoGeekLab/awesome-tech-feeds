@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="2.0">
+  <head>
+    <title>Awesome Tech Feeds — Programming Languages</title>
+  </head>
+  <body>
+    <outline type="rss" text="The Go Blog" title="The Go Blog" xmlUrl="https://go.dev/blog/feed.atom" htmlUrl="https://go.dev/blog/" techFeedsId="go-blog" />
+    <outline type="rss" text="Rust Blog" title="Rust Blog" xmlUrl="https://blog.rust-lang.org/feed.xml" htmlUrl="https://blog.rust-lang.org/" techFeedsId="rust-blog" />
+    <outline type="rss" text="Kotlin Blog" title="Kotlin Blog" xmlUrl="https://blog.jetbrains.com/kotlin/feed/" htmlUrl="https://blog.jetbrains.com/kotlin/" techFeedsId="kotlin-blog" />
+    <outline type="rss" text="Eli Bendersky" title="Eli Bendersky" xmlUrl="https://eli.thegreenplace.net/feeds/all.atom.xml" htmlUrl="https://eli.thegreenplace.net/" techFeedsId="eli-bendersky" />
+    <outline type="rss" text="Dan Luu" title="Dan Luu" xmlUrl="https://danluu.com/atom.xml" htmlUrl="https://danluu.com/" techFeedsId="dan-luu" />
+    <outline type="rss" text="Martin Fowler" title="Martin Fowler" xmlUrl="https://martinfowler.com/feed.atom" htmlUrl="https://martinfowler.com/" techFeedsId="martin-fowler" />
+  </body>
+</opml>

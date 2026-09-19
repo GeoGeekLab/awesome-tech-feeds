@@ -1,0 +1,12 @@
+schema_version: 1
+id: developer
+name: Developer
+collections:
+- essential
+- programming-languages
+- systems
+boost_topics:
+- programming
+- devtools
+exclude_traits: []
+recommended_daily_budget: 15

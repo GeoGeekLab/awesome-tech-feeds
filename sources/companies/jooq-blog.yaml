@@ -1,0 +1,19 @@
+schema_version: 1
+id: jooq-blog
+name: "jOOQ Blog"
+kind: company
+language: en
+website: https://blog.jooq.org/
+feeds:
+  - url: https://blog.jooq.org/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - databases
+  - programming
+traits:
+  - first-party
+  - deep-dive
+  - tutorial
+status: active

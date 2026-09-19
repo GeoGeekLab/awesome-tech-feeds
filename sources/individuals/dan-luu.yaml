@@ -1,0 +1,22 @@
+schema_version: 1
+id: dan-luu
+name: "Dan Luu"
+kind: individual
+language: en
+website: https://danluu.com/
+feeds:
+  - url: https://danluu.com/atom.xml
+    format: atom
+    role: primary
+    official: true
+topics:
+  - programming
+  - performance
+  - architecture
+traits:
+  - original
+  - deep-dive
+  - analysis
+  - independent
+  - low-frequency
+status: active

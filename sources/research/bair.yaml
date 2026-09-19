@@ -1,0 +1,20 @@
+schema_version: 1
+id: bair
+name: "Berkeley Artificial Intelligence Research Blog"
+kind: research
+language: en
+website: https://bair.berkeley.edu/blog/
+feeds:
+  - url: https://bair.berkeley.edu/blog/feed.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - ai
+  - machine-learning
+  - research
+traits:
+  - first-party
+  - research
+  - deep-dive
+status: active

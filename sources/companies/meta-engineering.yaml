@@ -1,0 +1,21 @@
+schema_version: 1
+id: meta-engineering
+name: "Meta Engineering"
+kind: company
+language: en
+website: https://engineering.fb.com/
+feeds:
+  - url: https://engineering.fb.com/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - distributed-systems
+  - ai
+  - infrastructure
+  - programming
+traits:
+  - first-party
+  - company-engineering
+  - deep-dive
+status: active

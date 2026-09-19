@@ -1,0 +1,58 @@
+schema_version: 1
+id: essential
+name: Essential Tech Sources
+description: A compact, high-signal starting set spanning independent writers, engineering
+  teams, research labs, and technical communities.
+sources:
+- simon-willison
+- julia-evans
+- martin-fowler
+- dan-luu
+- antirez
+- brendan-gregg
+- mitchell-hashimoto
+- eli-bendersky
+- troy-hunt
+- bruce-schneier
+- krebsonsecurity
+- overreacted
+- swyx
+- ruanyifeng
+- cloudflare
+- github-engineering
+- netflix-techblog
+- uber-engineering
+- stripe-blog
+- slack-engineering
+- discord-engineering
+- dropbox-tech
+- airbnb-engineering
+- meta-engineering
+- google-security
+- microsoft-dotnet
+- shopify-engineering
+- spotify-engineering
+- fly-io
+- oxide-computer
+- tailscale
+- datadog
+- mozilla-hacks
+- kubernetes-blog
+- go-blog
+- rust-blog
+- kotlin-blog
+- ipfs-blog
+- jooq-blog
+- openai-news
+- anthropic
+- google-deepmind
+- hugging-face
+- bair
+- arxiv-ai
+- arxiv-lg
+- hacker-news
+- lobsters
+- infoq
+- the-new-stack
+policy:
+  max_sources: 50

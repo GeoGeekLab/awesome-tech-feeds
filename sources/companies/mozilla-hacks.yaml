@@ -1,0 +1,20 @@
+schema_version: 1
+id: mozilla-hacks
+name: "Mozilla Hacks"
+kind: company
+language: en
+website: https://hacks.mozilla.org/
+feeds:
+  - url: https://hacks.mozilla.org/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - web
+  - javascript
+  - security
+traits:
+  - first-party
+  - tutorial
+  - deep-dive
+status: active

@@ -1,0 +1,20 @@
+schema_version: 1
+id: infoq
+name: "InfoQ"
+kind: publication
+language: en
+website: https://www.infoq.com/
+feeds:
+  - url: https://www.infoq.com/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - architecture
+  - programming
+  - cloud
+  - ai
+traits:
+  - analysis
+  - high-frequency
+status: active

@@ -1,0 +1,16 @@
+schema_version: 1
+id: ai
+name: AI & LLM
+description: First-party research, independent analysis, practical ML/LLM engineering,
+  and selected communities.
+sources:
+- simon-willison
+- swyx
+- openai-news
+- anthropic
+- google-deepmind
+- hugging-face
+- bair
+- arxiv-ai
+- arxiv-lg
+- hacker-news

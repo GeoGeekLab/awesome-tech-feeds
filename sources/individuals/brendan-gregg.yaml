@@ -1,0 +1,21 @@
+schema_version: 1
+id: brendan-gregg
+name: "Brendan Gregg"
+kind: individual
+language: en
+website: https://www.brendangregg.com/blog/
+feeds:
+  - url: https://www.brendangregg.com/blog/rss.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - performance
+  - infrastructure
+  - observability
+traits:
+  - original
+  - practitioner
+  - deep-dive
+  - advanced
+status: active

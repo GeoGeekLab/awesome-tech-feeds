@@ -1,0 +1,20 @@
+schema_version: 1
+id: dropbox-tech
+name: "Dropbox Tech"
+kind: company
+language: en
+website: https://dropbox.tech/
+feeds:
+  - url: https://dropbox.tech/feed
+    format: rss
+    role: primary
+    official: true
+topics:
+  - distributed-systems
+  - infrastructure
+  - databases
+traits:
+  - first-party
+  - company-engineering
+  - deep-dive
+status: active

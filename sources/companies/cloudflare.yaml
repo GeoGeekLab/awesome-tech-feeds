@@ -1,0 +1,22 @@
+schema_version: 1
+id: cloudflare
+name: "Cloudflare Blog"
+kind: company
+language: en
+website: https://blog.cloudflare.com/
+feeds:
+  - url: https://blog.cloudflare.com/rss/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - networking
+  - security
+  - distributed-systems
+  - infrastructure
+traits:
+  - first-party
+  - company-engineering
+  - deep-dive
+  - practitioner
+status: active
