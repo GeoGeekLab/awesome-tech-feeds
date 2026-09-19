@@ -3,7 +3,9 @@ name: Bootstrap Repository
 on:
   push:
     branches: ["feat/initial-registry"]
-    paths: ["bootstrap.tar.gz"]
+    paths:
+      - "bootstrap.tar.gz"
+      - ".github/workflows/bootstrap.yml"
 
 permissions:
   contents: write
@@ -19,7 +21,9 @@ jobs:
         run: |
           tar -xzf bootstrap.tar.gz
           rm bootstrap.tar.gz
-          rm .github/workflows/bootstrap.yml
+          rm -f .github/workflows/ci.yml
+          rm -f .github/workflows/feed-health.yml
+          rm -f .github/workflows/release.yml
       - name: Commit repository
         run: |
           git config user.name "github-actions[bot]"
