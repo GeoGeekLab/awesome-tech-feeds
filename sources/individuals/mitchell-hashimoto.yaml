@@ -1,0 +1,22 @@
+schema_version: 1
+id: mitchell-hashimoto
+name: "Mitchell Hashimoto"
+kind: individual
+language: en
+website: https://mitchellh.com/
+feeds:
+  - url: https://mitchellh.com/feed.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - devtools
+  - infrastructure
+  - programming
+  - open-source
+traits:
+  - original
+  - practitioner
+  - deep-dive
+  - independent
+status: active

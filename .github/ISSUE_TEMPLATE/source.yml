@@ -1,0 +1,44 @@
+name: Suggest a source
+description: Propose a durable, high-signal technical source for the registry.
+title: "Source: "
+labels: [source]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Source name
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      placeholder: https://example.com/
+    validations:
+      required: true
+  - type: input
+    id: feed
+    attributes:
+      label: Feed URL
+      placeholder: https://example.com/feed.xml
+    validations:
+      required: true
+  - type: textarea
+    id: durable-signal
+    attributes:
+      label: Why is this source durable signal?
+      description: Explain the recurring value across multiple posts, not one viral article.
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Representative posts
+      description: Provide 2–4 URLs that show the source's typical quality and scope.
+    validations:
+      required: true
+  - type: textarea
+    id: taxonomy
+    attributes:
+      label: Suggested topics and traits
+      description: Use existing controlled values where possible.

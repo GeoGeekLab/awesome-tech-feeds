@@ -1,0 +1,19 @@
+schema_version: 1
+id: go-blog
+name: "The Go Blog"
+kind: project
+language: en
+website: https://go.dev/blog/
+feeds:
+  - url: https://go.dev/blog/feed.atom
+    format: atom
+    role: primary
+    official: true
+topics:
+  - go
+  - programming
+traits:
+  - first-party
+  - release-notes
+  - tutorial
+status: active

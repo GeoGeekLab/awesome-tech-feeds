@@ -1,0 +1,20 @@
+schema_version: 1
+id: openai-news
+name: "OpenAI News"
+kind: research
+language: en
+website: https://openai.com/news/
+feeds:
+  - url: https://openai.com/news/rss.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - ai
+  - llm
+  - research
+traits:
+  - first-party
+  - research
+  - release-notes
+status: active

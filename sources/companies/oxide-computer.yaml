@@ -1,0 +1,22 @@
+schema_version: 1
+id: oxide-computer
+name: "Oxide Computer Company"
+kind: company
+language: en
+website: https://oxide.computer/blog
+feeds:
+  - url: https://oxide.computer/blog/rss.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - infrastructure
+  - programming
+  - hardware
+  - distributed-systems
+traits:
+  - first-party
+  - company-engineering
+  - deep-dive
+  - advanced
+status: active

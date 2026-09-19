@@ -1,0 +1,88 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "awesome-tech-feeds"
+version = "0.1.0"
+description = "Human-curated, machine-readable, continuously verified feeds for high-signal technical writing."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "GeoGeekLab" }]
+keywords = ["rss", "atom", "feeds", "blogs", "awesome-list", "engineering", "technology"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary",
+]
+dependencies = [
+  "httpx>=0.28,<1",
+  "jsonschema>=4.23,<5",
+  "PyYAML>=6.0,<7",
+  "rich>=13.9,<15",
+  "typer>=0.15,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2,<2",
+  "mypy>=1.13,<2",
+  "pytest>=8.3,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.8,<1",
+  "twine>=6,<7",
+  "types-PyYAML>=6.0.12",
+]
+
+[project.scripts]
+techfeeds = "techfeeds.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/GeoGeekLab/awesome-tech-feeds"
+Repository = "https://github.com/GeoGeekLab/awesome-tech-feeds"
+Issues = "https://github.com/GeoGeekLab/awesome-tech-feeds/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/techfeeds"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["techfeeds"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 82
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src"]
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = ["jsonschema.*"]
+ignore_missing_imports = true

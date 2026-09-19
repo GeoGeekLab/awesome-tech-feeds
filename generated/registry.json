@@ -1,0 +1,1688 @@
+{
+  "collections": [
+    {
+      "description": "First-party research, independent analysis, practical ML/LLM engineering, and selected communities.",
+      "id": "ai",
+      "name": "AI & LLM",
+      "schema_version": 1,
+      "sources": [
+        "simon-willison",
+        "swyx",
+        "openai-news",
+        "anthropic",
+        "google-deepmind",
+        "hugging-face",
+        "bair",
+        "arxiv-ai",
+        "arxiv-lg",
+        "hacker-news"
+      ]
+    },
+    {
+      "description": "First-party engineering writing from teams operating production systems at scale.",
+      "id": "company-engineering",
+      "name": "Company Engineering",
+      "schema_version": 1,
+      "sources": [
+        "cloudflare",
+        "github-engineering",
+        "netflix-techblog",
+        "uber-engineering",
+        "slack-engineering",
+        "discord-engineering",
+        "dropbox-tech",
+        "airbnb-engineering",
+        "meta-engineering",
+        "shopify-engineering",
+        "spotify-engineering",
+        "fly-io",
+        "oxide-computer",
+        "tailscale"
+      ]
+    },
+    {
+      "description": "Database internals, data systems, query languages, and production practice.",
+      "id": "databases",
+      "name": "Databases",
+      "schema_version": 1,
+      "sources": [
+        "antirez",
+        "jooq-blog",
+        "simon-willison",
+        "dropbox-tech"
+      ]
+    },
+    {
+      "description": "A compact, high-signal starting set spanning independent writers, engineering teams, research labs, and technical communities.",
+      "id": "essential",
+      "name": "Essential Tech Sources",
+      "policy": {
+        "max_sources": 50
+      },
+      "schema_version": 1,
+      "sources": [
+        "simon-willison",
+        "julia-evans",
+        "martin-fowler",
+        "dan-luu",
+        "antirez",
+        "brendan-gregg",
+        "mitchell-hashimoto",
+        "eli-bendersky",
+        "troy-hunt",
+        "bruce-schneier",
+        "krebsonsecurity",
+        "overreacted",
+        "swyx",
+        "ruanyifeng",
+        "cloudflare",
+        "github-engineering",
+        "netflix-techblog",
+        "uber-engineering",
+        "stripe-blog",
+        "slack-engineering",
+        "discord-engineering",
+        "dropbox-tech",
+        "airbnb-engineering",
+        "meta-engineering",
+        "google-security",
+        "microsoft-dotnet",
+        "shopify-engineering",
+        "spotify-engineering",
+        "fly-io",
+        "oxide-computer",
+        "tailscale",
+        "datadog",
+        "mozilla-hacks",
+        "kubernetes-blog",
+        "go-blog",
+        "rust-blog",
+        "kotlin-blog",
+        "ipfs-blog",
+        "jooq-blog",
+        "openai-news",
+        "anthropic",
+        "google-deepmind",
+        "hugging-face",
+        "bair",
+        "arxiv-ai",
+        "arxiv-lg",
+        "hacker-news",
+        "lobsters",
+        "infoq",
+        "the-new-stack"
+      ]
+    },
+    {
+      "description": "Long-running independent technical authors and practitioners.",
+      "id": "independent",
+      "name": "Independent Writers",
+      "schema_version": 1,
+      "sources": [
+        "simon-willison",
+        "julia-evans",
+        "martin-fowler",
+        "dan-luu",
+        "antirez",
+        "brendan-gregg",
+        "mitchell-hashimoto",
+        "eli-bendersky",
+        "troy-hunt",
+        "bruce-schneier",
+        "krebsonsecurity",
+        "overreacted",
+        "swyx",
+        "ruanyifeng"
+      ]
+    },
+    {
+      "description": "Language design, ecosystems, releases, and deep programming practice.",
+      "id": "programming-languages",
+      "name": "Programming Languages",
+      "schema_version": 1,
+      "sources": [
+        "go-blog",
+        "rust-blog",
+        "kotlin-blog",
+        "eli-bendersky",
+        "dan-luu",
+        "martin-fowler"
+      ]
+    },
+    {
+      "description": "Security research, incident analysis, privacy, and defensive engineering.",
+      "id": "security",
+      "name": "Security",
+      "schema_version": 1,
+      "sources": [
+        "troy-hunt",
+        "bruce-schneier",
+        "krebsonsecurity",
+        "google-security",
+        "cloudflare"
+      ]
+    },
+    {
+      "description": "Distributed systems, networking, infrastructure, observability, and performance.",
+      "id": "systems",
+      "name": "Systems Engineering",
+      "schema_version": 1,
+      "sources": [
+        "cloudflare",
+        "netflix-techblog",
+        "uber-engineering",
+        "slack-engineering",
+        "discord-engineering",
+        "dropbox-tech",
+        "fly-io",
+        "oxide-computer",
+        "tailscale",
+        "brendan-gregg"
+      ]
+    }
+  ],
+  "counts": {
+    "collections": 8,
+    "profiles": 4,
+    "sources": 50
+  },
+  "profiles": [
+    {
+      "boost_topics": [
+        "llm",
+        "machine-learning",
+        "agents"
+      ],
+      "collections": [
+        "ai",
+        "systems",
+        "databases"
+      ],
+      "exclude_traits": [],
+      "id": "ai-engineer",
+      "name": "AI Engineer",
+      "recommended_daily_budget": 15,
+      "schema_version": 1
+    },
+    {
+      "boost_topics": [
+        "programming",
+        "devtools"
+      ],
+      "collections": [
+        "essential",
+        "programming-languages",
+        "systems"
+      ],
+      "exclude_traits": [],
+      "id": "developer",
+      "name": "Developer",
+      "recommended_daily_budget": 15,
+      "schema_version": 1
+    },
+    {
+      "boost_topics": [
+        "startup",
+        "product",
+        "ai"
+      ],
+      "collections": [
+        "essential",
+        "ai",
+        "company-engineering"
+      ],
+      "exclude_traits": [
+        "release-notes"
+      ],
+      "id": "founder",
+      "name": "Technical Founder",
+      "recommended_daily_budget": 10,
+      "schema_version": 1
+    },
+    {
+      "boost_topics": [
+        "research",
+        "machine-learning"
+      ],
+      "collections": [
+        "ai"
+      ],
+      "exclude_traits": [
+        "community"
+      ],
+      "id": "researcher",
+      "name": "Researcher",
+      "recommended_daily_budget": 12,
+      "schema_version": 1
+    }
+  ],
+  "schema_version": 1,
+  "sources": [
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://medium.com/feed/airbnb-engineering"
+        }
+      ],
+      "id": "airbnb-engineering",
+      "kind": "company",
+      "language": "en",
+      "name": "Airbnb Engineering & Data Science",
+      "registry_path": "sources/companies/airbnb-engineering.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "distributed-systems",
+        "data",
+        "web",
+        "mobile"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "deep-dive"
+      ],
+      "website": "https://medium.com/airbnb-engineering"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://www.anthropic.com/rss.xml"
+        }
+      ],
+      "id": "anthropic",
+      "kind": "research",
+      "language": "en",
+      "name": "Anthropic",
+      "registry_path": "sources/research/anthropic.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "ai",
+        "llm",
+        "research",
+        "security"
+      ],
+      "traits": [
+        "first-party",
+        "research",
+        "deep-dive"
+      ],
+      "website": "https://www.anthropic.com/research"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://antirez.com/rss"
+        }
+      ],
+      "id": "antirez",
+      "kind": "individual",
+      "language": "en",
+      "name": "antirez",
+      "registry_path": "sources/individuals/antirez.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "databases",
+        "programming",
+        "open-source"
+      ],
+      "traits": [
+        "original",
+        "practitioner",
+        "deep-dive",
+        "independent"
+      ],
+      "website": "https://antirez.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
+        }
+      ],
+      "id": "arxiv-ai",
+      "kind": "research",
+      "language": "en",
+      "name": "arXiv cs.AI",
+      "registry_path": "sources/research/arxiv-ai.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "ai",
+        "research"
+      ],
+      "traits": [
+        "first-party",
+        "research",
+        "high-frequency"
+      ],
+      "website": "https://arxiv.org/list/cs.AI/recent"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://rss.arxiv.org/rss/cs.LG"
+        }
+      ],
+      "id": "arxiv-lg",
+      "kind": "research",
+      "language": "en",
+      "name": "arXiv cs.LG",
+      "registry_path": "sources/research/arxiv-lg.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "machine-learning",
+        "research"
+      ],
+      "traits": [
+        "first-party",
+        "research",
+        "high-frequency"
+      ],
+      "website": "https://arxiv.org/list/cs.LG/recent"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://bair.berkeley.edu/blog/feed.xml"
+        }
+      ],
+      "id": "bair",
+      "kind": "research",
+      "language": "en",
+      "name": "Berkeley Artificial Intelligence Research Blog",
+      "registry_path": "sources/research/bair.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "ai",
+        "machine-learning",
+        "research"
+      ],
+      "traits": [
+        "first-party",
+        "research",
+        "deep-dive"
+      ],
+      "website": "https://bair.berkeley.edu/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://www.brendangregg.com/blog/rss.xml"
+        }
+      ],
+      "id": "brendan-gregg",
+      "kind": "individual",
+      "language": "en",
+      "name": "Brendan Gregg",
+      "registry_path": "sources/individuals/brendan-gregg.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "performance",
+        "infrastructure",
+        "observability"
+      ],
+      "traits": [
+        "original",
+        "practitioner",
+        "deep-dive",
+        "advanced"
+      ],
+      "website": "https://www.brendangregg.com/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://www.schneier.com/feed/atom/"
+        }
+      ],
+      "id": "bruce-schneier",
+      "kind": "individual",
+      "language": "en",
+      "name": "Schneier on Security",
+      "registry_path": "sources/individuals/bruce-schneier.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "security",
+        "privacy"
+      ],
+      "traits": [
+        "analysis",
+        "security-research",
+        "independent"
+      ],
+      "website": "https://www.schneier.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://blog.cloudflare.com/rss/"
+        }
+      ],
+      "id": "cloudflare",
+      "kind": "company",
+      "language": "en",
+      "name": "Cloudflare Blog",
+      "registry_path": "sources/companies/cloudflare.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "networking",
+        "security",
+        "distributed-systems",
+        "infrastructure"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "deep-dive",
+        "practitioner"
+      ],
+      "website": "https://blog.cloudflare.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://danluu.com/atom.xml"
+        }
+      ],
+      "id": "dan-luu",
+      "kind": "individual",
+      "language": "en",
+      "name": "Dan Luu",
+      "registry_path": "sources/individuals/dan-luu.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "programming",
+        "performance",
+        "architecture"
+      ],
+      "traits": [
+        "original",
+        "deep-dive",
+        "analysis",
+        "independent",
+        "low-frequency"
+      ],
+      "website": "https://danluu.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://www.datadoghq.com/blog/index.xml"
+        }
+      ],
+      "id": "datadog",
+      "kind": "company",
+      "language": "en",
+      "name": "Datadog Blog",
+      "registry_path": "sources/companies/datadog.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "observability",
+        "infrastructure",
+        "cloud"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "tutorial"
+      ],
+      "website": "https://www.datadoghq.com/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://discord.com/blog/rss.xml"
+        }
+      ],
+      "id": "discord-engineering",
+      "kind": "company",
+      "language": "en",
+      "name": "Discord Blog",
+      "registry_path": "sources/companies/discord-engineering.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "distributed-systems",
+        "infrastructure",
+        "performance"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "practitioner"
+      ],
+      "website": "https://discord.com/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://dropbox.tech/feed"
+        }
+      ],
+      "id": "dropbox-tech",
+      "kind": "company",
+      "language": "en",
+      "name": "Dropbox Tech",
+      "registry_path": "sources/companies/dropbox-tech.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "distributed-systems",
+        "infrastructure",
+        "databases"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "deep-dive"
+      ],
+      "website": "https://dropbox.tech/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://eli.thegreenplace.net/feeds/all.atom.xml"
+        }
+      ],
+      "id": "eli-bendersky",
+      "kind": "individual",
+      "language": "en",
+      "name": "Eli Bendersky",
+      "registry_path": "sources/individuals/eli-bendersky.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "programming",
+        "python",
+        "go"
+      ],
+      "traits": [
+        "original",
+        "tutorial",
+        "deep-dive",
+        "independent"
+      ],
+      "website": "https://eli.thegreenplace.net/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://fly.io/blog/feed.xml"
+        }
+      ],
+      "id": "fly-io",
+      "kind": "company",
+      "language": "en",
+      "name": "Fly.io Blog",
+      "registry_path": "sources/companies/fly-io.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "infrastructure",
+        "distributed-systems",
+        "networking",
+        "devtools"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "deep-dive",
+        "practitioner"
+      ],
+      "website": "https://fly.io/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://github.blog/engineering/feed/"
+        }
+      ],
+      "id": "github-engineering",
+      "kind": "company",
+      "language": "en",
+      "name": "GitHub Engineering",
+      "registry_path": "sources/companies/github-engineering.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "devtools",
+        "infrastructure",
+        "security",
+        "programming"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "practitioner"
+      ],
+      "website": "https://github.blog/engineering/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://go.dev/blog/feed.atom"
+        }
+      ],
+      "id": "go-blog",
+      "kind": "project",
+      "language": "en",
+      "name": "The Go Blog",
+      "registry_path": "sources/companies/go-blog.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "go",
+        "programming"
+      ],
+      "traits": [
+        "first-party",
+        "release-notes",
+        "tutorial"
+      ],
+      "website": "https://go.dev/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://deepmind.google/blog/rss.xml"
+        }
+      ],
+      "id": "google-deepmind",
+      "kind": "research",
+      "language": "en",
+      "name": "Google DeepMind",
+      "registry_path": "sources/research/google-deepmind.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "ai",
+        "machine-learning",
+        "research"
+      ],
+      "traits": [
+        "first-party",
+        "research",
+        "deep-dive"
+      ],
+      "website": "https://deepmind.google/discover/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://security.googleblog.com/feeds/posts/default"
+        }
+      ],
+      "id": "google-security",
+      "kind": "company",
+      "language": "en",
+      "name": "Google Online Security Blog",
+      "registry_path": "sources/companies/google-security.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "security",
+        "privacy"
+      ],
+      "traits": [
+        "first-party",
+        "security-research",
+        "analysis"
+      ],
+      "website": "https://security.googleblog.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": false,
+          "role": "primary",
+          "url": "https://hnrss.org/frontpage"
+        }
+      ],
+      "id": "hacker-news",
+      "kind": "community",
+      "language": "en",
+      "name": "Hacker News",
+      "registry_path": "sources/communities/hacker-news.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "programming",
+        "startup",
+        "ai",
+        "security"
+      ],
+      "traits": [
+        "community",
+        "high-frequency"
+      ],
+      "website": "https://news.ycombinator.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://huggingface.co/blog/feed.xml"
+        }
+      ],
+      "id": "hugging-face",
+      "kind": "company",
+      "language": "en",
+      "name": "Hugging Face Blog",
+      "registry_path": "sources/research/hugging-face.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "ai",
+        "llm",
+        "machine-learning",
+        "open-source"
+      ],
+      "traits": [
+        "first-party",
+        "practitioner",
+        "tutorial",
+        "research"
+      ],
+      "website": "https://huggingface.co/blog"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://www.infoq.com/feed/"
+        }
+      ],
+      "id": "infoq",
+      "kind": "publication",
+      "language": "en",
+      "name": "InfoQ",
+      "registry_path": "sources/communities/infoq.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "architecture",
+        "programming",
+        "cloud",
+        "ai"
+      ],
+      "traits": [
+        "analysis",
+        "high-frequency"
+      ],
+      "website": "https://www.infoq.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://blog.ipfs.tech/index.xml"
+        }
+      ],
+      "id": "ipfs-blog",
+      "kind": "project",
+      "language": "en",
+      "name": "IPFS Blog & News",
+      "registry_path": "sources/companies/ipfs-blog.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "distributed-systems",
+        "open-source",
+        "networking"
+      ],
+      "traits": [
+        "first-party",
+        "deep-dive",
+        "release-notes"
+      ],
+      "website": "https://blog.ipfs.tech/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://blog.jooq.org/feed/"
+        }
+      ],
+      "id": "jooq-blog",
+      "kind": "company",
+      "language": "en",
+      "name": "jOOQ Blog",
+      "registry_path": "sources/companies/jooq-blog.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "databases",
+        "programming"
+      ],
+      "traits": [
+        "first-party",
+        "deep-dive",
+        "tutorial"
+      ],
+      "website": "https://blog.jooq.org/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://jvns.ca/atom.xml"
+        }
+      ],
+      "id": "julia-evans",
+      "kind": "individual",
+      "language": "en",
+      "name": "Julia Evans",
+      "registry_path": "sources/individuals/julia-evans.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "programming",
+        "infrastructure",
+        "networking",
+        "devtools"
+      ],
+      "traits": [
+        "original",
+        "practitioner",
+        "tutorial",
+        "independent"
+      ],
+      "website": "https://jvns.ca/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://blog.jetbrains.com/kotlin/feed/"
+        }
+      ],
+      "id": "kotlin-blog",
+      "kind": "company",
+      "language": "en",
+      "name": "Kotlin Blog",
+      "registry_path": "sources/companies/kotlin-blog.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "programming",
+        "devtools"
+      ],
+      "traits": [
+        "first-party",
+        "release-notes",
+        "tutorial"
+      ],
+      "website": "https://blog.jetbrains.com/kotlin/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://krebsonsecurity.com/feed/"
+        }
+      ],
+      "id": "krebsonsecurity",
+      "kind": "publication",
+      "language": "en",
+      "name": "Krebs on Security",
+      "registry_path": "sources/individuals/krebsonsecurity.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "security"
+      ],
+      "traits": [
+        "original",
+        "analysis",
+        "security-research",
+        "independent"
+      ],
+      "website": "https://krebsonsecurity.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://kubernetes.io/feed.xml"
+        }
+      ],
+      "id": "kubernetes-blog",
+      "kind": "project",
+      "language": "en",
+      "name": "Kubernetes Blog",
+      "registry_path": "sources/companies/kubernetes-blog.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "kubernetes",
+        "containers",
+        "infrastructure"
+      ],
+      "traits": [
+        "first-party",
+        "release-notes",
+        "tutorial"
+      ],
+      "website": "https://kubernetes.io/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://lobste.rs/rss"
+        }
+      ],
+      "id": "lobsters",
+      "kind": "community",
+      "language": "en",
+      "name": "Lobsters",
+      "registry_path": "sources/communities/lobsters.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "programming",
+        "open-source",
+        "security"
+      ],
+      "traits": [
+        "community",
+        "high-frequency"
+      ],
+      "website": "https://lobste.rs/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://martinfowler.com/feed.atom"
+        }
+      ],
+      "id": "martin-fowler",
+      "kind": "individual",
+      "language": "en",
+      "name": "Martin Fowler",
+      "registry_path": "sources/individuals/martin-fowler.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "architecture",
+        "programming",
+        "engineering-management"
+      ],
+      "traits": [
+        "original",
+        "deep-dive",
+        "analysis",
+        "independent"
+      ],
+      "website": "https://martinfowler.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://engineering.fb.com/feed/"
+        }
+      ],
+      "id": "meta-engineering",
+      "kind": "company",
+      "language": "en",
+      "name": "Meta Engineering",
+      "registry_path": "sources/companies/meta-engineering.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "distributed-systems",
+        "ai",
+        "infrastructure",
+        "programming"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "deep-dive"
+      ],
+      "website": "https://engineering.fb.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://devblogs.microsoft.com/dotnet/feed/"
+        }
+      ],
+      "id": "microsoft-dotnet",
+      "kind": "company",
+      "language": "en",
+      "name": "Microsoft .NET Blog",
+      "registry_path": "sources/companies/microsoft-dotnet.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "dotnet",
+        "programming",
+        "devtools"
+      ],
+      "traits": [
+        "first-party",
+        "release-notes",
+        "tutorial"
+      ],
+      "website": "https://devblogs.microsoft.com/dotnet/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://mitchellh.com/feed.xml"
+        }
+      ],
+      "id": "mitchell-hashimoto",
+      "kind": "individual",
+      "language": "en",
+      "name": "Mitchell Hashimoto",
+      "registry_path": "sources/individuals/mitchell-hashimoto.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "devtools",
+        "infrastructure",
+        "programming",
+        "open-source"
+      ],
+      "traits": [
+        "original",
+        "practitioner",
+        "deep-dive",
+        "independent"
+      ],
+      "website": "https://mitchellh.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://hacks.mozilla.org/feed/"
+        }
+      ],
+      "id": "mozilla-hacks",
+      "kind": "company",
+      "language": "en",
+      "name": "Mozilla Hacks",
+      "registry_path": "sources/companies/mozilla-hacks.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "web",
+        "javascript",
+        "security"
+      ],
+      "traits": [
+        "first-party",
+        "tutorial",
+        "deep-dive"
+      ],
+      "website": "https://hacks.mozilla.org/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://netflixtechblog.com/feed"
+        }
+      ],
+      "id": "netflix-techblog",
+      "kind": "company",
+      "language": "en",
+      "name": "Netflix TechBlog",
+      "registry_path": "sources/companies/netflix-techblog.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "distributed-systems",
+        "infrastructure",
+        "data",
+        "performance"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "deep-dive",
+        "practitioner"
+      ],
+      "website": "https://netflixtechblog.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://openai.com/news/rss.xml"
+        }
+      ],
+      "id": "openai-news",
+      "kind": "research",
+      "language": "en",
+      "name": "OpenAI News",
+      "registry_path": "sources/research/openai-news.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "ai",
+        "llm",
+        "research"
+      ],
+      "traits": [
+        "first-party",
+        "research",
+        "release-notes"
+      ],
+      "website": "https://openai.com/news/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://overreacted.io/rss.xml"
+        }
+      ],
+      "id": "overreacted",
+      "kind": "individual",
+      "language": "en",
+      "name": "Overreacted",
+      "registry_path": "sources/individuals/overreacted.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "javascript",
+        "web",
+        "programming"
+      ],
+      "traits": [
+        "original",
+        "deep-dive",
+        "independent"
+      ],
+      "website": "https://overreacted.io/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://oxide.computer/blog/rss.xml"
+        }
+      ],
+      "id": "oxide-computer",
+      "kind": "company",
+      "language": "en",
+      "name": "Oxide Computer Company",
+      "registry_path": "sources/companies/oxide-computer.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "infrastructure",
+        "programming",
+        "hardware",
+        "distributed-systems"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "deep-dive",
+        "advanced"
+      ],
+      "website": "https://oxide.computer/blog"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://www.ruanyifeng.com/blog/atom.xml"
+        }
+      ],
+      "id": "ruanyifeng",
+      "kind": "individual",
+      "language": "zh-CN",
+      "name": "阮一峰的网络日志",
+      "registry_path": "sources/individuals/ruanyifeng.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "programming",
+        "web",
+        "ai",
+        "devtools"
+      ],
+      "traits": [
+        "original",
+        "analysis",
+        "tutorial",
+        "independent"
+      ],
+      "website": "https://www.ruanyifeng.com/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://blog.rust-lang.org/feed.xml"
+        }
+      ],
+      "id": "rust-blog",
+      "kind": "project",
+      "language": "en",
+      "name": "Rust Blog",
+      "registry_path": "sources/companies/rust-blog.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "rust",
+        "programming",
+        "open-source"
+      ],
+      "traits": [
+        "first-party",
+        "release-notes",
+        "analysis"
+      ],
+      "website": "https://blog.rust-lang.org/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://shopify.engineering/blog.atom"
+        }
+      ],
+      "id": "shopify-engineering",
+      "kind": "company",
+      "language": "en",
+      "name": "Shopify Engineering",
+      "registry_path": "sources/companies/shopify-engineering.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "web",
+        "distributed-systems",
+        "infrastructure"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "practitioner"
+      ],
+      "website": "https://shopify.engineering/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "atom",
+          "official": true,
+          "role": "primary",
+          "url": "https://simonwillison.net/atom/everything/"
+        }
+      ],
+      "id": "simon-willison",
+      "kind": "individual",
+      "language": "en",
+      "name": "Simon Willison’s Weblog",
+      "registry_path": "sources/individuals/simon-willison.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "ai",
+        "llm",
+        "python",
+        "databases",
+        "web"
+      ],
+      "traits": [
+        "original",
+        "practitioner",
+        "deep-dive",
+        "independent",
+        "high-frequency"
+      ],
+      "website": "https://simonwillison.net/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://slack.engineering/feed/"
+        }
+      ],
+      "id": "slack-engineering",
+      "kind": "company",
+      "language": "en",
+      "name": "Slack Engineering",
+      "registry_path": "sources/companies/slack-engineering.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "distributed-systems",
+        "infrastructure",
+        "web"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "deep-dive"
+      ],
+      "website": "https://slack.engineering/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://engineering.atspotify.com/feed/"
+        }
+      ],
+      "id": "spotify-engineering",
+      "kind": "company",
+      "language": "en",
+      "name": "Spotify Engineering",
+      "registry_path": "sources/companies/spotify-engineering.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "distributed-systems",
+        "data",
+        "engineering-management"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "analysis"
+      ],
+      "website": "https://engineering.atspotify.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://stripe.com/blog/feed.rss"
+        }
+      ],
+      "id": "stripe-blog",
+      "kind": "company",
+      "language": "en",
+      "name": "Stripe Blog",
+      "registry_path": "sources/companies/stripe-blog.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "programming",
+        "infrastructure",
+        "product",
+        "startup"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "analysis"
+      ],
+      "website": "https://stripe.com/blog"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://www.swyx.io/rss.xml"
+        }
+      ],
+      "id": "swyx",
+      "kind": "individual",
+      "language": "en",
+      "name": "swyx",
+      "registry_path": "sources/individuals/swyx.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "ai",
+        "llm",
+        "web",
+        "devtools"
+      ],
+      "traits": [
+        "original",
+        "analysis",
+        "practitioner",
+        "independent"
+      ],
+      "website": "https://www.swyx.io/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://tailscale.com/blog/index.xml"
+        }
+      ],
+      "id": "tailscale",
+      "kind": "company",
+      "language": "en",
+      "name": "Tailscale Blog",
+      "registry_path": "sources/companies/tailscale.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "networking",
+        "security",
+        "infrastructure"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "practitioner"
+      ],
+      "website": "https://tailscale.com/blog/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://thenewstack.io/feed/"
+        }
+      ],
+      "id": "the-new-stack",
+      "kind": "publication",
+      "language": "en",
+      "name": "The New Stack",
+      "registry_path": "sources/communities/the-new-stack.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "cloud",
+        "kubernetes",
+        "devtools",
+        "infrastructure"
+      ],
+      "traits": [
+        "analysis",
+        "high-frequency"
+      ],
+      "website": "https://thenewstack.io/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://www.troyhunt.com/rss/"
+        }
+      ],
+      "id": "troy-hunt",
+      "kind": "individual",
+      "language": "en",
+      "name": "Troy Hunt",
+      "registry_path": "sources/individuals/troy-hunt.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "security",
+        "privacy",
+        "web"
+      ],
+      "traits": [
+        "original",
+        "practitioner",
+        "security-research",
+        "independent"
+      ],
+      "website": "https://www.troyhunt.com/"
+    },
+    {
+      "feeds": [
+        {
+          "format": "rss",
+          "official": true,
+          "role": "primary",
+          "url": "https://www.uber.com/blog/engineering/rss/"
+        }
+      ],
+      "id": "uber-engineering",
+      "kind": "company",
+      "language": "en",
+      "name": "Uber Engineering",
+      "registry_path": "sources/companies/uber-engineering.yaml",
+      "schema_version": 1,
+      "status": "active",
+      "topics": [
+        "distributed-systems",
+        "infrastructure",
+        "mobile",
+        "performance"
+      ],
+      "traits": [
+        "first-party",
+        "company-engineering",
+        "deep-dive"
+      ],
+      "website": "https://www.uber.com/blog/engineering/"
+    }
+  ]
+}

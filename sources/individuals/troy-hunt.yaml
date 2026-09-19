@@ -1,0 +1,21 @@
+schema_version: 1
+id: troy-hunt
+name: "Troy Hunt"
+kind: individual
+language: en
+website: https://www.troyhunt.com/
+feeds:
+  - url: https://www.troyhunt.com/rss/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - security
+  - privacy
+  - web
+traits:
+  - original
+  - practitioner
+  - security-research
+  - independent
+status: active

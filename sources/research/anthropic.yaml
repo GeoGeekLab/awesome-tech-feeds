@@ -1,0 +1,21 @@
+schema_version: 1
+id: anthropic
+name: "Anthropic"
+kind: research
+language: en
+website: https://www.anthropic.com/research
+feeds:
+  - url: https://www.anthropic.com/rss.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - ai
+  - llm
+  - research
+  - security
+traits:
+  - first-party
+  - research
+  - deep-dive
+status: active

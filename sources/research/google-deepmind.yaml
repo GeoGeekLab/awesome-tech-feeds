@@ -1,0 +1,20 @@
+schema_version: 1
+id: google-deepmind
+name: "Google DeepMind"
+kind: research
+language: en
+website: https://deepmind.google/discover/blog/
+feeds:
+  - url: https://deepmind.google/blog/rss.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - ai
+  - machine-learning
+  - research
+traits:
+  - first-party
+  - research
+  - deep-dive
+status: active

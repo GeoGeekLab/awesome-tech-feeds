@@ -1,0 +1,19 @@
+schema_version: 1
+id: lobsters
+name: "Lobsters"
+kind: community
+language: en
+website: https://lobste.rs/
+feeds:
+  - url: https://lobste.rs/rss
+    format: rss
+    role: primary
+    official: true
+topics:
+  - programming
+  - open-source
+  - security
+traits:
+  - community
+  - high-frequency
+status: active

@@ -1,0 +1,20 @@
+schema_version: 1
+id: hacker-news
+name: "Hacker News"
+kind: community
+language: en
+website: https://news.ycombinator.com/
+feeds:
+  - url: https://hnrss.org/frontpage
+    format: rss
+    role: primary
+    official: false
+topics:
+  - programming
+  - startup
+  - ai
+  - security
+traits:
+  - community
+  - high-frequency
+status: active

@@ -1,0 +1,22 @@
+schema_version: 1
+id: ruanyifeng
+name: "阮一峰的网络日志"
+kind: individual
+language: zh-CN
+website: https://www.ruanyifeng.com/blog/
+feeds:
+  - url: https://www.ruanyifeng.com/blog/atom.xml
+    format: atom
+    role: primary
+    official: true
+topics:
+  - programming
+  - web
+  - ai
+  - devtools
+traits:
+  - original
+  - analysis
+  - tutorial
+  - independent
+status: active

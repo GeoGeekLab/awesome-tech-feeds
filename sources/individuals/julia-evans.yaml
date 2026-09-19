@@ -1,0 +1,22 @@
+schema_version: 1
+id: julia-evans
+name: "Julia Evans"
+kind: individual
+language: en
+website: https://jvns.ca/
+feeds:
+  - url: https://jvns.ca/atom.xml
+    format: atom
+    role: primary
+    official: true
+topics:
+  - programming
+  - infrastructure
+  - networking
+  - devtools
+traits:
+  - original
+  - practitioner
+  - tutorial
+  - independent
+status: active

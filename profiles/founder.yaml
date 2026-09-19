@@ -1,0 +1,14 @@
+schema_version: 1
+id: founder
+name: Technical Founder
+collections:
+- essential
+- ai
+- company-engineering
+boost_topics:
+- startup
+- product
+- ai
+exclude_traits:
+- release-notes
+recommended_daily_budget: 10

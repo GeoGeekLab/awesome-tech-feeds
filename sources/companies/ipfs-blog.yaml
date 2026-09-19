@@ -1,0 +1,20 @@
+schema_version: 1
+id: ipfs-blog
+name: "IPFS Blog & News"
+kind: project
+language: en
+website: https://blog.ipfs.tech/
+feeds:
+  - url: https://blog.ipfs.tech/index.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - distributed-systems
+  - open-source
+  - networking
+traits:
+  - first-party
+  - deep-dive
+  - release-notes
+status: active

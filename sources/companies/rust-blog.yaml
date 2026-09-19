@@ -1,0 +1,20 @@
+schema_version: 1
+id: rust-blog
+name: "Rust Blog"
+kind: project
+language: en
+website: https://blog.rust-lang.org/
+feeds:
+  - url: https://blog.rust-lang.org/feed.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - rust
+  - programming
+  - open-source
+traits:
+  - first-party
+  - release-notes
+  - analysis
+status: active

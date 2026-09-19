@@ -1,0 +1,22 @@
+schema_version: 1
+id: fly-io
+name: "Fly.io Blog"
+kind: company
+language: en
+website: https://fly.io/blog/
+feeds:
+  - url: https://fly.io/blog/feed.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - infrastructure
+  - distributed-systems
+  - networking
+  - devtools
+traits:
+  - first-party
+  - company-engineering
+  - deep-dive
+  - practitioner
+status: active

@@ -1,0 +1,19 @@
+schema_version: 1
+id: independent
+name: Independent Writers
+description: Long-running independent technical authors and practitioners.
+sources:
+- simon-willison
+- julia-evans
+- martin-fowler
+- dan-luu
+- antirez
+- brendan-gregg
+- mitchell-hashimoto
+- eli-bendersky
+- troy-hunt
+- bruce-schneier
+- krebsonsecurity
+- overreacted
+- swyx
+- ruanyifeng

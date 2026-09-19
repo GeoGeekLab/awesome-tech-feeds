@@ -1,0 +1,20 @@
+schema_version: 1
+id: shopify-engineering
+name: "Shopify Engineering"
+kind: company
+language: en
+website: https://shopify.engineering/
+feeds:
+  - url: https://shopify.engineering/blog.atom
+    format: atom
+    role: primary
+    official: true
+topics:
+  - web
+  - distributed-systems
+  - infrastructure
+traits:
+  - first-party
+  - company-engineering
+  - practitioner
+status: active

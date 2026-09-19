@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="2.0">
+  <head>
+    <title>Awesome Tech Feeds — Databases</title>
+  </head>
+  <body>
+    <outline type="rss" text="antirez" title="antirez" xmlUrl="https://antirez.com/rss" htmlUrl="https://antirez.com/" techFeedsId="antirez" />
+    <outline type="rss" text="jOOQ Blog" title="jOOQ Blog" xmlUrl="https://blog.jooq.org/feed/" htmlUrl="https://blog.jooq.org/" techFeedsId="jooq-blog" />
+    <outline type="rss" text="Simon Willison’s Weblog" title="Simon Willison’s Weblog" xmlUrl="https://simonwillison.net/atom/everything/" htmlUrl="https://simonwillison.net/" techFeedsId="simon-willison" />
+    <outline type="rss" text="Dropbox Tech" title="Dropbox Tech" xmlUrl="https://dropbox.tech/feed" htmlUrl="https://dropbox.tech/" techFeedsId="dropbox-tech" />
+  </body>
+</opml>

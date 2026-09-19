@@ -1,0 +1,73 @@
+ai:
+  label: Artificial Intelligence
+llm:
+  label: Large Language Models
+  parent: ai
+machine-learning:
+  label: Machine Learning
+  parent: ai
+agents:
+  label: AI Agents
+  parent: ai
+programming:
+  label: Programming
+python:
+  label: Python
+  parent: programming
+rust:
+  label: Rust
+  parent: programming
+go:
+  label: Go
+  parent: programming
+javascript:
+  label: JavaScript
+  parent: programming
+dotnet:
+  label: .NET
+  parent: programming
+databases:
+  label: Databases
+distributed-systems:
+  label: Distributed Systems
+infrastructure:
+  label: Infrastructure
+networking:
+  label: Networking
+security:
+  label: Security
+performance:
+  label: Performance
+web:
+  label: Web Engineering
+cloud:
+  label: Cloud
+devtools:
+  label: Developer Tools
+architecture:
+  label: Software Architecture
+open-source:
+  label: Open Source
+research:
+  label: Research
+product:
+  label: Product
+startup:
+  label: Startups
+engineering-management:
+  label: Engineering Management
+observability:
+  label: Observability
+mobile:
+  label: Mobile
+containers:
+  label: Containers
+kubernetes:
+  label: Kubernetes
+  parent: containers
+privacy:
+  label: Privacy
+data:
+  label: Data Engineering
+hardware:
+  label: Hardware

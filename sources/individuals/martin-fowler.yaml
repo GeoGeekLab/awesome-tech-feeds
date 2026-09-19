@@ -1,0 +1,21 @@
+schema_version: 1
+id: martin-fowler
+name: "Martin Fowler"
+kind: individual
+language: en
+website: https://martinfowler.com/
+feeds:
+  - url: https://martinfowler.com/feed.atom
+    format: atom
+    role: primary
+    official: true
+topics:
+  - architecture
+  - programming
+  - engineering-management
+traits:
+  - original
+  - deep-dive
+  - analysis
+  - independent
+status: active

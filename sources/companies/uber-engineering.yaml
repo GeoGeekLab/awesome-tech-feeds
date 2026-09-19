@@ -1,0 +1,21 @@
+schema_version: 1
+id: uber-engineering
+name: "Uber Engineering"
+kind: company
+language: en
+website: https://www.uber.com/blog/engineering/
+feeds:
+  - url: https://www.uber.com/blog/engineering/rss/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - distributed-systems
+  - infrastructure
+  - mobile
+  - performance
+traits:
+  - first-party
+  - company-engineering
+  - deep-dive
+status: active

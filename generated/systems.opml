@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="2.0">
+  <head>
+    <title>Awesome Tech Feeds — Systems Engineering</title>
+  </head>
+  <body>
+    <outline type="rss" text="Cloudflare Blog" title="Cloudflare Blog" xmlUrl="https://blog.cloudflare.com/rss/" htmlUrl="https://blog.cloudflare.com/" techFeedsId="cloudflare" />
+    <outline type="rss" text="Netflix TechBlog" title="Netflix TechBlog" xmlUrl="https://netflixtechblog.com/feed" htmlUrl="https://netflixtechblog.com/" techFeedsId="netflix-techblog" />
+    <outline type="rss" text="Uber Engineering" title="Uber Engineering" xmlUrl="https://www.uber.com/blog/engineering/rss/" htmlUrl="https://www.uber.com/blog/engineering/" techFeedsId="uber-engineering" />
+    <outline type="rss" text="Slack Engineering" title="Slack Engineering" xmlUrl="https://slack.engineering/feed/" htmlUrl="https://slack.engineering/" techFeedsId="slack-engineering" />
+    <outline type="rss" text="Discord Blog" title="Discord Blog" xmlUrl="https://discord.com/blog/rss.xml" htmlUrl="https://discord.com/blog/" techFeedsId="discord-engineering" />
+    <outline type="rss" text="Dropbox Tech" title="Dropbox Tech" xmlUrl="https://dropbox.tech/feed" htmlUrl="https://dropbox.tech/" techFeedsId="dropbox-tech" />
+    <outline type="rss" text="Fly.io Blog" title="Fly.io Blog" xmlUrl="https://fly.io/blog/feed.xml" htmlUrl="https://fly.io/blog/" techFeedsId="fly-io" />
+    <outline type="rss" text="Oxide Computer Company" title="Oxide Computer Company" xmlUrl="https://oxide.computer/blog/rss.xml" htmlUrl="https://oxide.computer/blog" techFeedsId="oxide-computer" />
+    <outline type="rss" text="Tailscale Blog" title="Tailscale Blog" xmlUrl="https://tailscale.com/blog/index.xml" htmlUrl="https://tailscale.com/blog/" techFeedsId="tailscale" />
+    <outline type="rss" text="Brendan Gregg" title="Brendan Gregg" xmlUrl="https://www.brendangregg.com/blog/rss.xml" htmlUrl="https://www.brendangregg.com/blog/" techFeedsId="brendan-gregg" />
+  </body>
+</opml>

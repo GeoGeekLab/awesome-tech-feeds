@@ -1,0 +1,15 @@
+schema_version: 1
+id: systems
+name: Systems Engineering
+description: Distributed systems, networking, infrastructure, observability, and performance.
+sources:
+- cloudflare
+- netflix-techblog
+- uber-engineering
+- slack-engineering
+- discord-engineering
+- dropbox-tech
+- fly-io
+- oxide-computer
+- tailscale
+- brendan-gregg

@@ -1,0 +1,20 @@
+schema_version: 1
+id: the-new-stack
+name: "The New Stack"
+kind: publication
+language: en
+website: https://thenewstack.io/
+feeds:
+  - url: https://thenewstack.io/feed/
+    format: rss
+    role: primary
+    official: true
+topics:
+  - cloud
+  - kubernetes
+  - devtools
+  - infrastructure
+traits:
+  - analysis
+  - high-frequency
+status: active

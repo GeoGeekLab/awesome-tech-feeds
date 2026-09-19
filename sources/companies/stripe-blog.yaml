@@ -1,0 +1,21 @@
+schema_version: 1
+id: stripe-blog
+name: "Stripe Blog"
+kind: company
+language: en
+website: https://stripe.com/blog
+feeds:
+  - url: https://stripe.com/blog/feed.rss
+    format: rss
+    role: primary
+    official: true
+topics:
+  - programming
+  - infrastructure
+  - product
+  - startup
+traits:
+  - first-party
+  - company-engineering
+  - analysis
+status: active

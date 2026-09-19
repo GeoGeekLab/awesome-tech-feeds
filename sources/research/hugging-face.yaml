@@ -1,0 +1,22 @@
+schema_version: 1
+id: hugging-face
+name: "Hugging Face Blog"
+kind: company
+language: en
+website: https://huggingface.co/blog
+feeds:
+  - url: https://huggingface.co/blog/feed.xml
+    format: rss
+    role: primary
+    official: true
+topics:
+  - ai
+  - llm
+  - machine-learning
+  - open-source
+traits:
+  - first-party
+  - practitioner
+  - tutorial
+  - research
+status: active
