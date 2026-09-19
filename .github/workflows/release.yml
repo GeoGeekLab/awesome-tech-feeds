@@ -3,12 +3,34 @@ name: Release Registry
 on:
   push:
     tags: ["v*"]
+    branches: ["release/v*"]
 
 permissions:
   contents: write
 
 jobs:
+  prepare-tag:
+    if: startsWith(github.ref, 'refs/heads/release/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Create release tag
+        shell: bash
+        run: |
+          tag="${GITHUB_REF_NAME#release/}"
+          if git rev-parse --verify "refs/tags/${tag}" >/dev/null 2>&1; then
+            echo "Tag ${tag} already exists."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "${tag}" -m "Release ${tag}"
+          git push origin "${tag}"
+
   release:
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,8 +46,26 @@ jobs:
           techfeeds compile --check
       - name: Checksums
         run: sha256sum generated/*.json generated/*.opml generated/catalog.md > generated/SHA256SUMS
+      - name: Build release notes
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          version = os.environ["GITHUB_REF_NAME"].removeprefix("v")
+          changelog = Path("CHANGELOG.md").read_text(encoding="utf-8")
+          pattern = rf"(?ms)^## {re.escape(version)}(?:[^\n]*)\n(.*?)(?=^## |\Z)"
+          match = re.search(pattern, changelog)
+          notes = match.group(1).strip() if match else f"Release {os.environ['GITHUB_REF_NAME']}"
+          Path("release-notes.md").write_text(notes + "\n", encoding="utf-8")
+          PY
       - uses: softprops/action-gh-release@v2
         with:
+          name: Awesome Tech Feeds ${{ github.ref_name }}
+          body_path: release-notes.md
+          make_latest: true
           files: |
             generated/*.json
             generated/*.opml
