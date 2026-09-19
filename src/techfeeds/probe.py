@@ -3,7 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
@@ -23,14 +23,14 @@ def _parse_date(value: str | None) -> datetime | None:
         return None
     value = value.strip()
     try:
-        return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+        return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(UTC)
     except (ValueError, TypeError):
         pass
     try:
         parsed = parsedate_to_datetime(value)
         if parsed.tzinfo is None:
-            parsed = parsed.replace(tzinfo=timezone.utc)
-        return parsed.astimezone(timezone.utc)
+            parsed = parsed.replace(tzinfo=UTC)
+        return parsed.astimezone(UTC)
     except (ValueError, TypeError, OverflowError):
         return None
 
@@ -113,7 +113,7 @@ async def probe_one(
             headers["If-Modified-Since"] = str(previous["last_modified"])
 
     started = time.perf_counter()
-    checked_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    checked_at = datetime.now(UTC).replace(microsecond=0).isoformat()
 
     async with semaphore:
         try:
@@ -204,7 +204,7 @@ async def probe_registry(root: Path, concurrency: int = 8) -> dict[str, Any]:
     counts = {state: sum(item["health"] == state for item in results) for state in states}
     payload = {
         "schema_version": 1,
-        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "generated_at": datetime.now(UTC).replace(microsecond=0).isoformat(),
         "counts": counts,
         "feeds": sorted(results, key=lambda item: (item["source_id"], item["feed_url"])),
     }
