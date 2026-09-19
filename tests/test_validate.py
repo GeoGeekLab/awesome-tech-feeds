@@ -6,7 +6,6 @@ import yaml
 
 from techfeeds.validate import validate_registry
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 
