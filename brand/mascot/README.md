@@ -2,24 +2,24 @@
 
 Geo Gecko is the project mascot for Awesome Tech Feeds.
 
-The v2 art direction is intentionally flat and repo-native: GitHub-dark terminal chrome, mint gecko body, blue feed signal, and a literal `>_` prompt. It is designed to survive README rendering, issue comments, tiny icons, and SVG diffs without looking like a generic 3D character render.
+The current art direction is **character first**: a cute cartoon gecko that happens to live around feeds and terminals, not a collection of technical symbols forced into an animal silhouette.
 
 ## Canonical assets
 
-- `hero.svg` — primary README/banner artwork.
-- `core.svg` — full mascot with terminal and RSS tail.
-- `head.svg` — compact mark for small surfaces.
+- `hero.svg` — README/banner composition.
+- `core.svg` — full chibi mascot with tiny laptop and RSS tail.
+- `head.svg` — compact expressive face mark.
 - `tokens.json` — palette and construction tokens.
 - `mascot-spec.md` — usage rules.
 
-SVG is the source of truth. Existing raster and extended variant assets are retained for compatibility, but new project surfaces should start from the v2 SVG set above.
+SVG is the source of truth. Existing raster and extended variant assets remain for compatibility, but new surfaces should start from the canonical SVG set.
 
 ## Visual checksum
 
-A full Geo Gecko should read as the same character even at a glance:
+A full Geo Gecko should read immediately as:
 
 ```text
-scanner eyes + terminal prompt + RSS tail
+big sparkling eyes + round mint head + tiny body + blue curled feed tail
 ```
 
-Keep the silhouette friendly and technical. Prefer flat geometry and UI-like details over glossy rendering, photorealism, or decorative effects that disappear at small sizes.
+Technical props are secondary. Keep the face readable, friendly, and expressive even if the laptop, RSS icon, or other accessories are removed.
