@@ -40,7 +40,6 @@ def _schema_errors(validator: Draft202012Validator, data: Any, path: Path, root:
     return errors
 
 
-
 def _date_value(value: Any) -> date | None:
     if not isinstance(value, str):
         return None
@@ -107,6 +106,7 @@ def _source_contract_errors(data: dict[str, Any], path: Path, root: Path) -> lis
         errors.append(f"{prefix}: provenance evidence must include the primary feed URL")
 
     return errors
+
 
 def validate_registry(root: Path) -> list[str]:
     errors: list[str] = []
