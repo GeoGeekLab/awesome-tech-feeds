@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="brand/mascot/core.svg" alt="Geo Gecko — Awesome Tech Feeds mascot" width="220">
+
 # Awesome Tech Feeds
 
 **The web has enough feeds. The scarce resource is attention.**
@@ -12,7 +14,7 @@ Human-curated, machine-readable, continuously verified feeds for high-signal tec
 [![Code License](https://img.shields.io/badge/code-MIT-2ea44f?style=flat-square)](LICENSE)
 [![Data License](https://img.shields.io/badge/data-CC%20BY--SA%204.0-8A2BE2?style=flat-square)](DATA-LICENSE.md)
 
-[Catalog](generated/catalog.md) · [Registry JSON](generated/registry.json) · [Consumer SDK](docs/consumer-sdk.md) · [Essential OPML](generated/essential.opml) · [Latest Health](https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/health-latest/health.json) · [Curation](docs/curation.md) · [Contributing](CONTRIBUTING.md) · [Architecture](docs/architecture.md)
+[Geo Gecko](brand/mascot/README.md) · [Catalog](generated/catalog.md) · [Registry JSON](generated/registry.json) · [Consumer SDK](docs/consumer-sdk.md) · [Essential OPML](generated/essential.opml) · [Latest Health](https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/health-latest/health.json) · [Curation](docs/curation.md) · [Contributing](CONTRIBUTING.md) · [Architecture](docs/architecture.md)
 
 </div>
 
@@ -46,7 +48,7 @@ human curation
  collections/ ───────────── editorial bundles
       │
       ▼
-  profiles/ ─────────────── role-oriented starting points
+  profiles/ ─────────────── executable role policies
       │
       ▼
  deterministic compiler
@@ -128,13 +130,13 @@ Filters are available for collection, topic, trait, language, and source kind. U
 
 ## Consumer SDK
 
-Version 0.4 exposes a typed Python consumer API over compiled `registry.json`. Consumers no longer need to understand the repository's YAML layout.
+Version 0.5 exposes a typed Python consumer API over compiled `registry.json`. Consumers no longer need to understand the repository's YAML layout.
 
-Install the pinned v0.4 package directly from the GitHub Release wheel:
+Install the pinned v0.5 package directly from the GitHub Release wheel:
 
 ```bash
 python -m pip install \
-  https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/v0.4.1/awesome_tech_feeds-0.4.1-py3-none-any.whl
+  https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/v0.5.0/awesome_tech_feeds-0.5.0-py3-none-any.whl
 ```
 
 ```python
@@ -323,7 +325,7 @@ techfeeds reviews --as-of 2026-12-19
 techfeeds reviews --as-of 2026-12-01 --within-days 30
 ```
 
-The current full registry is contract v2; collection and profile component schemas remain v1. See [`docs/registry.md`](docs/registry.md) and the [v1→v2 migration guide](docs/migrations/source-v1-to-v2.md).
+The current full registry is contract v2; collection schema remains v1 and profile schema is v2. See [`docs/registry.md`](docs/registry.md) and the [v1→v2 migration guide](docs/migrations/source-v1-to-v2.md).
 
 ## Health is operational evidence, not editorial judgment
 
@@ -415,6 +417,7 @@ generated/     compiled JSON, OPML, and catalog
 src/techfeeds/ validator, compiler, consumer SDK, CLI, and probe
 tests/         contract tests
 docs/          architecture and registry semantics
+brand/         Geo Gecko mascot sources and generated assets
 ```
 
 ## Licensing
