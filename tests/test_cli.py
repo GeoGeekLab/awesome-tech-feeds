@@ -211,7 +211,6 @@ def test_query_command_emits_machine_readable_error() -> None:
     assert payload["error"]["field"] == "topic"
 
 
-
 def test_profile_command_resolves_compiled_registry() -> None:
     result = RUNNER.invoke(
         app,
