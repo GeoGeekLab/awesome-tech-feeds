@@ -1,5 +1,6 @@
 {
-  "version": 2,
+  "version": 3,
+  "style": "cute-cartoon-chibi",
   "canonical": {
     "hero": "hero.svg",
     "core": "core.svg",
