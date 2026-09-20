@@ -1,3 +1,4 @@
+# Geo Gecko canonical variant generator. Keep outputs deterministic.
 from __future__ import annotations
 
 from pathlib import Path
