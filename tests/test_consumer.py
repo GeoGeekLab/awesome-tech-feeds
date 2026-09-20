@@ -56,9 +56,7 @@ def test_registry_loads_compiled_artifact_and_queries_collection() -> None:
 
 def test_query_filters_are_all_of_and_cross_dimension() -> None:
     registry = Registry.from_file(REGISTRY_PATH)
-    result = registry.query(
-        Query(topics=("security",), traits=("independent",), language="en")
-    )
+    result = registry.query(Query(topics=("security",), traits=("independent",), language="en"))
 
     assert result.count > 0
     for source in result.sources:
