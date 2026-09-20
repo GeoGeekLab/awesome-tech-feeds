@@ -432,7 +432,7 @@ Registry metadata is released under [CC BY-SA 4.0](DATA-LICENSE.md). The reposit
 
 <div align="center">
 
-**Curate the source. Verify the feed. Keep the boundary clear.**
+**Curate the source. Verify the feed.**
 
 `signal ≠ popularity`
 
