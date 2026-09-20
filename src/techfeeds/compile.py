@@ -219,7 +219,8 @@ def compile_registry(root: Path, *, write: bool = True) -> dict[str, Any]:
     return payload
 
 
-def generated_files_match(root: Path) -> bool:
+def stale_generated_files(root: Path) -> list[str]:
+    """Compile in place and return generated paths whose committed bytes were stale."""
     generated = root / "generated"
     before = {
         path.relative_to(root).as_posix(): path.read_bytes()
@@ -232,7 +233,12 @@ def generated_files_match(root: Path) -> bool:
         for path in generated.glob("*")
         if path.is_file() and path.name != "health.json"
     }
-    return before == after
+    paths = set(before) | set(after)
+    return sorted(path for path in paths if before.get(path) != after.get(path))
+
+
+def generated_files_match(root: Path) -> bool:
+    return not stale_generated_files(root)
 
 
 def registry_as_json(root: Path) -> str:
