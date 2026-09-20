@@ -13,11 +13,7 @@ class RegistryLoader(yaml.SafeLoader):
 
 
 RegistryLoader.yaml_implicit_resolvers = {
-    key: [
-        resolver
-        for resolver in resolvers
-        if resolver[0] != "tag:yaml.org,2002:timestamp"
-    ]
+    key: [resolver for resolver in resolvers if resolver[0] != "tag:yaml.org,2002:timestamp"]
     for key, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
 }
 
