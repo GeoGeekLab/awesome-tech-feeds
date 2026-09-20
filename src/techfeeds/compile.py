@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 from xml.etree.ElementTree import Element, ElementTree, SubElement, indent
 
+from .consumer import Query, Registry
 from .io import dump_json, iter_yaml, load_yaml
 from .validate import require_valid_registry
 
@@ -109,53 +110,18 @@ def select_sources(
     language: str | None = None,
     kind: str | None = None,
 ) -> list[dict[str, Any]]:
-    """Select active sources with deterministic AND-style metadata filters."""
-    require_valid_registry(root)
-    all_sources = [source for source in load_sources(root) if source["status"] == "active"]
-
-    known_topics = {topic for source in all_sources for topic in source["topics"]}
-    unknown_topics = sorted(set(topics) - known_topics)
-    if unknown_topics:
-        raise ValueError(f"unknown topic(s): {', '.join(unknown_topics)}")
-
-    known_traits = {trait for source in all_sources for trait in source["traits"]}
-    unknown_traits = sorted(set(traits) - known_traits)
-    if unknown_traits:
-        raise ValueError(f"unknown trait(s): {', '.join(unknown_traits)}")
-
-    known_languages = {str(source["language"]) for source in all_sources}
-    if language is not None and language not in known_languages:
-        raise ValueError(f"unknown language: {language}")
-
-    known_kinds = {str(source["kind"]) for source in all_sources}
-    if kind is not None and kind not in known_kinds:
-        raise ValueError(f"unknown kind: {kind}")
-
-    sources = all_sources
-    if collection_id is not None:
-        collection = next(
-            (
-                item
-                for item in load_collections(root)
-                if isinstance(item, dict) and item.get("id") == collection_id
-            ),
-            None,
+    """Compatibility wrapper around the public consumer query engine."""
+    registry = Registry.from_mapping(compile_registry(root, write=False))
+    result = registry.query(
+        Query(
+            collection=collection_id,
+            topics=topics,
+            traits=traits,
+            language=language,
+            kind=kind,
         )
-        if collection is None:
-            raise ValueError(f"unknown collection: {collection_id}")
-        by_id = {str(source["id"]): source for source in all_sources}
-        sources = [by_id[source_id] for source_id in collection["sources"] if source_id in by_id]
-
-    required_topics = set(topics)
-    required_traits = set(traits)
-    return [
-        source
-        for source in sources
-        if required_topics.issubset(set(source["topics"]))
-        and required_traits.issubset(set(source["traits"]))
-        and (language is None or source["language"] == language)
-        and (kind is None or source["kind"] == kind)
-    ]
+    )
+    return [source.to_dict() for source in result.sources]
 
 
 def compile_registry(root: Path, *, write: bool = True) -> dict[str, Any]:

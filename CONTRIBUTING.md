@@ -113,6 +113,14 @@ When repairing a broken feed:
 4. update the endpoint,
 5. document a fallback only when necessary.
 
+## Consumer contract changes
+
+The public SDK surface is documented in [`docs/consumer-sdk.md`](docs/consumer-sdk.md). Query request/result/error schemas are versioned contracts.
+
+Do not change filter meaning, deterministic ordering, required query/result fields, or stable error-code semantics in place. An incompatible change requires a new query contract version and compatibility documentation.
+
+Internal helpers that are not re-exported from `techfeeds` are not automatically public API.
+
 ## Pull request scope
 
 Keep the patch coherent.

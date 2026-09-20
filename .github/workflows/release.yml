@@ -64,6 +64,9 @@ jobs:
             schema/source.schema.json \
             schema/source.v1.schema.json \
             schema/source.v2.schema.json \
+            schema/query.v1.schema.json \
+            schema/query-result.v1.schema.json \
+            schema/query-error.v1.schema.json \
             > generated/SHA256SUMS
       - name: Build release notes
         shell: bash
@@ -94,3 +97,6 @@ jobs:
             schema/source.schema.json
             schema/source.v1.schema.json
             schema/source.v2.schema.json
+            schema/query.v1.schema.json
+            schema/query-result.v1.schema.json
+            schema/query-error.v1.schema.json

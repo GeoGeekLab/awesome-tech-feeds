@@ -14,7 +14,7 @@ RUNNER = CliRunner()
 def test_version() -> None:
     result = RUNNER.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "0.3.0" in result.stdout
+    assert "0.4.0" in result.stdout
 
 
 def test_validate_compile_check_and_stats() -> None:
@@ -152,3 +152,60 @@ def test_reviews_command_rejects_invalid_date() -> None:
     result = RUNNER.invoke(app, ["reviews", "--root", str(ROOT), "--as-of", "not-a-date"])
     assert result.exit_code == 2
     assert "invalid --as-of date" in result.stdout
+
+
+def test_query_command_emits_contract_v1_json() -> None:
+    result = RUNNER.invoke(
+        app,
+        [
+            "query",
+            "--root",
+            str(ROOT),
+            "--collection",
+            "essential",
+            "--topic",
+            "ai",
+        ],
+    )
+    assert result.exit_code == 0
+    payload = json.loads(result.stdout)
+    assert payload["schema_version"] == 1
+    assert payload["registry_schema_version"] == 2
+    assert payload["query"] == {
+        "schema_version": 1,
+        "status": "active",
+        "collection": "essential",
+        "topics": ["ai"],
+    }
+    assert payload["count"] > 0
+
+
+def test_query_command_consumes_compiled_registry_file() -> None:
+    result = RUNNER.invoke(
+        app,
+        [
+            "query",
+            "--registry",
+            str(ROOT / "generated/registry.json"),
+            "--topic",
+            "security",
+            "--trait",
+            "independent",
+        ],
+    )
+    assert result.exit_code == 0
+    payload = json.loads(result.stdout)
+    assert payload["count"] > 0
+    assert all("security" in source["topics"] for source in payload["sources"])
+
+
+def test_query_command_emits_machine_readable_error() -> None:
+    result = RUNNER.invoke(
+        app,
+        ["query", "--registry", str(ROOT / "generated/registry.json"), "--topic", "nope"],
+    )
+    assert result.exit_code == 2
+    payload = json.loads(result.stderr)
+    assert payload["schema_version"] == 1
+    assert payload["error"]["code"] == "unknown_filter_value"
+    assert payload["error"]["field"] == "topic"

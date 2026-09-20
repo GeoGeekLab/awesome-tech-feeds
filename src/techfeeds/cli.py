@@ -4,19 +4,15 @@ import asyncio
 import json
 from datetime import date, timedelta
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, cast
 
 import typer
 from rich.console import Console
 from rich.table import Table
 
 from . import __version__
-from .compile import (
-    compile_registry,
-    opml_as_text,
-    select_sources,
-    stale_generated_files,
-)
+from .compile import compile_registry, opml_as_text, select_sources, stale_generated_files
+from .consumer import ConsumerError, Query, Registry, StatusFilter
 from .probe import probe_registry
 from .validate import validate_registry
 
@@ -26,6 +22,12 @@ console = Console()
 
 def _root(path: str) -> Path:
     return Path(path).resolve()
+
+
+def _consumer_registry(root: str, registry_file: str | None) -> Registry:
+    if registry_file is not None:
+        return Registry.from_file(registry_file)
+    return Registry.from_mapping(compile_registry(_root(root), write=False))
 
 
 def _version(value: bool) -> None:
@@ -155,6 +157,51 @@ def export_command(
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(content, encoding="utf-8")
     console.print(f"[green]exported[/green] {len(sources)} sources to {target}")
+
+
+@app.command(name="query")
+def query_command(
+    root: str = typer.Option(".", help="Registry root when --registry is not supplied."),
+    registry_file: str | None = typer.Option(
+        None,
+        "--registry",
+        help="Compiled registry.json file; avoids requiring a repository checkout.",
+    ),
+    collection: str | None = typer.Option(None, "--collection", help="Collection ID."),
+    topic: Annotated[
+        list[str] | None,
+        typer.Option("--topic", help="Require a topic; repeat for AND filtering."),
+    ] = None,
+    trait: Annotated[
+        list[str] | None,
+        typer.Option("--trait", help="Require a trait; repeat for AND filtering."),
+    ] = None,
+    language: str | None = typer.Option(None, "--language", help="Language code filter."),
+    kind: str | None = typer.Option(None, "--kind", help="Source kind filter."),
+    status: str = typer.Option(
+        "active",
+        "--status",
+        help="Source status: active, retired, or all.",
+    ),
+) -> None:
+    """Run Query Contract v1 and emit Query Result Contract v1 JSON."""
+    try:
+        registry = _consumer_registry(root, registry_file)
+        result = registry.query(
+            Query(
+                collection=collection,
+                topics=tuple(topic or ()),
+                traits=tuple(trait or ()),
+                language=language,
+                kind=kind,
+                status=cast(StatusFilter, status),
+            )
+        )
+    except ConsumerError as exc:
+        typer.echo(exc.to_json(), err=True, nl=False)
+        raise typer.Exit(2) from exc
+
+    typer.echo(result.to_json(), nl=False)
 
 
 @app.command()
