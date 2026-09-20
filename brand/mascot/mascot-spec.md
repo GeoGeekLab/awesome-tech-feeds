@@ -1,57 +1,49 @@
-# Geo Gecko mascot specification
+# Geo Gecko v2 specification
 
-Geo Gecko is the visual status interface for Awesome Tech Feeds.
+Geo Gecko is a small terminal-dwelling gecko used as the visual signature for Awesome Tech Feeds.
 
 ## Recognition anchors
 
-1. Oversized scanner eyes: observation and verification.
-2. Short rounded body: stable source identity.
-3. Blue RSS tail/signal: feed transport.
+1. **Scanner eyes** — oversized dark pupils with blue highlights and tiny green status ticks.
+2. **Terminal** — a dark GitHub-style panel with a green prompt and blue cursor/output line.
+3. **RSS tail** — a curled blue tail that resolves into a feed signal.
 
-Do not remove all three anchors in any full mascot variant.
+Keep all three anchors on full-character artwork. The head mark may omit the terminal while retaining the eyes and feed signal.
 
-## Personality
+## Shape language
 
-Curious, precise, quiet, technical, slightly geeky, non-judgmental. Avoid hacker clichés, weapon imagery, or aggressive expressions.
+- Flat vector geometry.
+- Heavy dark outline for legibility on light and dark GitHub themes.
+- Rounded terminal chrome and simple monospaced UI cues.
+- Minimal gradients; use them only to add depth to the mint body or signal.
+- No mandatory background on `core.svg` or `head.svg`.
 
-## Operational semantics
+## Palette
 
-- Healthy: green transport signal.
-- Degraded: amber weaker signal.
-- Stale: sleeping/quiet, never sick or bad.
-- Broken: transport is disconnected; the character itself is not injured.
-- Verified: green shield/check.
-- Scanning: blue discovery signals.
+| Token | Value | Use |
+| --- | --- | --- |
+| `canvas` | `#0D1117` | terminal / GitHub-dark base |
+| `panel` | `#161B22` | terminal chrome |
+| `border` | `#30363D` | UI border |
+| `text` | `#F0F6FC` | high-contrast foreground |
+| `muted` | `#8B949E` | secondary UI detail |
+| `mint` | `#B7F7E4` | gecko body |
+| `blue` | `#58A6FF` | feed signal / scan highlight |
+| `green` | `#39D353` | prompt / healthy accent |
+| `amber` | `#D29922` | warning accent |
+| `red` | `#FF7B72` | error accent |
 
-Health is not quality. A stale or broken feed must not visually imply that the underlying source is low quality.
+## Small sizes
 
-## Profile semantics
+- `< 32 px`: use a generated icon from `head.svg`.
+- `32–95 px`: use `head.svg`.
+- `>= 96 px`: `core.svg` is preferred.
+- Banner/README surfaces: use `hero.svg`.
 
-Profile variants change accessories only. The body, eyes, proportions, and tail remain the same character.
+## Variant rules
 
-- Developer: terminal/laptop.
-- AI Engineer: violet graph nodes.
-- Founder: compass.
-- Researcher: magnifier.
-
-## Color tokens
-
-- Brand blue: #2563EB
-- Signal sky: #38BDF8
-- Healthy: #10B981
-- Degraded: #F59E0B
-- Broken: #EF4444
-- AI accent: #8B5CF6
-- Neutral: #64748B
-- Ink: #0F172A
-
-## Minimum sizes
-
-- 16–24 px: head/icon only.
-- 32–63 px: head plus minimal tail signal.
-- 64 px and above: full mascot allowed.
-- Do not use profile accessories below 96 px.
+Operational states should change a signal, badge, or terminal detail rather than changing the character's personality. Profile variants may add a small accessory or label while preserving the base silhouette.
 
 ## File policy
 
-SVG is the canonical editable source. PNGs are generated exports. Keep transparent backgrounds for mascot assets. Social assets intentionally include background color.
+`hero.svg`, `core.svg`, and `head.svg` are the canonical v2 sources. Raster exports are derivatives and should be regenerated from SVG when refreshed.
