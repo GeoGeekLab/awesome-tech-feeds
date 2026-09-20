@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/query-error.v1.schema.json",
+  "title": "Awesome Tech Feeds Query Error Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "error"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "enum": [
+            "consumer_error",
+            "registry_load_error",
+            "registry_integrity_error",
+            "unsupported_registry_contract",
+            "query_error",
+            "invalid_query_contract",
+            "unknown_filter_value"
+          ]
+        },
+        "message": {"type": "string"},
+        "field": {"type": "string"},
+        "value": {"type": "string"},
+        "choices": {"type": "array", "items": {"type": "string"}},
+        "component": {"type": "string"},
+        "expected": {},
+        "actual": {}
+      },
+      "additionalProperties": false
+    }
+  }
+}

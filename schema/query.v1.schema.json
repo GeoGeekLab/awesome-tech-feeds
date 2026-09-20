@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/query.v1.schema.json",
+  "title": "Awesome Tech Feeds Query Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "collection": {"type": "string", "minLength": 1},
+    "topics": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "traits": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "language": {"type": "string", "minLength": 1},
+    "kind": {"type": "string", "minLength": 1},
+    "status": {"enum": ["active", "retired", "all"]}
+  }
+}
