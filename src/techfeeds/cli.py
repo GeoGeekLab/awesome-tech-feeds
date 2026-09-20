@@ -12,7 +12,6 @@ from rich.table import Table
 from . import __version__
 from .compile import (
     compile_registry,
-    generated_files_match,
     opml_as_text,
     stale_generated_files,
     select_sources,
