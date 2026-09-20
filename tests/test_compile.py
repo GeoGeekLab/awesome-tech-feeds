@@ -28,7 +28,6 @@ def test_committed_generated_artifacts_are_current(tmp_path: Path) -> None:
     assert generated_files_match(tmp_path)
 
 
-
 def test_profile_artifacts_are_compiled() -> None:
     for profile_id in ("ai-engineer", "developer", "founder", "researcher"):
         json_path = ROOT / "generated" / f"profile-{profile_id}.json"
