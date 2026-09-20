@@ -1,88 +1,85 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
-  <title id="title">Awesome Tech Feeds terminal banner with Geo Gecko</title>
-  <desc id="desc">A GitHub-style dark terminal banner showing Awesome Tech Feeds commands beside the Geo Gecko mascot.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#0D1117"/>
-      <stop offset="1" stop-color="#161B22"/>
-    </linearGradient>
-    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#E6FFFA"/>
-      <stop offset="1" stop-color="#B7F7E4"/>
-    </linearGradient>
-    <linearGradient id="tail" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#58A6FF"/>
-      <stop offset="1" stop-color="#2F81F7"/>
-    </linearGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
+<title id="title">Awesome Tech Feeds with Geo Gecko</title>
+<desc id="desc">A GitHub-style banner with a cute cartoon gecko mascot beside feed and terminal motifs.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#0D1117"/>
+    <stop offset="1" stop-color="#161B22"/>
+  </linearGradient>
+  <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+    <stop stop-color="#CFFCEB"/>
+    <stop offset="1" stop-color="#8DE6C7"/>
+  </linearGradient>
+  <linearGradient id="tail" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#79C0FF"/>
+    <stop offset="1" stop-color="#388BFD"/>
+  </linearGradient>
+</defs>
+<rect width="1200" height="520" rx="30" fill="url(#bg)"/>
+<rect x="24" y="24" width="1152" height="472" rx="24" fill="none" stroke="#30363D" stroke-width="2"/>
 
-  <rect width="1200" height="520" rx="28" fill="url(#bg)"/>
-  <rect x="26" y="26" width="1148" height="468" rx="22" fill="none" stroke="#30363D" stroke-width="2"/>
+<circle cx="62" cy="62" r="8" fill="#FF7B72"/>
+<circle cx="88" cy="62" r="8" fill="#D29922"/>
+<circle cx="114" cy="62" r="8" fill="#3FB950"/>
 
-  <!-- terminal chrome -->
-  <circle cx="62" cy="62" r="8" fill="#FF7B72"/>
-  <circle cx="88" cy="62" r="8" fill="#D29922"/>
-  <circle cx="114" cy="62" r="8" fill="#3FB950"/>
-  <text x="150" y="69" fill="#8B949E" font-size="20" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">awesome-tech-feeds — bash</text>
+<text x="72" y="153" fill="#F0F6FC" font-size="52" font-weight="800" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">Awesome Tech Feeds</text>
+<text x="74" y="202" fill="#8B949E" font-size="24" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">curated RSS/Atom · registry as code</text>
 
-  <!-- terminal copy -->
-  <text x="72" y="150" fill="#39D353" font-size="34" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">$</text>
-  <text x="112" y="150" fill="#F0F6FC" font-size="34" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">techfeeds</text>
+<rect x="72" y="247" width="492" height="151" rx="18" fill="#010409" stroke="#30363D" stroke-width="2"/>
+<text x="98" y="292" fill="#39D353" font-size="22" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">$ techfeeds export</text>
+<text x="98" y="333" fill="#A5D6FF" font-size="21" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">essential.opml</text>
+<text x="98" y="373" fill="#8B949E" font-size="19" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">50 sources · 8 collections · 4 profiles</text>
 
-  <text x="72" y="205" fill="#8B949E" font-size="24" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">registry as code // RSS + Atom</text>
+<text x="74" y="455" fill="#58A6FF" font-size="22" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">git pull &amp;&amp; read better feeds</text>
 
-  <text x="72" y="270" fill="#58A6FF" font-size="24" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">sources/</text>
-  <text x="206" y="270" fill="#8B949E" font-size="24" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">-&gt; validate -&gt; compile -&gt;</text>
-  <text x="520" y="270" fill="#A5D6FF" font-size="24" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">JSON / OPML</text>
+<g opacity=".95">
+  <circle cx="690" cy="120" r="31" fill="#21262D" stroke="#30363D" stroke-width="2"/>
+  <path d="M676 121a14 14 0 0 1 14 14M676 105a30 30 0 0 1 30 30" fill="none" stroke="#58A6FF" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="676" cy="135" r="4" fill="#58A6FF"/>
+  <circle cx="1087" cy="162" r="28" fill="#21262D" stroke="#30363D" stroke-width="2"/>
+  <path d="M1077 154l-10 8 10 8M1097 154l10 8-10 8" fill="none" stroke="#39D353" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1084 174l8-24" stroke="#8B949E" stroke-width="4" stroke-linecap="round"/>
+</g>
 
-  <text x="72" y="324" fill="#58A6FF" font-size="24" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">health</text>
-  <text x="156" y="324" fill="#8B949E" font-size="24" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">-&gt; scheduled probes</text>
-
-  <rect x="72" y="370" width="488" height="64" rx="12" fill="#0B1520" stroke="#30363D"/>
-  <text x="96" y="411" fill="#39D353" font-size="23" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">git pull</text>
-  <text x="204" y="411" fill="#8B949E" font-size="23" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&amp;&amp;</text>
-  <text x="244" y="411" fill="#F0F6FC" font-size="23" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">read better feeds</text>
-
-  <!-- gecko, simplified -->
-  <g transform="translate(650 36)">
-    <path d="M312 348c88 9 143-27 145-89 2-46-38-75-75-59-26 11-39 36-28 57 10 18 36 21 50 8"
-          fill="none" stroke="#0D1117" stroke-width="40" stroke-linecap="round"/>
-    <path d="M312 348c88 9 143-27 145-89 2-46-38-75-75-59-26 11-39 36-28 57 10 18 36 21 50 8"
-          fill="none" stroke="url(#tail)" stroke-width="24" stroke-linecap="round"/>
-    <path d="M126 206c0-86 70-142 178-142s178 56 178 142c0 75-70 120-178 120S126 281 126 206Z"
-          fill="url(#body)" stroke="#010409" stroke-width="14"/>
-    <path d="M146 162c5-52 38-84 82-84 43 0 73 32 73 78 0 49-28 85-76 85-50 0-84-31-79-79Z"
-          fill="#F0F6FC" stroke="#010409" stroke-width="12"/>
-    <path d="M462 162c-5-52-38-84-82-84-43 0-73 32-73 78 0 49 28 85 76 85 50 0 84-31 79-79Z"
-          fill="#F0F6FC" stroke="#010409" stroke-width="12"/>
-    <ellipse cx="225" cy="165" rx="31" ry="42" fill="#0D1117"/>
-    <ellipse cx="383" cy="165" rx="31" ry="42" fill="#0D1117"/>
-    <circle cx="212" cy="149" r="9" fill="#58A6FF" filter="url(#glow)"/>
-    <circle cx="370" cy="149" r="9" fill="#58A6FF" filter="url(#glow)"/>
-    <rect x="216" y="197" width="18" height="6" rx="3" fill="#39D353"/>
-    <rect x="374" y="197" width="18" height="6" rx="3" fill="#39D353"/>
-    <circle cx="286" cy="257" r="5" fill="#0D1117"/>
-    <circle cx="322" cy="257" r="5" fill="#0D1117"/>
-    <path d="M270 276c22 17 46 17 68 0" fill="none" stroke="#0D1117" stroke-width="8" stroke-linecap="round"/>
-
-    <!-- terminal held by gecko -->
-    <rect x="145" y="302" width="318" height="152" rx="20" fill="#0D1117" stroke="#30363D" stroke-width="8"/>
-    <rect x="145" y="302" width="318" height="36" rx="20" fill="#161B22"/>
-    <circle cx="171" cy="320" r="6" fill="#FF7B72"/>
-    <circle cx="193" cy="320" r="6" fill="#D29922"/>
-    <circle cx="215" cy="320" r="6" fill="#3FB950"/>
-    <path d="M193 380l27 20-27 20" fill="none" stroke="#39D353" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M243 420h79" fill="none" stroke="#58A6FF" stroke-width="11" stroke-linecap="round"/>
-    <path d="M342 378h67M342 401h44" fill="none" stroke="#8B949E" stroke-width="8" stroke-linecap="round"/>
-
-    <g transform="translate(427 223)" fill="none" stroke="#58A6FF" stroke-width="10" stroke-linecap="round">
-      <circle cx="0" cy="52" r="6" fill="#58A6FF" stroke="none"/>
-      <path d="M0 29a23 23 0 0 1 23 23"/>
-      <path d="M0 3a49 49 0 0 1 49 49"/>
-    </g>
-  </g>
+<g transform="translate(700 60) scale(.68)">
+  <path d="M424 430c84 26 151 5 166-53 12-46-18-84-56-86-31-2-56 22-55 50 1 23 20 40 43 37"
+        fill="none" stroke="#010409" stroke-width="46" stroke-linecap="round"/>
+  <path d="M424 430c84 26 151 5 166-53 12-46-18-84-56-86-31-2-56 22-55 50 1 23 20 40 43 37"
+        fill="none" stroke="url(#tail)" stroke-width="30" stroke-linecap="round"/>
+  <ellipse cx="232" cy="536" rx="68" ry="35" fill="url(#body)" stroke="#010409" stroke-width="12"/>
+  <ellipse cx="408" cy="536" rx="68" ry="35" fill="url(#body)" stroke="#010409" stroke-width="12"/>
+  <path d="M228 338c-28 47-24 123 4 170 24 40 65 54 88 54s64-14 88-54c28-47 32-123 4-170-20-34-54-54-92-54s-72 20-92 54Z"
+        fill="url(#body)" stroke="#010409" stroke-width="13"/>
+  <ellipse cx="320" cy="438" rx="63" ry="83" fill="#FFFDF3"/>
+  <path d="M126 219c0-111 82-177 194-177s194 66 194 177c0 103-77 157-194 157S126 322 126 219Z"
+        fill="url(#body)" stroke="#010409" stroke-width="14"/>
+  <path d="M240 71l15-29 21 28M304 54l17-31 18 31M367 68l18-27 18 31"
+        fill="#9AEACF" stroke="#010409" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="239" cy="207" rx="66" ry="72" fill="#FFF" stroke="#010409" stroke-width="11"/>
+  <ellipse cx="401" cy="207" rx="66" ry="72" fill="#FFF" stroke="#010409" stroke-width="11"/>
+  <ellipse cx="251" cy="217" rx="36" ry="45" fill="#17212B"/>
+  <ellipse cx="389" cy="217" rx="36" ry="45" fill="#17212B"/>
+  <circle cx="237" cy="198" r="13" fill="#FFF"/>
+  <circle cx="375" cy="198" r="13" fill="#FFF"/>
+  <circle cx="264" cy="236" r="6" fill="#79C0FF"/>
+  <circle cx="402" cy="236" r="6" fill="#79C0FF"/>
+  <ellipse cx="183" cy="282" rx="31" ry="17" fill="#FFB3C1" opacity=".78"/>
+  <ellipse cx="457" cy="282" rx="31" ry="17" fill="#FFB3C1" opacity=".78"/>
+  <circle cx="170" cy="242" r="7" fill="#65C6A8"/>
+  <circle cx="190" cy="230" r="5" fill="#65C6A8"/>
+  <circle cx="470" cy="242" r="7" fill="#65C6A8"/>
+  <circle cx="450" cy="230" r="5" fill="#65C6A8"/>
+  <circle cx="305" cy="275" r="5" fill="#17212B"/>
+  <circle cx="335" cy="275" r="5" fill="#17212B"/>
+  <path d="M287 294c11 17 22 25 33 25s22-8 33-25" fill="#FF8FA3" stroke="#17212B" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M237 399c-35 7-57 29-58 60M403 399c35 7 57 29 58 60"
+        fill="none" stroke="#010409" stroke-width="34" stroke-linecap="round"/>
+  <path d="M237 399c-35 7-57 29-58 60M403 399c35 7 57 29 58 60"
+        fill="none" stroke="#9AEACF" stroke-width="20" stroke-linecap="round"/>
+  <rect x="230" y="425" width="180" height="104" rx="16" fill="#24292F" stroke="#010409" stroke-width="9"/>
+  <rect x="214" y="518" width="212" height="21" rx="10" fill="#57606A" stroke="#010409" stroke-width="7"/>
+  <circle cx="320" cy="475" r="22" fill="#0D1117"/>
+  <path d="M309 476c7-9 16-13 26-13M311 487c6-5 13-7 20-7" fill="none" stroke="#58A6FF" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="305" cy="490" r="4" fill="#58A6FF"/>
+</g>
 </svg>
