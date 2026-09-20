@@ -185,9 +185,7 @@ def generate_spec() -> None:
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360">'
         '<rect width="1200" height="360" fill="#F8FAFC"/>'
         '<text x="60" y="65" font-family="sans-serif" font-size="34" '
-        'font-weight="700" fill="#0F172A">Geo Gecko Color System</text>'
-        + "".join(items)
-        + "</svg>"
+        'font-weight="700" fill="#0F172A">Geo Gecko Color System</text>' + "".join(items) + "</svg>"
     )
     write("spec/palette.svg", palette)
 
