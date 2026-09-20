@@ -1,0 +1,56 @@
+name: Render Geo Gecko Assets
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".geo-gecko-source.part*"
+      - "brand/mascot/**/*.svg"
+      - "scripts/render_mascot_assets.py"
+      - ".github/workflows/mascot-assets.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Restore canonical source files
+        shell: bash
+        run: |
+          shopt -s nullglob
+          parts=(.geo-gecko-source.part*)
+          if (( ${#parts[@]} > 0 )); then
+            cat "${parts[@]}" | base64 --decode > /tmp/geo-gecko-source.zip
+            echo "a26317f2c70c381a4ceee2d68c4e0792c1387a864b114e6c596dbbd8c5f96a3c  /tmp/geo-gecko-source.zip" | sha256sum --check -
+            unzip -o /tmp/geo-gecko-source.zip
+            rm -f "${parts[@]}"
+          fi
+      - name: Install render dependencies
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0
+          python -m pip install "CairoSVG==2.7.1" "Pillow==11.3.0"
+      - name: Render raster exports and previews
+        run: python scripts/render_mascot_assets.py
+      - name: Commit individual mascot assets
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A brand/mascot
+          git add -A .geo-gecko-source.part01 .geo-gecko-source.part02 .geo-gecko-source.part03 .geo-gecko-source.part04 .geo-gecko-source.part05 .geo-gecko-source.part06
+          if git diff --cached --quiet; then
+            echo "Geo Gecko assets already current."
+            exit 0
+          fi
+          git commit -m "chore: expand and render Geo Gecko assets"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
