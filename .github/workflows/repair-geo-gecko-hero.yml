@@ -21,17 +21,52 @@ jobs:
       - name: Rebuild and verify JPEG
         shell: bash
         run: |
-          shopt -s nullglob
-          parts=(.fixhero.*)
-          if (( ${#parts[@]} == 0 )); then
-            echo "No repair parts present."
-            exit 0
-          fi
-          cat "${parts[@]}" | base64 --decode > /tmp/hero-3d.jpg
-          echo "ae167c0b5b8919751a5ca94fb540099d8e87032a0b237d6a49f6a29fd995b9e5  /tmp/hero-3d.jpg" | sha256sum --check -
-          test "$(stat -c %s /tmp/hero-3d.jpg)" = "10208"
-          file /tmp/hero-3d.jpg | grep -q "JPEG image data"
-          cp /tmp/hero-3d.jpg brand/mascot/hero-3d.jpg
+          python - <<'PY'
+          from __future__ import annotations
+
+          import base64
+          import glob
+          import hashlib
+          from pathlib import Path
+
+          target = "ae167c0b5b8919751a5ca94fb540099d8e87032a0b237d6a49f6a29fd995b9e5"
+          paths = sorted(glob.glob(".fixhero.*"))
+          if not paths:
+              raise SystemExit("No repair parts present.")
+
+          chunks = [Path(path).read_text(encoding="utf-8") for path in paths]
+
+          def valid(encoded: str) -> bytes | None:
+              try:
+                  data = base64.b64decode(encoded, validate=True)
+              except Exception:
+                  return None
+              return data if hashlib.sha256(data).hexdigest() == target else None
+
+          encoded = "".join(chunks)
+          data = valid(encoded)
+
+          if data is None:
+              first = chunks[0]
+              rest = "".join(chunks[1:])
+              for index in range(len(first) - 3):
+                  candidate = first[:index] + first[index + 4:] + rest
+                  data = valid(candidate)
+                  if data is not None:
+                      print(f"Removed four transfer characters at offset {index}.")
+                      break
+
+          if data is None:
+              raise SystemExit("Could not reconstruct the validated JPEG.")
+
+          if len(data) != 10208 or not data.startswith(b"\xff\xd8") or not data.endswith(b"\xff\xd9"):
+              raise SystemExit("JPEG structural validation failed.")
+
+          Path("brand/mascot/hero-3d.jpg").write_bytes(data)
+          print(f"Validated hero JPEG: {len(data)} bytes, SHA-256 {target}")
+          PY
+
+          file brand/mascot/hero-3d.jpg | grep -q "JPEG image data"
           rm -f .fixhero.*
 
       - name: Commit repaired hero
@@ -39,10 +74,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A brand/mascot/hero-3d.jpg .fixhero.00 .fixhero.01 .fixhero.02 .fixhero.03 .fixhero.04
-          if git diff --cached --quiet; then
-            echo "Nothing to commit."
-            exit 0
-          fi
-          git commit -m "fix: restore valid Geo Gecko hero JPEG"
+          git add -A brand/mascot/hero-3d.jpg .fixhero.00a .fixhero.00b .fixhero.01 .fixhero.02 .fixhero.03 .fixhero.04
+          git commit -m "fix: restore validated Geo Gecko hero JPEG"
           git push origin "HEAD:${GITHUB_REF_NAME}"
