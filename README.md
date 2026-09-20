@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="brand/mascot/core.svg" alt="Geo Gecko — Awesome Tech Feeds mascot" width="220">
-
 # Awesome Tech Feeds
 
 **The web has enough feeds. The scarce resource is attention.**
@@ -15,6 +13,10 @@ Human-curated, machine-readable, continuously verified feeds for high-signal tec
 [![Data License](https://img.shields.io/badge/data-CC%20BY--SA%204.0-8A2BE2?style=flat-square)](DATA-LICENSE.md)
 
 [Geo Gecko](brand/mascot/README.md) · [Catalog](generated/catalog.md) · [Registry JSON](generated/registry.json) · [Consumer SDK](docs/consumer-sdk.md) · [Essential OPML](generated/essential.opml) · [Latest Health](https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/health-latest/health.json) · [Curation](docs/curation.md) · [Contributing](CONTRIBUTING.md) · [Architecture](docs/architecture.md)
+
+<br>
+
+<img src="brand/mascot/hero-3d.jpg" alt="Geo Gecko coding with a feed signal" width="460">
 
 </div>
 

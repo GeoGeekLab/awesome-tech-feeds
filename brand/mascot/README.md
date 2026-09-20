@@ -2,7 +2,8 @@
 
 Production mascot package for GeoGeekLab / Awesome Tech Feeds.
 
-- `core.svg`, `head.svg`: canonical mascot marks.
+- `hero-3d.jpg`: primary README and brand presentation image.
+- `core.svg`, `head.svg`: canonical flat/vector mascot marks.
 - `states/`: operational states.
 - `profiles/`: Developer, AI Engineer, Founder, Researcher variants.
 - `stickers/`: expressive secondary assets.
@@ -12,4 +13,4 @@ Production mascot package for GeoGeekLab / Awesome Tech Feeds.
 - `mascot-spec.md`: semantic and usage rules.
 - `tokens.json`, `manifest.json`: machine-readable design metadata.
 
-Canonical editable format is SVG. PNG exports are generated from the SVGs.
+The 3D hero is the primary presentation image. The SVG system remains the canonical source for icons, operational states, profile variants, stickers, and generated raster exports.
