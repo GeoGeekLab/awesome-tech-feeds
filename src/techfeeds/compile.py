@@ -165,7 +165,8 @@ def compile_registry(root: Path, *, write: bool = True) -> dict[str, Any]:
     profiles = sorted(load_profiles(root), key=lambda item: str(item["id"]))
 
     payload: dict[str, Any] = {
-        "schema_version": 1,
+        "schema_version": 2,
+        "component_schema_versions": {"source": 2, "collection": 1, "profile": 1},
         "counts": {
             "sources": len(sources),
             "collections": len(collections),
@@ -200,7 +201,11 @@ def compile_registry(root: Path, *, write: bool = True) -> dict[str, Any]:
         )
     dump_json(
         generated / "registry.min.json",
-        {"schema_version": 1, "sources": compact_sources},
+        {
+            "schema_version": 2,
+            "component_schema_versions": {"source": 2},
+            "sources": compact_sources,
+        },
         compact=True,
     )
 

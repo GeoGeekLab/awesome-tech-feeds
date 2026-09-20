@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: kubernetes-blog
 name: "Kubernetes Blog"
 kind: project
 language: en
 website: https://kubernetes.io/blog/
+description: "Official project publication covering kubernetes, containers, infrastructure."
 feeds:
   - url: https://kubernetes.io/feed.xml
     format: rss
@@ -17,4 +18,21 @@ traits:
   - first-party
   - release-notes
   - tutorial
+curation:
+  rationale: "Admitted as the official Kubernetes publication for project releases, ecosystem changes, operational guidance, containers, and infrastructure engineering."
+  admission_basis:
+    - official-project
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://kubernetes.io/blog/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://kubernetes.io/feed.xml
+      note: "Primary subscription endpoint published by the source."
 status: active

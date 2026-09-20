@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: hacker-news
 name: "Hacker News"
 kind: community
 language: en
 website: https://news.ycombinator.com/
+description: "Technical community feed covering programming, startup, ai, security."
 feeds:
   - url: https://hnrss.org/frontpage
     format: rss
@@ -17,4 +18,21 @@ topics:
 traits:
   - community
   - high-frequency
+curation:
+  rationale: "Admitted as a broad technical discovery community whose feed surfaces engineering, startup, AI, and security discussions that can reveal sources outside the curated registry."
+  admission_basis:
+    - technical-community
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://news.ycombinator.com/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://hnrss.org/frontpage
+      note: "Primary subscription endpoint used by the registry."
 status: active

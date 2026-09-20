@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: mozilla-hacks
 name: "Mozilla Hacks"
 kind: company
 language: en
 website: https://hacks.mozilla.org/
+description: "First-party technical publication covering web, javascript, security."
 feeds:
   - url: https://hacks.mozilla.org/feed/
     format: rss
@@ -17,4 +18,21 @@ traits:
   - first-party
   - tutorial
   - deep-dive
+curation:
+  rationale: "Admitted for first-party deep web-platform, JavaScript, browser, and security material with implementation-focused tutorials and standards context."
+  admission_basis:
+    - first-party-technical
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://hacks.mozilla.org/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://hacks.mozilla.org/feed/
+      note: "Primary subscription endpoint published by the source."
 status: active

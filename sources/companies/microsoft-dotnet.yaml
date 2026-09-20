@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: microsoft-dotnet
 name: "Microsoft .NET Blog"
 kind: company
 language: en
 website: https://devblogs.microsoft.com/dotnet/
+description: "First-party technical publication covering dotnet, programming, devtools."
 feeds:
   - url: https://devblogs.microsoft.com/dotnet/feed/
     format: rss
@@ -17,4 +18,21 @@ traits:
   - first-party
   - release-notes
   - tutorial
+curation:
+  rationale: "Admitted as a first-party .NET ecosystem source for runtime, language, framework, tooling, release, and practical developer guidance."
+  admission_basis:
+    - first-party-technical
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://devblogs.microsoft.com/dotnet/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://devblogs.microsoft.com/dotnet/feed/
+      note: "Primary subscription endpoint published by the source."
 status: active

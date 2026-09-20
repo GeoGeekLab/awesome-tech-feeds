@@ -133,7 +133,12 @@ def export_command(
     else:
         content = (
             json.dumps(
-                {"schema_version": 1, "count": len(sources), "sources": sources},
+                {
+                    "schema_version": 2,
+                    "component_schema_versions": {"source": 2},
+                    "count": len(sources),
+                    "sources": sources,
+                },
                 ensure_ascii=False,
                 indent=2,
                 sort_keys=True,

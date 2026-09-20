@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: spotify-engineering
 name: "Spotify Engineering"
 kind: company
 language: en
 website: https://engineering.atspotify.com/
+description: "First-party technical publication covering distributed-systems, data, engineering-management."
 feeds:
   - url: https://engineering.atspotify.com/feed/
     format: rss
@@ -17,4 +18,21 @@ traits:
   - first-party
   - company-engineering
   - analysis
+curation:
+  rationale: "Admitted for first-party analysis of distributed systems, data platforms, engineering management, and production practices from a global consumer service."
+  admission_basis:
+    - first-party-engineering
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://engineering.atspotify.com/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://engineering.atspotify.com/feed/
+      note: "Primary subscription endpoint published by the source."
 status: active

@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: jooq-blog
 name: "jOOQ Blog"
 kind: company
 language: en
 website: https://blog.jooq.org/
+description: "First-party technical publication covering databases, programming."
 feeds:
   - url: https://blog.jooq.org/feed/
     format: rss
@@ -16,4 +17,21 @@ traits:
   - first-party
   - deep-dive
   - tutorial
+curation:
+  rationale: "Admitted for first-party deep technical writing on SQL, databases, and programming, especially query semantics and practical database application design."
+  admission_basis:
+    - first-party-technical
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://blog.jooq.org/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://blog.jooq.org/feed/
+      note: "Primary subscription endpoint published by the source."
 status: active

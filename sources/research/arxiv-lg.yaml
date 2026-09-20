@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: arxiv-lg
 name: "arXiv cs.LG"
 kind: research
 language: en
 website: https://arxiv.org/list/cs.LG/recent
+description: "Primary research and research-engineering source covering machine-learning, research."
 feeds:
   - url: https://rss.arxiv.org/rss/cs.LG
     format: rss
@@ -16,4 +17,21 @@ traits:
   - first-party
   - research
   - high-frequency
+curation:
+  rationale: "Admitted as a primary high-frequency research stream for machine learning, complementing curated research blogs with broad first-party paper discovery."
+  admission_basis:
+    - primary-research
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://arxiv.org/list/cs.LG/recent
+      note: "Canonical source home page."
+    - type: feed
+      url: https://rss.arxiv.org/rss/cs.LG
+      note: "Primary subscription endpoint published by the source."
 status: active

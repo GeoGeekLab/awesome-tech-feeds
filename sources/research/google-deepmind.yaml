@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: google-deepmind
 name: "Google DeepMind"
 kind: research
 language: en
 website: https://deepmind.google/discover/blog/
+description: "Primary research and research-engineering source covering ai, machine-learning, research."
 feeds:
   - url: https://deepmind.google/blog/rss.xml
     format: rss
@@ -17,4 +18,21 @@ traits:
   - first-party
   - research
   - deep-dive
+curation:
+  rationale: "Admitted as a first-party AI research source spanning frontier models, machine learning, scientific applications, and research methodology."
+  admission_basis:
+    - primary-research
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://deepmind.google/discover/blog/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://deepmind.google/blog/rss.xml
+      note: "Primary subscription endpoint published by the source."
 status: active

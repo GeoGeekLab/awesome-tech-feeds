@@ -171,6 +171,11 @@
       ]
     }
   ],
+  "component_schema_versions": {
+    "collection": 1,
+    "profile": 1,
+    "source": 2
+  },
   "counts": {
     "collections": 8,
     "profiles": 4,
@@ -246,9 +251,19 @@
       "schema_version": 1
     }
   ],
-  "schema_version": 1,
+  "schema_version": 2,
   "sources": [
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for first-party production engineering on distributed systems, data, web, and mobile systems, adding concrete architecture and operational lessons from a large consumer platform.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering distributed-systems, data, web, mobile.",
       "feeds": [
         {
           "format": "rss",
@@ -261,8 +276,24 @@
       "kind": "company",
       "language": "en",
       "name": "Airbnb Engineering & Data Science",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://medium.com/airbnb-engineering"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://medium.com/feed/airbnb-engineering"
+          }
+        ]
+      },
       "registry_path": "sources/companies/airbnb-engineering.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "distributed-systems",
@@ -278,6 +309,16 @@
       "website": "https://medium.com/airbnb-engineering"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "primary-research"
+        ],
+        "rationale": "Admitted as a first-party frontier AI research source covering language models, safety, and research engineering, providing primary material rather than secondary reporting.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Primary research and research-engineering source covering ai, llm, research, security.",
       "feeds": [
         {
           "format": "rss",
@@ -290,8 +331,24 @@
       "kind": "research",
       "language": "en",
       "name": "Anthropic",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://www.anthropic.com/research"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://www.anthropic.com/rss.xml"
+          }
+        ]
+      },
       "registry_path": "sources/research/anthropic.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "ai",
@@ -307,6 +364,16 @@
       "website": "https://www.anthropic.com/research"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-practitioner"
+        ],
+        "rationale": "Admitted for independent practitioner writing on databases, programming, and open-source systems, with direct implementation perspective from building widely used software.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering databases, programming, open-source.",
       "feeds": [
         {
           "format": "rss",
@@ -319,8 +386,24 @@
       "kind": "individual",
       "language": "en",
       "name": "antirez",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://antirez.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://antirez.com/rss"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/antirez.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "databases",
@@ -336,6 +419,16 @@
       "website": "https://antirez.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "primary-research"
+        ],
+        "rationale": "Admitted as a primary high-frequency research stream for computer-science AI, giving consumers direct access to new papers without an editorial intermediary.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Primary research and research-engineering source covering ai, research.",
       "feeds": [
         {
           "format": "rss",
@@ -348,8 +441,24 @@
       "kind": "research",
       "language": "en",
       "name": "arXiv cs.AI",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://arxiv.org/list/cs.AI/recent"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://rss.arxiv.org/rss/cs.AI"
+          }
+        ]
+      },
       "registry_path": "sources/research/arxiv-ai.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "ai",
@@ -363,6 +472,16 @@
       "website": "https://arxiv.org/list/cs.AI/recent"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "primary-research"
+        ],
+        "rationale": "Admitted as a primary high-frequency research stream for machine learning, complementing curated research blogs with broad first-party paper discovery.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Primary research and research-engineering source covering machine-learning, research.",
       "feeds": [
         {
           "format": "rss",
@@ -375,8 +494,24 @@
       "kind": "research",
       "language": "en",
       "name": "arXiv cs.LG",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://arxiv.org/list/cs.LG/recent"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://rss.arxiv.org/rss/cs.LG"
+          }
+        ]
+      },
       "registry_path": "sources/research/arxiv-lg.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "machine-learning",
@@ -390,6 +525,16 @@
       "website": "https://arxiv.org/list/cs.LG/recent"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "primary-research"
+        ],
+        "rationale": "Admitted for first-party academic AI and machine-learning research explanations that connect published research with deeper technical context from the researchers.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Primary research and research-engineering source covering ai, machine-learning, research.",
       "feeds": [
         {
           "format": "rss",
@@ -402,8 +547,24 @@
       "kind": "research",
       "language": "en",
       "name": "Berkeley Artificial Intelligence Research Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://bair.berkeley.edu/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://bair.berkeley.edu/blog/feed.xml"
+          }
+        ]
+      },
       "registry_path": "sources/research/bair.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "ai",
@@ -418,6 +579,16 @@
       "website": "https://bair.berkeley.edu/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-practitioner"
+        ],
+        "rationale": "Admitted for authoritative practitioner material on performance, observability, and infrastructure, including durable methods for diagnosing production systems.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering performance, infrastructure, observability.",
       "feeds": [
         {
           "format": "rss",
@@ -430,8 +601,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Brendan Gregg",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://www.brendangregg.com/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://www.brendangregg.com/blog/rss.xml"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/brendan-gregg.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "performance",
@@ -447,6 +634,16 @@
       "website": "https://www.brendangregg.com/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-analysis"
+        ],
+        "rationale": "Admitted for long-running independent security and privacy analysis that adds threat-model, research, and policy context beyond incident-focused engineering feeds.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering security, privacy.",
       "feeds": [
         {
           "format": "atom",
@@ -459,8 +656,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Schneier on Security",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://www.schneier.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://www.schneier.com/feed/atom/"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/bruce-schneier.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "security",
@@ -474,6 +687,16 @@
       "website": "https://www.schneier.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for unusually detailed first-party internet infrastructure, networking, security, and distributed-systems engineering from systems operating at global scale.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering networking, security, distributed-systems, infrastructure.",
       "feeds": [
         {
           "format": "rss",
@@ -486,8 +709,24 @@
       "kind": "company",
       "language": "en",
       "name": "Cloudflare Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://blog.cloudflare.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://blog.cloudflare.com/rss/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/cloudflare.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "networking",
@@ -504,6 +743,16 @@
       "website": "https://blog.cloudflare.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-analysis"
+        ],
+        "rationale": "Admitted for evidence-driven independent analysis of programming, performance, architecture, and engineering practice, with durable long-form technical investigations.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering programming, performance, architecture.",
       "feeds": [
         {
           "format": "atom",
@@ -516,8 +765,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Dan Luu",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://danluu.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://danluu.com/atom.xml"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/dan-luu.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "programming",
@@ -534,6 +799,16 @@
       "website": "https://danluu.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for first-party observability, cloud, and infrastructure material that combines production engineering guidance with practical monitoring and diagnostic techniques.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering observability, infrastructure, cloud.",
       "feeds": [
         {
           "format": "rss",
@@ -546,8 +821,24 @@
       "kind": "company",
       "language": "en",
       "name": "Datadog Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://www.datadoghq.com/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://www.datadoghq.com/blog/index.xml"
+          }
+        ]
+      },
       "registry_path": "sources/companies/datadog.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "observability",
@@ -562,6 +853,16 @@
       "website": "https://www.datadoghq.com/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for first-party production lessons on distributed systems, infrastructure, and performance from a latency-sensitive large-scale communications platform.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering distributed-systems, infrastructure, performance.",
       "feeds": [
         {
           "format": "rss",
@@ -574,8 +875,24 @@
       "kind": "company",
       "language": "en",
       "name": "Discord Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://discord.com/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://discord.com/blog/rss.xml"
+          }
+        ]
+      },
       "registry_path": "sources/companies/discord-engineering.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "distributed-systems",
@@ -590,6 +907,16 @@
       "website": "https://discord.com/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for deep first-party engineering on distributed systems, infrastructure, databases, and storage, with concrete implementation and migration experience.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering distributed-systems, infrastructure, databases.",
       "feeds": [
         {
           "format": "rss",
@@ -602,8 +929,24 @@
       "kind": "company",
       "language": "en",
       "name": "Dropbox Tech",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://dropbox.tech/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://dropbox.tech/feed"
+          }
+        ]
+      },
       "registry_path": "sources/companies/dropbox-tech.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "distributed-systems",
@@ -618,6 +961,16 @@
       "website": "https://dropbox.tech/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-analysis"
+        ],
+        "rationale": "Admitted for independent deep technical tutorials on programming, Python, Go, compilers, and systems topics that remain useful beyond short-lived news cycles.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering programming, python, go.",
       "feeds": [
         {
           "format": "atom",
@@ -630,8 +983,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Eli Bendersky",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://eli.thegreenplace.net/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://eli.thegreenplace.net/feeds/all.atom.xml"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/eli-bendersky.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "programming",
@@ -647,6 +1016,16 @@
       "website": "https://eli.thegreenplace.net/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for practitioner-heavy first-party writing on infrastructure, distributed systems, networking, and developer tooling, with strong implementation detail.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering infrastructure, distributed-systems, networking, devtools.",
       "feeds": [
         {
           "format": "rss",
@@ -659,8 +1038,24 @@
       "kind": "company",
       "language": "en",
       "name": "Fly.io Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://fly.io/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://fly.io/blog/feed.xml"
+          }
+        ]
+      },
       "registry_path": "sources/companies/fly-io.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "infrastructure",
@@ -677,6 +1072,16 @@
       "website": "https://fly.io/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for first-party engineering on developer tools, infrastructure, security, and software delivery from a platform central to modern development workflows.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering devtools, infrastructure, security, programming.",
       "feeds": [
         {
           "format": "rss",
@@ -689,8 +1094,24 @@
       "kind": "company",
       "language": "en",
       "name": "GitHub Engineering",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://github.blog/engineering/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://github.blog/engineering/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/github-engineering.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "devtools",
@@ -706,6 +1127,16 @@
       "website": "https://github.blog/engineering/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "official-project"
+        ],
+        "rationale": "Admitted as the official Go project publication for language evolution, releases, tooling, and practical programming guidance directly from the project ecosystem.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Official project publication covering go, programming.",
       "feeds": [
         {
           "format": "atom",
@@ -718,8 +1149,24 @@
       "kind": "project",
       "language": "en",
       "name": "The Go Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://go.dev/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://go.dev/blog/feed.atom"
+          }
+        ]
+      },
       "registry_path": "sources/companies/go-blog.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "go",
@@ -733,6 +1180,16 @@
       "website": "https://go.dev/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "primary-research"
+        ],
+        "rationale": "Admitted as a first-party AI research source spanning frontier models, machine learning, scientific applications, and research methodology.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Primary research and research-engineering source covering ai, machine-learning, research.",
       "feeds": [
         {
           "format": "rss",
@@ -745,8 +1202,24 @@
       "kind": "research",
       "language": "en",
       "name": "Google DeepMind",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://deepmind.google/discover/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://deepmind.google/blog/rss.xml"
+          }
+        ]
+      },
       "registry_path": "sources/research/google-deepmind.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "ai",
@@ -761,6 +1234,16 @@
       "website": "https://deepmind.google/discover/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-technical"
+        ],
+        "rationale": "Admitted for first-party security research and defensive analysis from teams operating widely deployed software and internet services.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering security, privacy.",
       "feeds": [
         {
           "format": "atom",
@@ -773,8 +1256,24 @@
       "kind": "company",
       "language": "en",
       "name": "Google Online Security Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://security.googleblog.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://security.googleblog.com/feeds/posts/default"
+          }
+        ]
+      },
       "registry_path": "sources/companies/google-security.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "security",
@@ -788,6 +1287,16 @@
       "website": "https://security.googleblog.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "technical-community"
+        ],
+        "rationale": "Admitted as a broad technical discovery community whose feed surfaces engineering, startup, AI, and security discussions that can reveal sources outside the curated registry.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Technical community feed covering programming, startup, ai, security.",
       "feeds": [
         {
           "format": "rss",
@@ -800,8 +1309,24 @@
       "kind": "community",
       "language": "en",
       "name": "Hacker News",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://news.ycombinator.com/"
+          },
+          {
+            "note": "Primary subscription endpoint used by the registry.",
+            "type": "feed",
+            "url": "https://hnrss.org/frontpage"
+          }
+        ]
+      },
       "registry_path": "sources/communities/hacker-news.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "programming",
@@ -816,6 +1341,16 @@
       "website": "https://news.ycombinator.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "primary-research"
+        ],
+        "rationale": "Admitted for first-party open-source AI and machine-learning engineering covering models, datasets, tooling, research, and practitioner workflows.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering ai, llm, machine-learning, open-source.",
       "feeds": [
         {
           "format": "rss",
@@ -828,8 +1363,24 @@
       "kind": "company",
       "language": "en",
       "name": "Hugging Face Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://huggingface.co/blog"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://huggingface.co/blog/feed.xml"
+          }
+        ]
+      },
       "registry_path": "sources/research/hugging-face.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "ai",
@@ -846,6 +1397,16 @@
       "website": "https://huggingface.co/blog"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "technical-publication"
+        ],
+        "rationale": "Admitted as a high-frequency technical publication covering software architecture, programming, cloud systems, and AI with practitioner-oriented analysis.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Technical publication covering architecture, programming, cloud, ai.",
       "feeds": [
         {
           "format": "rss",
@@ -858,8 +1419,24 @@
       "kind": "publication",
       "language": "en",
       "name": "InfoQ",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://www.infoq.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://www.infoq.com/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/communities/infoq.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "architecture",
@@ -874,6 +1451,16 @@
       "website": "https://www.infoq.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "official-project"
+        ],
+        "rationale": "Admitted as the official IPFS project source for distributed-systems, networking, open-source engineering, releases, and implementation updates.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Official project publication covering distributed-systems, open-source, networking.",
       "feeds": [
         {
           "format": "rss",
@@ -886,8 +1473,24 @@
       "kind": "project",
       "language": "en",
       "name": "IPFS Blog & News",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://blog.ipfs.tech/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://blog.ipfs.tech/index.xml"
+          }
+        ]
+      },
       "registry_path": "sources/companies/ipfs-blog.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "distributed-systems",
@@ -902,6 +1505,16 @@
       "website": "https://blog.ipfs.tech/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-technical"
+        ],
+        "rationale": "Admitted for first-party deep technical writing on SQL, databases, and programming, especially query semantics and practical database application design.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering databases, programming.",
       "feeds": [
         {
           "format": "rss",
@@ -914,8 +1527,24 @@
       "kind": "company",
       "language": "en",
       "name": "jOOQ Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://blog.jooq.org/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://blog.jooq.org/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/jooq-blog.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "databases",
@@ -929,6 +1558,16 @@
       "website": "https://blog.jooq.org/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-practitioner"
+        ],
+        "rationale": "Admitted for exceptionally clear independent explanations of systems, networking, infrastructure, and developer tools grounded in hands-on debugging and learning.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering programming, infrastructure, networking, devtools.",
       "feeds": [
         {
           "format": "atom",
@@ -941,8 +1580,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Julia Evans",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://jvns.ca/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://jvns.ca/atom.xml"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/julia-evans.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "programming",
@@ -959,6 +1614,16 @@
       "website": "https://jvns.ca/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-technical"
+        ],
+        "rationale": "Admitted as a first-party Kotlin ecosystem source for language releases, tooling changes, programming guidance, and developer-facing technical updates.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering programming, devtools.",
       "feeds": [
         {
           "format": "rss",
@@ -971,8 +1636,24 @@
       "kind": "company",
       "language": "en",
       "name": "Kotlin Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://blog.jetbrains.com/kotlin/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://blog.jetbrains.com/kotlin/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/kotlin-blog.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "programming",
@@ -986,6 +1667,16 @@
       "website": "https://blog.jetbrains.com/kotlin/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "technical-publication"
+        ],
+        "rationale": "Admitted for original independent security reporting and investigation that provides primary incident, threat, and cybercrime context not duplicated by vendor engineering blogs.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Technical publication covering security.",
       "feeds": [
         {
           "format": "rss",
@@ -998,8 +1689,24 @@
       "kind": "publication",
       "language": "en",
       "name": "Krebs on Security",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://krebsonsecurity.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://krebsonsecurity.com/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/krebsonsecurity.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "security"
@@ -1013,6 +1720,16 @@
       "website": "https://krebsonsecurity.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "official-project"
+        ],
+        "rationale": "Admitted as the official Kubernetes publication for project releases, ecosystem changes, operational guidance, containers, and infrastructure engineering.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Official project publication covering kubernetes, containers, infrastructure.",
       "feeds": [
         {
           "format": "rss",
@@ -1025,8 +1742,24 @@
       "kind": "project",
       "language": "en",
       "name": "Kubernetes Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://kubernetes.io/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://kubernetes.io/feed.xml"
+          }
+        ]
+      },
       "registry_path": "sources/companies/kubernetes-blog.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "kubernetes",
@@ -1041,6 +1774,16 @@
       "website": "https://kubernetes.io/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "technical-community"
+        ],
+        "rationale": "Admitted as a technically focused community feed for programming, open source, and security discovery, with a narrower engineering scope than general technology news.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Technical community feed covering programming, open-source, security.",
       "feeds": [
         {
           "format": "rss",
@@ -1053,8 +1796,24 @@
       "kind": "community",
       "language": "en",
       "name": "Lobsters",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://lobste.rs/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://lobste.rs/rss"
+          }
+        ]
+      },
       "registry_path": "sources/communities/lobsters.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "programming",
@@ -1068,6 +1827,16 @@
       "website": "https://lobste.rs/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-analysis"
+        ],
+        "rationale": "Admitted for durable independent writing on software architecture, programming, refactoring, and engineering practice that remains useful across framework cycles.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering architecture, programming, engineering-management.",
       "feeds": [
         {
           "format": "atom",
@@ -1080,8 +1849,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Martin Fowler",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://martinfowler.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://martinfowler.com/feed.atom"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/martin-fowler.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "architecture",
@@ -1097,6 +1882,16 @@
       "website": "https://martinfowler.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for deep first-party engineering on distributed systems, infrastructure, AI, and programming from production systems operating at very large scale.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering distributed-systems, ai, infrastructure, programming.",
       "feeds": [
         {
           "format": "rss",
@@ -1109,8 +1904,24 @@
       "kind": "company",
       "language": "en",
       "name": "Meta Engineering",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://engineering.fb.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://engineering.fb.com/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/meta-engineering.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "distributed-systems",
@@ -1126,6 +1937,16 @@
       "website": "https://engineering.fb.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-technical"
+        ],
+        "rationale": "Admitted as a first-party .NET ecosystem source for runtime, language, framework, tooling, release, and practical developer guidance.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering dotnet, programming, devtools.",
       "feeds": [
         {
           "format": "rss",
@@ -1138,8 +1959,24 @@
       "kind": "company",
       "language": "en",
       "name": "Microsoft .NET Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://devblogs.microsoft.com/dotnet/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://devblogs.microsoft.com/dotnet/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/microsoft-dotnet.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "dotnet",
@@ -1154,6 +1991,16 @@
       "website": "https://devblogs.microsoft.com/dotnet/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-practitioner"
+        ],
+        "rationale": "Admitted for independent practitioner perspective on infrastructure, developer tools, systems software, and open source from a builder of widely adopted tooling.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering devtools, infrastructure, programming, open-source.",
       "feeds": [
         {
           "format": "rss",
@@ -1166,8 +2013,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Mitchell Hashimoto",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://mitchellh.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://mitchellh.com/feed.xml"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/mitchell-hashimoto.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "devtools",
@@ -1184,6 +2047,16 @@
       "website": "https://mitchellh.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-technical"
+        ],
+        "rationale": "Admitted for first-party deep web-platform, JavaScript, browser, and security material with implementation-focused tutorials and standards context.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering web, javascript, security.",
       "feeds": [
         {
           "format": "rss",
@@ -1196,8 +2069,24 @@
       "kind": "company",
       "language": "en",
       "name": "Mozilla Hacks",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://hacks.mozilla.org/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://hacks.mozilla.org/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/mozilla-hacks.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "web",
@@ -1212,6 +2101,16 @@
       "website": "https://hacks.mozilla.org/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for production-scale distributed-systems, data, infrastructure, and performance engineering with concrete architecture and operational lessons.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering distributed-systems, infrastructure, data, performance.",
       "feeds": [
         {
           "format": "rss",
@@ -1224,8 +2123,24 @@
       "kind": "company",
       "language": "en",
       "name": "Netflix TechBlog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://netflixtechblog.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://netflixtechblog.com/feed"
+          }
+        ]
+      },
       "registry_path": "sources/companies/netflix-techblog.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "distributed-systems",
@@ -1242,6 +2157,16 @@
       "website": "https://netflixtechblog.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "primary-research"
+        ],
+        "rationale": "Admitted as a first-party source for OpenAI research, model, and product-system updates, providing direct primary material for AI and LLM developments.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Primary research and research-engineering source covering ai, llm, research.",
       "feeds": [
         {
           "format": "rss",
@@ -1254,8 +2179,24 @@
       "kind": "research",
       "language": "en",
       "name": "OpenAI News",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://openai.com/news/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://openai.com/news/rss.xml"
+          }
+        ]
+      },
       "registry_path": "sources/research/openai-news.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "ai",
@@ -1270,6 +2211,16 @@
       "website": "https://openai.com/news/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-analysis"
+        ],
+        "rationale": "Admitted for independent deep writing on JavaScript, web development, programming abstractions, and software reasoning rather than high-frequency news coverage.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering javascript, web, programming.",
       "feeds": [
         {
           "format": "rss",
@@ -1282,8 +2233,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Overreacted",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://overreacted.io/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://overreacted.io/rss.xml"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/overreacted.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "javascript",
@@ -1298,6 +2265,16 @@
       "website": "https://overreacted.io/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for deep first-principles systems engineering across hardware, operating systems, networking, infrastructure, and software design.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering infrastructure, programming, hardware, distributed-systems.",
       "feeds": [
         {
           "format": "rss",
@@ -1310,8 +2287,24 @@
       "kind": "company",
       "language": "en",
       "name": "Oxide Computer Company",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://oxide.computer/blog"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://oxide.computer/blog/rss.xml"
+          }
+        ]
+      },
       "registry_path": "sources/companies/oxide-computer.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "infrastructure",
@@ -1328,6 +2321,16 @@
       "website": "https://oxide.computer/blog"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-analysis"
+        ],
+        "rationale": "Admitted as the registry's Chinese-language independent technical source, covering programming, web development, AI, and developer tools with sustained explanatory writing.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering programming, web, ai, devtools.",
       "feeds": [
         {
           "format": "atom",
@@ -1340,8 +2343,24 @@
       "kind": "individual",
       "language": "zh-CN",
       "name": "阮一峰的网络日志",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://www.ruanyifeng.com/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://www.ruanyifeng.com/blog/atom.xml"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/ruanyifeng.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "programming",
@@ -1358,6 +2377,16 @@
       "website": "https://www.ruanyifeng.com/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "official-project"
+        ],
+        "rationale": "Admitted as the official Rust project publication for language and ecosystem releases, open-source development, and technical analysis.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Official project publication covering rust, programming, open-source.",
       "feeds": [
         {
           "format": "rss",
@@ -1370,8 +2399,24 @@
       "kind": "project",
       "language": "en",
       "name": "Rust Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://blog.rust-lang.org/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://blog.rust-lang.org/feed.xml"
+          }
+        ]
+      },
       "registry_path": "sources/companies/rust-blog.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "rust",
@@ -1386,6 +2431,16 @@
       "website": "https://blog.rust-lang.org/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for first-party production engineering on web systems, distributed systems, and infrastructure, with practitioner lessons from a large commerce platform.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering web, distributed-systems, infrastructure.",
       "feeds": [
         {
           "format": "atom",
@@ -1398,8 +2453,24 @@
       "kind": "company",
       "language": "en",
       "name": "Shopify Engineering",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://shopify.engineering/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://shopify.engineering/blog.atom"
+          }
+        ]
+      },
       "registry_path": "sources/companies/shopify-engineering.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "web",
@@ -1414,6 +2485,16 @@
       "website": "https://shopify.engineering/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-practitioner"
+        ],
+        "rationale": "Admitted for high-frequency independent practitioner writing connecting AI, language models, Python, databases, and the web with reproducible technical detail.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering ai, llm, python, databases, web.",
       "feeds": [
         {
           "format": "atom",
@@ -1426,8 +2507,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Simon Willison’s Weblog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://simonwillison.net/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://simonwillison.net/atom/everything/"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/simon-willison.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "ai",
@@ -1446,6 +2543,16 @@
       "website": "https://simonwillison.net/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for deep first-party production engineering on distributed systems, infrastructure, and web systems supporting large-scale collaboration workloads.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering distributed-systems, infrastructure, web.",
       "feeds": [
         {
           "format": "rss",
@@ -1458,8 +2565,24 @@
       "kind": "company",
       "language": "en",
       "name": "Slack Engineering",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://slack.engineering/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://slack.engineering/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/slack-engineering.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "distributed-systems",
@@ -1474,6 +2597,16 @@
       "website": "https://slack.engineering/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for first-party analysis of distributed systems, data platforms, engineering management, and production practices from a global consumer service.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering distributed-systems, data, engineering-management.",
       "feeds": [
         {
           "format": "rss",
@@ -1486,8 +2619,24 @@
       "kind": "company",
       "language": "en",
       "name": "Spotify Engineering",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://engineering.atspotify.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://engineering.atspotify.com/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/spotify-engineering.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "distributed-systems",
@@ -1502,6 +2651,16 @@
       "website": "https://engineering.atspotify.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for first-party engineering and technical analysis spanning APIs, infrastructure, programming, product systems, reliability, and developer experience.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering programming, infrastructure, product, startup.",
       "feeds": [
         {
           "format": "rss",
@@ -1514,8 +2673,24 @@
       "kind": "company",
       "language": "en",
       "name": "Stripe Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://stripe.com/blog"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://stripe.com/blog/feed.rss"
+          }
+        ]
+      },
       "registry_path": "sources/companies/stripe-blog.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "programming",
@@ -1531,6 +2706,16 @@
       "website": "https://stripe.com/blog"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-practitioner"
+        ],
+        "rationale": "Admitted for independent practitioner analysis at the intersection of AI engineering, language models, web development, and developer tooling.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering ai, llm, web, devtools.",
       "feeds": [
         {
           "format": "rss",
@@ -1543,8 +2728,24 @@
       "kind": "individual",
       "language": "en",
       "name": "swyx",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://www.swyx.io/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://www.swyx.io/rss.xml"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/swyx.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "ai",
@@ -1561,6 +2762,16 @@
       "website": "https://www.swyx.io/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for practitioner-heavy first-party networking and security writing that explains modern protocols, identity, connectivity, and infrastructure trade-offs.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering networking, security, infrastructure.",
       "feeds": [
         {
           "format": "rss",
@@ -1573,8 +2784,24 @@
       "kind": "company",
       "language": "en",
       "name": "Tailscale Blog",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://tailscale.com/blog/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://tailscale.com/blog/index.xml"
+          }
+        ]
+      },
       "registry_path": "sources/companies/tailscale.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "networking",
@@ -1589,6 +2816,16 @@
       "website": "https://tailscale.com/blog/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "technical-publication"
+        ],
+        "rationale": "Admitted as a high-frequency technical publication focused on cloud native systems, Kubernetes, infrastructure, and developer tooling analysis.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Technical publication covering cloud, kubernetes, devtools, infrastructure.",
       "feeds": [
         {
           "format": "rss",
@@ -1601,8 +2838,24 @@
       "kind": "publication",
       "language": "en",
       "name": "The New Stack",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://thenewstack.io/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://thenewstack.io/feed/"
+          }
+        ]
+      },
       "registry_path": "sources/communities/the-new-stack.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "cloud",
@@ -1617,6 +2870,16 @@
       "website": "https://thenewstack.io/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "independent-practitioner"
+        ],
+        "rationale": "Admitted for first-hand independent coverage of web security, privacy, identity, breaches, and defensive engineering for working developers.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "Independent technical writing covering security, privacy, web.",
       "feeds": [
         {
           "format": "rss",
@@ -1629,8 +2892,24 @@
       "kind": "individual",
       "language": "en",
       "name": "Troy Hunt",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://www.troyhunt.com/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://www.troyhunt.com/rss/"
+          }
+        ]
+      },
       "registry_path": "sources/individuals/troy-hunt.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "security",
@@ -1646,6 +2925,16 @@
       "website": "https://www.troyhunt.com/"
     },
     {
+      "curation": {
+        "admission_basis": [
+          "first-party-engineering"
+        ],
+        "rationale": "Admitted for deep first-party production engineering on distributed systems, infrastructure, mobile systems, and performance at large operational scale.",
+        "review_after": "2026-12-19",
+        "reviewed_at": "2026-09-20",
+        "reviewer": "GeoGeekLab"
+      },
+      "description": "First-party technical publication covering distributed-systems, infrastructure, mobile, performance.",
       "feeds": [
         {
           "format": "rss",
@@ -1658,8 +2947,24 @@
       "kind": "company",
       "language": "en",
       "name": "Uber Engineering",
+      "provenance": {
+        "added_at": "2026-09-20",
+        "added_by": "GeoGeekLab",
+        "evidence": [
+          {
+            "note": "Canonical source home page.",
+            "type": "identity",
+            "url": "https://www.uber.com/blog/engineering/"
+          },
+          {
+            "note": "Primary subscription endpoint published by the source.",
+            "type": "feed",
+            "url": "https://www.uber.com/blog/engineering/rss/"
+          }
+        ]
+      },
       "registry_path": "sources/companies/uber-engineering.yaml",
-      "schema_version": 1,
+      "schema_version": 2,
       "status": "active",
       "topics": [
         "distributed-systems",

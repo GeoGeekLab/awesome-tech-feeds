@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: martin-fowler
 name: "Martin Fowler"
 kind: individual
 language: en
 website: https://martinfowler.com/
+description: "Independent technical writing covering architecture, programming, engineering-management."
 feeds:
   - url: https://martinfowler.com/feed.atom
     format: atom
@@ -18,4 +19,21 @@ traits:
   - deep-dive
   - analysis
   - independent
+curation:
+  rationale: "Admitted for durable independent writing on software architecture, programming, refactoring, and engineering practice that remains useful across framework cycles."
+  admission_basis:
+    - independent-analysis
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://martinfowler.com/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://martinfowler.com/feed.atom
+      note: "Primary subscription endpoint published by the source."
 status: active
