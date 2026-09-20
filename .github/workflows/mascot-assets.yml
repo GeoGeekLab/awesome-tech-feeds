@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - ".geo-gecko-source.part*"
       - "brand/mascot/**/*.svg"
+      - "scripts/generate_mascot_sources.py"
       - "scripts/render_mascot_assets.py"
       - ".github/workflows/mascot-assets.yml"
 
@@ -22,17 +22,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Restore canonical source files
-        shell: bash
-        run: |
-          shopt -s nullglob
-          parts=(.geo-gecko-source.part*)
-          if (( ${#parts[@]} > 0 )); then
-            cat "${parts[@]}" | base64 --decode > /tmp/geo-gecko-source.zip
-            echo "a26317f2c70c381a4ceee2d68c4e0792c1387a864b114e6c596dbbd8c5f96a3c  /tmp/geo-gecko-source.zip" | sha256sum --check -
-            unzip -o /tmp/geo-gecko-source.zip
-            rm -f "${parts[@]}"
-          fi
+      - name: Generate canonical mascot variants
+        run: python scripts/generate_mascot_sources.py
       - name: Install render dependencies
         shell: bash
         run: |
@@ -47,10 +38,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A brand/mascot
-          git add -A .geo-gecko-source.part01 .geo-gecko-source.part02 .geo-gecko-source.part03 .geo-gecko-source.part04 .geo-gecko-source.part05 .geo-gecko-source.part06
           if git diff --cached --quiet; then
             echo "Geo Gecko assets already current."
             exit 0
           fi
-          git commit -m "chore: expand and render Geo Gecko assets"
+          git commit -m "chore: generate Geo Gecko asset exports"
           git push origin "HEAD:${GITHUB_REF_NAME}"
