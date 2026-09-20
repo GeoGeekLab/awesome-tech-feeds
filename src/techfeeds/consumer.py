@@ -164,7 +164,8 @@ class Query:
         version = value.get("schema_version")
         if version != QUERY_SCHEMA_VERSION:
             raise QueryContractError(
-                f"unsupported query schema version: expected {QUERY_SCHEMA_VERSION}, got {version!r}"
+                "unsupported query schema version: "
+                f"expected {QUERY_SCHEMA_VERSION}, got {version!r}"
             )
 
         collection = _optional_string(value, "collection")
