@@ -12,7 +12,7 @@ Human-curated, machine-readable, continuously verified feeds for high-signal tec
 [![Code License](https://img.shields.io/badge/code-MIT-2ea44f?style=flat-square)](LICENSE)
 [![Data License](https://img.shields.io/badge/data-CC%20BY--SA%204.0-8A2BE2?style=flat-square)](DATA-LICENSE.md)
 
-[Catalog](generated/catalog.md) · [Registry JSON](generated/registry.json) · [Essential OPML](generated/essential.opml) · [Latest Health](https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/health-latest/health.json) · [Curation](docs/curation.md) · [Contributing](CONTRIBUTING.md) · [Architecture](docs/architecture.md)
+[Catalog](generated/catalog.md) · [Registry JSON](generated/registry.json) · [Consumer SDK](docs/consumer-sdk.md) · [Essential OPML](generated/essential.opml) · [Latest Health](https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/health-latest/health.json) · [Curation](docs/curation.md) · [Contributing](CONTRIBUTING.md) · [Architecture](docs/architecture.md)
 
 </div>
 
@@ -125,6 +125,47 @@ techfeeds export --topic ai --topic llm --trait research --format json
 ```
 
 Filters are available for collection, topic, trait, language, and source kind. Unknown filter values fail explicitly instead of silently producing an empty export.
+
+## Consumer SDK
+
+Version 0.4 exposes a typed Python consumer API over compiled `registry.json`. Consumers no longer need to understand the repository's YAML layout.
+
+```python
+from techfeeds import Query, Registry
+
+registry = Registry.from_url()
+result = registry.query(
+    Query(
+        collection="essential",
+        topics=("ai",),
+        traits=("research",),
+    )
+)
+
+for source in result.sources:
+    print(source.id, source.website)
+```
+
+For pinned workflows, load a downloaded release asset and verify its SHA-256 before parsing:
+
+```python
+registry = Registry.from_file(
+    "registry.json",
+    expected_sha256="<digest from SHA256SUMS>",
+)
+```
+
+The SDK has explicit compatibility failures, deterministic ordering, immutable query objects, defensive source records, stable JSON error codes, and PEP 561 typing metadata.
+
+The CLI exposes the same Query Contract v1 engine:
+
+```bash
+techfeeds query --registry registry.json --topic security --trait independent
+```
+
+Success is Query Result Contract v1 JSON. Query failures are Query Error Contract v1 JSON on stderr. The legacy `techfeeds export` surface remains compatible and delegates filtering to the same engine.
+
+See [`docs/consumer-sdk.md`](docs/consumer-sdk.md) for request/result/error schemas, ordering guarantees, and compatibility rules.
 
 ## Profiles
 
@@ -333,7 +374,7 @@ profiles/      role-oriented starting points
 registry/      controlled vocabularies
 schema/        versioned JSON Schemas
 generated/     compiled JSON, OPML, and catalog
-src/techfeeds/ deterministic validator, compiler, and probe
+src/techfeeds/ validator, compiler, consumer SDK, CLI, and probe
 tests/         contract tests
 docs/          architecture and registry semantics
 ```

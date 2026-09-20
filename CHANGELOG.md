@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.0 - 2026-09-20
+
+Consumer SDK and Query Contract.
+
+- Added a public typed Python SDK that consumes compiled `registry.json` without a repository checkout.
+- Added immutable `Query`, `QueryResult`, `SourceRecord`, and `Registry` consumer types.
+- Added local-file and HTTPS registry loading with optional SHA-256 integrity verification.
+- Added Query Request, Result, and Error Contract v1 JSON Schemas with stable error codes.
+- Defined deterministic AND-filter semantics and stable ordering guarantees.
+- Added `techfeeds query` for machine-readable queries against a repository or downloaded registry.
+- Routed the legacy `techfeeds export` selector through the same query engine without changing its output shape.
+- Added PEP 561 `py.typed` metadata and wheel-level public SDK smoke tests.
+- Added query-contract schemas to checksum-covered GitHub release assets.
+
 ## 0.3.0 - 2026-09-20
 
 Registry Contract 2.0.

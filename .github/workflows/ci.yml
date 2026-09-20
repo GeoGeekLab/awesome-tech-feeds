@@ -55,3 +55,12 @@ jobs:
           python -m venv .wheel-smoke
           .wheel-smoke/bin/python -m pip install dist/*.whl
           .wheel-smoke/bin/techfeeds --version
+          .wheel-smoke/bin/python - <<'PY'
+          from importlib.resources import files
+
+          from techfeeds import Query, Registry
+
+          assert Query().to_dict() == {"schema_version": 1, "status": "active"}
+          assert Registry is not None
+          assert files("techfeeds").joinpath("py.typed").is_file()
+          PY

@@ -58,7 +58,21 @@ Topics, traits, and languages are registry-level values. A contributor cannot cr
 
 ## Consumer boundary
 
-The registry is intentionally unaware of article-ranking and summarization systems.
+The compiled registry is consumed through a stable query layer:
+
+```text
+registry.json
+    ↓
+Registry
+    ↓
+Query Contract v1
+    ↓
+QueryResult / JSON / OPML
+```
+
+The SDK depends on compiled registry contracts, not repository YAML layout. CLI query/export behavior delegates to the same query implementation so filter semantics have one source of truth.
+
+The registry remains intentionally unaware of article-ranking and summarization systems.
 
 A downstream system may implement:
 
@@ -78,4 +92,4 @@ summarization
 Telegram / RSS / email / web
 ```
 
-Those concerns should not leak back into source identity or health semantics.
+Those concerns should not leak back into source identity, query semantics, or health semantics.
