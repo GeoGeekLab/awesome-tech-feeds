@@ -14,6 +14,7 @@ from .compile import (
     compile_registry,
     generated_files_match,
     opml_as_text,
+    stale_generated_files,
     select_sources,
 )
 from .probe import probe_registry
@@ -65,8 +66,11 @@ def compile_command(
     """Compile JSON, OPML, and the human-readable catalog."""
     registry_root = _root(root)
     if check:
-        if not generated_files_match(registry_root):
+        stale = stale_generated_files(registry_root)
+        if stale:
             console.print("[red]generated artifacts are stale[/red]")
+            for path in stale:
+                console.print(f"  {path}")
             raise typer.Exit(1)
         console.print("[green]generated artifacts are current[/green]")
         return
