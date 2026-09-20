@@ -5,6 +5,9 @@ import json
 from pathlib import Path
 
 import pytest
+from jsonschema import Draft202012Validator
+from referencing import Registry as SchemaRegistry
+from referencing import Resource
 
 from techfeeds.consumer import (
     ConsumerError,
@@ -160,3 +163,30 @@ def test_registry_from_url_uses_downloaded_bytes(monkeypatch: pytest.MonkeyPatch
     monkeypatch.setattr("techfeeds.consumer.httpx.get", fake_get)
     registry = Registry.from_url("https://example.test/registry.json", timeout=4.0)
     assert registry.get("simon-willison") is not None
+
+
+
+def test_serialized_query_contracts_validate_against_published_schemas() -> None:
+    query_schema = json.loads(
+        (ROOT / "schema/query.v1.schema.json").read_text(encoding="utf-8")
+    )
+    result_schema = json.loads(
+        (ROOT / "schema/query-result.v1.schema.json").read_text(encoding="utf-8")
+    )
+    error_schema = json.loads(
+        (ROOT / "schema/query-error.v1.schema.json").read_text(encoding="utf-8")
+    )
+    schema_registry = SchemaRegistry().with_resource(
+        query_schema["$id"],
+        Resource.from_contents(query_schema),
+    )
+
+    registry = Registry.from_file(REGISTRY_PATH)
+    result = registry.query(Query(collection="essential", topics=("ai",)))
+
+    Draft202012Validator(query_schema).validate(result.query.to_dict())
+    Draft202012Validator(result_schema, registry=schema_registry).validate(result.to_dict())
+
+    with pytest.raises(UnknownFilterValueError) as captured:
+        registry.query(Query(topics=("not-a-topic",)))
+    Draft202012Validator(error_schema).validate(captured.value.to_dict())
