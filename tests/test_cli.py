@@ -154,7 +154,6 @@ def test_reviews_command_rejects_invalid_date() -> None:
     assert "invalid --as-of date" in result.stdout
 
 
-
 def test_query_command_emits_contract_v1_json() -> None:
     result = RUNNER.invoke(
         app,
