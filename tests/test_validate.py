@@ -104,7 +104,6 @@ def test_required_collection_rationale_is_enforced(tmp_path: Path) -> None:
     assert any("missing selection rationale for simon-willison" in error for error in errors)
 
 
-
 def test_source_review_window_is_enforced(tmp_path: Path) -> None:
     from shutil import copytree
 
