@@ -12,7 +12,7 @@ Human-curated, machine-readable, continuously verified feeds for high-signal tec
 [![Code License](https://img.shields.io/badge/code-MIT-2ea44f?style=flat-square)](LICENSE)
 [![Data License](https://img.shields.io/badge/data-CC%20BY--SA%204.0-8A2BE2?style=flat-square)](DATA-LICENSE.md)
 
-[Catalog](generated/catalog.md) · [Registry JSON](generated/registry.json) · [Essential OPML](generated/essential.opml) · [Contributing](CONTRIBUTING.md) · [Architecture](docs/architecture.md)
+[Catalog](generated/catalog.md) · [Registry JSON](generated/registry.json) · [Essential OPML](generated/essential.opml) · [Latest Health](https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/health-latest/health.json) · [Curation](docs/curation.md) · [Contributing](CONTRIBUTING.md) · [Architecture](docs/architecture.md)
 
 </div>
 
@@ -69,7 +69,7 @@ observed failure ≠ permanent removal
 
 ## What ships
 
-The initial registry contains **50 sources**, **8 collections**, and **4 profiles** spanning independent writers, engineering teams, research labs, communities, programming languages, systems, security, databases, and AI.
+The registry contains **50 sources**, **8 collections**, and **4 profiles** spanning independent writers, engineering teams, research labs, communities, programming languages, systems, security, databases, and AI. The deliberately opinionated `essential` starter set contains **18 sources** and is hard-capped at **20**.
 
 Representative sources include:
 
@@ -94,7 +94,7 @@ A registry is useful to machines. Collections are useful to people.
 
 | Collection | Intent |
 | --- | --- |
-| [`essential`](collections/essential.yaml) | Small, high-signal starter set across technical disciplines |
+| [`essential`](collections/essential.yaml) | 18-source high-signal starter set, capped at 20 with an explicit rationale for every member |
 | [`ai`](collections/ai.yaml) | AI, LLMs, ML systems, research, and practitioner writing |
 | [`systems`](collections/systems.yaml) | Distributed systems, infrastructure, networking, and performance |
 | [`security`](collections/security.yaml) | Security engineering, incident analysis, privacy, and research |
@@ -104,6 +104,25 @@ A registry is useful to machines. Collections are useful to people.
 | [`independent`](collections/independent.yaml) | Independent practitioners and long-form technical writers |
 
 Every collection compiles to an importable OPML file under [`generated/`](generated/).
+
+Collections may declare policy such as `max_sources` and `require_rationale`. The validator enforces those contracts, and the generated catalog exposes collection-specific rationales where present. See [`docs/curation.md`](docs/curation.md).
+
+## Export subsets
+
+The CLI can export machine- or reader-ready subsets without requiring consumers to reimplement registry filtering.
+
+```bash
+# Importable starter pack
+techfeeds export --collection essential --format opml -o essential.opml
+
+# Independent security sources as JSON
+techfeeds export --topic security --trait independent --format json
+
+# Multiple topic/trait options compose with AND semantics
+techfeeds export --topic ai --topic llm --trait research --format json
+```
+
+Filters are available for collection, topic, trait, language, and source kind. Unknown filter values fail explicitly instead of silently producing an empty export.
 
 ## Profiles
 
@@ -192,6 +211,7 @@ Validation checks:
 - exactly one primary feed for every active source;
 - duplicate feed and website URLs;
 - collection references;
+- collection size budgets and required selection rationales;
 - profile references;
 - deterministic generated artifacts.
 
@@ -218,7 +238,11 @@ Health states are intentionally narrow:
 
 A stale feed is not a bad source. A fast feed is not a good source.
 
-The scheduled workflow publishes health as an artifact rather than rewriting editorial metadata.
+The scheduled workflow publishes health as both a retained Actions artifact and a stable release asset rather than rewriting editorial metadata.
+
+The latest machine-readable snapshot is available at:
+
+`https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/health-latest/health.json`
 
 ## Generated artifacts
 
@@ -232,7 +256,7 @@ The scheduled workflow publishes health as an artifact rather than rewriting edi
 | [`essential.opml`](generated/essential.opml) | Starter pack for feed readers |
 | topic OPML files | Collection-specific imports |
 | [`catalog.md`](generated/catalog.md) | Human-readable generated catalog |
-| `health.json` | Dynamic probe output; not committed |
+| `health.json` | Dynamic probe output; not committed, with the latest snapshot published at the stable `health-latest` release URL |
 
 This makes GitHub itself the distribution layer. No database or application server is required to consume the registry.
 

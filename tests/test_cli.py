@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from typer.testing import CliRunner
@@ -13,7 +14,7 @@ RUNNER = CliRunner()
 def test_version() -> None:
     result = RUNNER.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "0.1.0" in result.stdout
+    assert "0.2.0" in result.stdout
 
 
 def test_validate_compile_check_and_stats() -> None:
@@ -67,3 +68,67 @@ def test_probe_command(monkeypatch) -> None:
     assert result.exit_code == 0
     assert "healthy" in result.stdout
     assert "2" in result.stdout
+
+
+def test_export_essential_as_json() -> None:
+    result = RUNNER.invoke(
+        app,
+        ["export", "--root", str(ROOT), "--collection", "essential", "--format", "json"],
+    )
+    assert result.exit_code == 0
+    payload = json.loads(result.stdout)
+    assert payload["count"] == 18
+    assert payload["sources"][0]["id"] == "simon-willison"
+
+
+def test_export_filters_are_and_composed() -> None:
+    result = RUNNER.invoke(
+        app,
+        [
+            "export",
+            "--root",
+            str(ROOT),
+            "--topic",
+            "security",
+            "--trait",
+            "independent",
+            "--format",
+            "json",
+        ],
+    )
+    assert result.exit_code == 0
+    payload = json.loads(result.stdout)
+    assert payload["count"] > 0
+    assert all("security" in source["topics"] for source in payload["sources"])
+    assert all("independent" in source["traits"] for source in payload["sources"])
+
+
+def test_export_rejects_unknown_collection() -> None:
+    result = RUNNER.invoke(
+        app,
+        ["export", "--root", str(ROOT), "--collection", "does-not-exist"],
+    )
+    assert result.exit_code == 2
+    assert "unknown collection" in result.stdout
+
+
+def test_export_writes_opml_file(tmp_path: Path) -> None:
+    output = tmp_path / "security.opml"
+    result = RUNNER.invoke(
+        app,
+        [
+            "export",
+            "--root",
+            str(ROOT),
+            "--topic",
+            "security",
+            "--format",
+            "opml",
+            "--output",
+            str(output),
+        ],
+    )
+    assert result.exit_code == 0
+    content = output.read_text(encoding="utf-8")
+    assert "<opml" in content
+    assert 'techFeedsId="troy-hunt"' in content

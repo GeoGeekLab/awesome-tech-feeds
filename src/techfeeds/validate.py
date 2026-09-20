@@ -124,9 +124,43 @@ def validate_registry(root: Path) -> list[str]:
                 errors.append(
                     f"{path.relative_to(root)}: filename must match collection id {collection_id!r}"
                 )
-        for source_id in data.get("sources", []):
+
+        source_refs = data.get("sources", [])
+        if not isinstance(source_refs, list):
+            source_refs = []
+        for source_id in source_refs:
             if source_id not in source_ids:
                 errors.append(f"{path.relative_to(root)}: unknown source {source_id}")
+
+        policy = data.get("policy", {})
+        if not isinstance(policy, dict):
+            policy = {}
+        max_sources = policy.get("max_sources")
+        if isinstance(max_sources, int) and len(source_refs) > max_sources:
+            errors.append(
+                f"{path.relative_to(root)}: collection has {len(source_refs)} sources; "
+                f"exceeds policy max_sources={max_sources}"
+            )
+
+        rationales = data.get("selection_rationale", {})
+        if not isinstance(rationales, dict):
+            rationales = {}
+        extra_rationales = sorted(set(rationales) - set(source_refs))
+        for source_id in extra_rationales:
+            errors.append(
+                f"{path.relative_to(root)}: selection rationale references non-member {source_id}"
+            )
+        if policy.get("require_rationale") is True:
+            missing_rationales = [
+                source_id
+                for source_id in source_refs
+                if not isinstance(rationales.get(source_id), str)
+                or not rationales[source_id].strip()
+            ]
+            for source_id in missing_rationales:
+                errors.append(
+                    f"{path.relative_to(root)}: missing selection rationale for {source_id}"
+                )
 
     for path in iter_yaml(root, "profiles"):
         data = load_yaml(path)

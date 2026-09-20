@@ -19,6 +19,8 @@ Admission is qualitative by design. The repository does not publish a global sco
 
 A maintainer should be able to explain an inclusion or exclusion in terms of source characteristics, coverage, originality, and registry scope rather than personal prestige.
 
+Collections may encode an attention budget and require collection-specific rationales. A rationale explains why a source belongs in that bundle; it is not a global score for the source. Maintainers should prefer replacement over unbounded growth when a capped collection already covers a domain adequately.
+
 ## Automation boundary
 
 Automation may validate syntax, references, duplicates, feeds, redirects, and generated artifacts.

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from copy import deepcopy
+from io import BytesIO
 from pathlib import Path
 from typing import Any
 from xml.etree.ElementTree import Element, ElementTree, SubElement, indent
@@ -34,7 +35,8 @@ def _primary_feed(source: dict[str, Any]) -> dict[str, Any]:
     return next(feed for feed in source["feeds"] if feed["role"] == "primary")
 
 
-def _opml(title: str, sources: list[dict[str, Any]], output: Path) -> None:
+def opml_as_text(title: str, sources: list[dict[str, Any]]) -> str:
+    """Render sources as an OPML 2.0 document without touching the filesystem."""
     opml = Element("opml", {"version": "2.0"})
     head = SubElement(opml, "head")
     SubElement(head, "title").text = title
@@ -56,8 +58,14 @@ def _opml(title: str, sources: list[dict[str, Any]], output: Path) -> None:
         )
 
     indent(opml, space="  ")
+    buffer = BytesIO()
+    ElementTree(opml).write(buffer, encoding="utf-8", xml_declaration=True)
+    return buffer.getvalue().decode("utf-8")
+
+
+def _opml(title: str, sources: list[dict[str, Any]], output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
-    ElementTree(opml).write(output, encoding="utf-8", xml_declaration=True)
+    output.write_text(opml_as_text(title, sources), encoding="utf-8")
 
 
 def _catalog(
@@ -79,11 +87,75 @@ def _catalog(
                 "",
             ]
         )
+        rationales = collection.get("selection_rationale")
         for source_id in collection["sources"]:
             source = by_id[source_id]
-            lines.append(f"- [{source['name']}]({source['website']}) — `{source['id']}`")
+            line = f"- [{source['name']}]({source['website']}) — `{source['id']}`"
+            if isinstance(rationales, dict):
+                rationale = rationales.get(source_id)
+                if isinstance(rationale, str):
+                    line += f" — {rationale}"
+            lines.append(line)
         lines.append("")
     output.write_text("\n".join(lines), encoding="utf-8")
+
+
+def select_sources(
+    root: Path,
+    *,
+    collection_id: str | None = None,
+    topics: tuple[str, ...] = (),
+    traits: tuple[str, ...] = (),
+    language: str | None = None,
+    kind: str | None = None,
+) -> list[dict[str, Any]]:
+    """Select active sources with deterministic AND-style metadata filters."""
+    require_valid_registry(root)
+    all_sources = [source for source in load_sources(root) if source["status"] == "active"]
+
+    known_topics = {topic for source in all_sources for topic in source["topics"]}
+    unknown_topics = sorted(set(topics) - known_topics)
+    if unknown_topics:
+        raise ValueError(f"unknown topic(s): {', '.join(unknown_topics)}")
+
+    known_traits = {trait for source in all_sources for trait in source["traits"]}
+    unknown_traits = sorted(set(traits) - known_traits)
+    if unknown_traits:
+        raise ValueError(f"unknown trait(s): {', '.join(unknown_traits)}")
+
+    known_languages = {str(source["language"]) for source in all_sources}
+    if language is not None and language not in known_languages:
+        raise ValueError(f"unknown language: {language}")
+
+    known_kinds = {str(source["kind"]) for source in all_sources}
+    if kind is not None and kind not in known_kinds:
+        raise ValueError(f"unknown kind: {kind}")
+
+    sources = all_sources
+    if collection_id is not None:
+        collection = next(
+            (
+                item
+                for item in load_collections(root)
+                if isinstance(item, dict) and item.get("id") == collection_id
+            ),
+            None,
+        )
+        if collection is None:
+            raise ValueError(f"unknown collection: {collection_id}")
+        by_id = {str(source["id"]): source for source in all_sources}
+        sources = [by_id[source_id] for source_id in collection["sources"] if source_id in by_id]
+
+    required_topics = set(topics)
+    required_traits = set(traits)
+    return [
+        source
+        for source in sources
+        if required_topics.issubset(set(source["topics"]))
+        and required_traits.issubset(set(source["traits"]))
+        and (language is None or source["language"] == language)
+        and (kind is None or source["kind"] == kind)
+    ]
 
 
 def compile_registry(root: Path, *, write: bool = True) -> dict[str, Any]:
@@ -147,7 +219,8 @@ def compile_registry(root: Path, *, write: bool = True) -> dict[str, Any]:
     return payload
 
 
-def generated_files_match(root: Path) -> bool:
+def stale_generated_files(root: Path) -> list[str]:
+    """Compile in place and return generated paths whose committed bytes were stale."""
     generated = root / "generated"
     before = {
         path.relative_to(root).as_posix(): path.read_bytes()
@@ -160,7 +233,12 @@ def generated_files_match(root: Path) -> bool:
         for path in generated.glob("*")
         if path.is_file() and path.name != "health.json"
     }
-    return before == after
+    paths = set(before) | set(after)
+    return sorted(path for path in paths if before.get(path) != after.get(path))
+
+
+def generated_files_match(root: Path) -> bool:
+    return not stale_generated_files(root)
 
 
 def registry_as_json(root: Path) -> str:
