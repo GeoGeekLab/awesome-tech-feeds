@@ -311,16 +311,20 @@ def validate_registry(root: Path) -> list[str]:
             if source_id in source_records
         ]
         for topic in boost_topics:
-            if topic in topics and not any(topic in source.get("topics", []) for source in candidate_records):
+            matches = any(topic in source.get("topics", []) for source in candidate_records)
+            if topic in topics and not matches:
                 errors.append(f"{prefix}: boost topic {topic} matches no selected source")
         for trait in boost_traits:
-            if trait in traits and not any(trait in source.get("traits", []) for source in candidate_records):
+            matches = any(trait in source.get("traits", []) for source in candidate_records)
+            if trait in traits and not matches:
                 errors.append(f"{prefix}: boost trait {trait} matches no selected source")
         for topic in exclude_topics:
-            if topic in topics and not any(topic in source.get("topics", []) for source in candidate_records):
+            matches = any(topic in source.get("topics", []) for source in candidate_records)
+            if topic in topics and not matches:
                 errors.append(f"{prefix}: exclude topic {topic} matches no selected source")
         for trait in exclude_traits:
-            if trait in traits and not any(trait in source.get("traits", []) for source in candidate_records):
+            matches = any(trait in source.get("traits", []) for source in candidate_records)
+            if trait in traits and not matches:
                 errors.append(f"{prefix}: exclude trait {trait} matches no selected source")
 
     return errors
