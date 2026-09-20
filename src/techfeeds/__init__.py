@@ -3,6 +3,9 @@
 from .consumer import (
     DEFAULT_REGISTRY_URL,
     ConsumerError,
+    ProfileRecord,
+    ProfileResult,
+    ProfileSource,
     Query,
     QueryContractError,
     QueryResult,
@@ -14,11 +17,14 @@ from .consumer import (
     UnknownFilterValueError,
 )
 
-__version__ = "0.4.1"
+__version__ = "0.5.0"
 
 __all__ = [
     "DEFAULT_REGISTRY_URL",
     "ConsumerError",
+    "ProfileRecord",
+    "ProfileResult",
+    "ProfileSource",
     "Query",
     "QueryContractError",
     "QueryResult",

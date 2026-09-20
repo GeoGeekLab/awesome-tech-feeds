@@ -71,6 +71,18 @@ For `essential`, preserve cross-discipline breadth and low redundancy. Adding an
 
 See [`docs/curation.md`](docs/curation.md) for the review contract.
 
+## Profile changes
+
+Profiles are executable public policy. Keep profile rules meaningful against the collections they select.
+
+A boost or exclude topic/trait that matches no selected source is invalid. A source-level exclusion must refer to a source selected by the profile's collections. Do not put the same topic or trait in both boost and exclude.
+
+`budget.recommended_daily_items` is a downstream item budget and must not be interpreted as a source-count cap.
+
+Run `techfeeds compile` after profile changes; every profile has generated JSON and OPML artifacts.
+
+See [`docs/profiles.md`](docs/profiles.md) and the [profile v1→v2 migration guide](docs/migrations/profile-v1-to-v2.md).
+
 ## Validate locally
 
 Requires Python 3.12 or newer.

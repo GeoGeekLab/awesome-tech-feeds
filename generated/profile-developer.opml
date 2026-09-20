@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="2.0">
+  <head>
+    <title>Awesome Tech Feeds — Profile: Developer</title>
+  </head>
+  <body>
+    <outline type="rss" text="Julia Evans" title="Julia Evans" xmlUrl="https://jvns.ca/atom.xml" htmlUrl="https://jvns.ca/" techFeedsId="julia-evans" />
+    <outline type="rss" text="Mitchell Hashimoto" title="Mitchell Hashimoto" xmlUrl="https://mitchellh.com/feed.xml" htmlUrl="https://mitchellh.com/" techFeedsId="mitchell-hashimoto" />
+    <outline type="rss" text="Kotlin Blog" title="Kotlin Blog" xmlUrl="https://blog.jetbrains.com/kotlin/feed/" htmlUrl="https://blog.jetbrains.com/kotlin/" techFeedsId="kotlin-blog" />
+    <outline type="rss" text="Martin Fowler" title="Martin Fowler" xmlUrl="https://martinfowler.com/feed.atom" htmlUrl="https://martinfowler.com/" techFeedsId="martin-fowler" />
+    <outline type="rss" text="Dan Luu" title="Dan Luu" xmlUrl="https://danluu.com/atom.xml" htmlUrl="https://danluu.com/" techFeedsId="dan-luu" />
+    <outline type="rss" text="Stripe Blog" title="Stripe Blog" xmlUrl="https://stripe.com/blog/feed.rss" htmlUrl="https://stripe.com/blog" techFeedsId="stripe-blog" />
+    <outline type="rss" text="Oxide Computer Company" title="Oxide Computer Company" xmlUrl="https://oxide.computer/blog/rss.xml" htmlUrl="https://oxide.computer/blog" techFeedsId="oxide-computer" />
+    <outline type="rss" text="Lobsters" title="Lobsters" xmlUrl="https://lobste.rs/rss" htmlUrl="https://lobste.rs/" techFeedsId="lobsters" />
+    <outline type="rss" text="The Go Blog" title="The Go Blog" xmlUrl="https://go.dev/blog/feed.atom" htmlUrl="https://go.dev/blog/" techFeedsId="go-blog" />
+    <outline type="rss" text="Rust Blog" title="Rust Blog" xmlUrl="https://blog.rust-lang.org/feed.xml" htmlUrl="https://blog.rust-lang.org/" techFeedsId="rust-blog" />
+    <outline type="rss" text="Eli Bendersky" title="Eli Bendersky" xmlUrl="https://eli.thegreenplace.net/feeds/all.atom.xml" htmlUrl="https://eli.thegreenplace.net/" techFeedsId="eli-bendersky" />
+    <outline type="rss" text="Fly.io Blog" title="Fly.io Blog" xmlUrl="https://fly.io/blog/feed.xml" htmlUrl="https://fly.io/blog/" techFeedsId="fly-io" />
+    <outline type="rss" text="Simon Willison’s Weblog" title="Simon Willison’s Weblog" xmlUrl="https://simonwillison.net/atom/everything/" htmlUrl="https://simonwillison.net/" techFeedsId="simon-willison" />
+    <outline type="rss" text="Brendan Gregg" title="Brendan Gregg" xmlUrl="https://www.brendangregg.com/blog/rss.xml" htmlUrl="https://www.brendangregg.com/blog/" techFeedsId="brendan-gregg" />
+    <outline type="rss" text="Troy Hunt" title="Troy Hunt" xmlUrl="https://www.troyhunt.com/rss/" htmlUrl="https://www.troyhunt.com/" techFeedsId="troy-hunt" />
+    <outline type="rss" text="Schneier on Security" title="Schneier on Security" xmlUrl="https://www.schneier.com/feed/atom/" htmlUrl="https://www.schneier.com/" techFeedsId="bruce-schneier" />
+    <outline type="rss" text="Cloudflare Blog" title="Cloudflare Blog" xmlUrl="https://blog.cloudflare.com/rss/" htmlUrl="https://blog.cloudflare.com/" techFeedsId="cloudflare" />
+    <outline type="rss" text="Netflix TechBlog" title="Netflix TechBlog" xmlUrl="https://netflixtechblog.com/feed" htmlUrl="https://netflixtechblog.com/" techFeedsId="netflix-techblog" />
+    <outline type="rss" text="Tailscale Blog" title="Tailscale Blog" xmlUrl="https://tailscale.com/blog/index.xml" htmlUrl="https://tailscale.com/blog/" techFeedsId="tailscale" />
+    <outline type="rss" text="Kubernetes Blog" title="Kubernetes Blog" xmlUrl="https://kubernetes.io/feed.xml" htmlUrl="https://kubernetes.io/blog/" techFeedsId="kubernetes-blog" />
+    <outline type="rss" text="Anthropic" title="Anthropic" xmlUrl="https://www.anthropic.com/rss.xml" htmlUrl="https://www.anthropic.com/research" techFeedsId="anthropic" />
+    <outline type="rss" text="Google DeepMind" title="Google DeepMind" xmlUrl="https://deepmind.google/blog/rss.xml" htmlUrl="https://deepmind.google/discover/blog/" techFeedsId="google-deepmind" />
+    <outline type="rss" text="Hugging Face Blog" title="Hugging Face Blog" xmlUrl="https://huggingface.co/blog/feed.xml" htmlUrl="https://huggingface.co/blog" techFeedsId="hugging-face" />
+    <outline type="rss" text="Uber Engineering" title="Uber Engineering" xmlUrl="https://www.uber.com/blog/engineering/rss/" htmlUrl="https://www.uber.com/blog/engineering/" techFeedsId="uber-engineering" />
+    <outline type="rss" text="Slack Engineering" title="Slack Engineering" xmlUrl="https://slack.engineering/feed/" htmlUrl="https://slack.engineering/" techFeedsId="slack-engineering" />
+    <outline type="rss" text="Discord Blog" title="Discord Blog" xmlUrl="https://discord.com/blog/rss.xml" htmlUrl="https://discord.com/blog/" techFeedsId="discord-engineering" />
+    <outline type="rss" text="Dropbox Tech" title="Dropbox Tech" xmlUrl="https://dropbox.tech/feed" htmlUrl="https://dropbox.tech/" techFeedsId="dropbox-tech" />
+  </body>
+</opml>

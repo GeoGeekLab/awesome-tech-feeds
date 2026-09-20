@@ -1,6 +1,6 @@
 # Consumer SDK and Query Contract
 
-Version 0.4 makes the compiled registry a stable consumer surface rather than requiring downstream code to understand repository YAML layout.
+Version 0.5 keeps the compiled registry a stable consumer surface rather than requiring downstream code to understand repository YAML layout.
 
 ## Public Python API
 
@@ -13,6 +13,9 @@ from techfeeds import (
     Query,
     QueryContractError,
     QueryResult,
+    ProfileRecord,
+    ProfileResult,
+    ProfileSource,
     Registry,
     RegistryCompatibilityError,
     RegistryIntegrityError,
@@ -51,7 +54,7 @@ registry = Registry.from_file(
 
 The same `expected_sha256` option is available for `from_url`.
 
-The v0.4 SDK supports compiled registry contract v2 and source contract v2. Unsupported contract versions fail explicitly with `RegistryCompatibilityError`; the SDK does not guess at forward compatibility.
+The v0.5 SDK supports compiled registry contract v2, source contract v2, and executable profile contract v2. It can still load a registry-v2 payload with profile component v1 for ordinary queries; profile resolution requires profile v2. Unsupported contract versions fail explicitly with `RegistryCompatibilityError`; the SDK does not guess at forward compatibility.
 
 ## Query request v1
 
@@ -200,3 +203,18 @@ Query request/result/error contract v1 is independent of registry contract v2.
 A future additive SDK release may add optional Python helpers without changing query contract v1. Adding required fields, changing filter meaning, changing deterministic ordering, or changing error-code semantics requires a new query contract version.
 
 Versioned query schemas are immutable after release. The unversioned source schema alias does not apply to query schemas; consumers should reference the explicit v1 filenames.
+
+
+## Profile resolution
+
+Profiles use a separate contract from ad hoc Query Contract v1.
+
+```python
+result = registry.resolve_profile("founder")
+```
+
+The returned `ProfileResult` contains the Profile Contract v2 policy, downstream daily-item budget, candidate/exclusion counts, and ordered `ProfileSource` entries.
+
+Each `ProfileSource` exposes the full `SourceRecord`, a deterministic `priority_score`, and the exact boost topics/traits that matched. This is explainability for one profile policy, not a global ranking.
+
+Profile Result Contract v1 is published as `schema/profile-result.v1.schema.json`. See [`profiles.md`](profiles.md) for the full resolution algorithm.

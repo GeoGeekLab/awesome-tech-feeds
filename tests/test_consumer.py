@@ -187,3 +187,50 @@ def test_serialized_query_contracts_validate_against_published_schemas() -> None
     with pytest.raises(UnknownFilterValueError) as captured:
         registry.query(Query(topics=("not-a-topic",)))
     Draft202012Validator(error_schema).validate(captured.value.to_dict())
+
+
+def test_profile_v2_resolution_is_explainable_and_budget_does_not_truncate() -> None:
+    registry = Registry.from_file(REGISTRY_PATH)
+    result = registry.resolve_profile("founder")
+
+    assert registry.component_schema_versions["profile"] == 2
+    assert "founder" in registry.profiles
+    assert result.profile.id == "founder"
+    assert result.budget["recommended_daily_items"] == 10
+    assert result.count > result.budget["recommended_daily_items"]
+    assert result.candidate_count >= result.count
+    assert result.excluded_count > 0
+
+    ids = [item.source.id for item in result.sources]
+    assert "openai-news" not in ids
+    assert "kubernetes-blog" not in ids
+    scores = [item.priority_score for item in result.sources]
+    assert scores == sorted(scores, reverse=True)
+
+
+def test_profile_exclusion_precedes_boost() -> None:
+    registry = Registry.from_file(REGISTRY_PATH)
+    result = registry.resolve_profile("researcher")
+    ids = [item.source.id for item in result.sources]
+
+    assert "hacker-news" not in ids
+    assert result.excluded_count == 1
+    assert any("research" in item.matched_boost_topics for item in result.sources)
+
+
+def test_unknown_profile_is_machine_readable() -> None:
+    registry = Registry.from_file(REGISTRY_PATH)
+    with pytest.raises(UnknownFilterValueError) as captured:
+        registry.resolve_profile("does-not-exist")
+    assert captured.value.to_dict()["error"]["field"] == "profile"
+
+
+def test_profile_result_matches_published_schema() -> None:
+    schema = json.loads((ROOT / "schema/profile-result.v1.schema.json").read_text(encoding="utf-8"))
+    registry = Registry.from_file(REGISTRY_PATH)
+    result = registry.resolve_profile("developer")
+    Draft202012Validator(schema).validate(result.to_dict())
+
+    opml = result.to_opml()
+    assert "Awesome Tech Feeds — Profile: Developer" in opml
+    assert f'techFeedsId="{result.sources[0].source.id}"' in opml

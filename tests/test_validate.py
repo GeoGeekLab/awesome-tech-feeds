@@ -159,3 +159,31 @@ def test_yaml_dates_remain_json_schema_strings(tmp_path: Path) -> None:
 
     data = load_yaml(target)
     assert data == {"reviewed_at": "2026-09-20", "active": True, "count": 2}
+
+
+def test_profile_v2_rejects_dead_boost_policy(tmp_path: Path) -> None:
+    from shutil import copytree
+
+    for name in ("sources", "collections", "profiles", "registry", "schema"):
+        copytree(ROOT / name, tmp_path / name)
+
+    target = tmp_path / "profiles/ai-engineer.yaml"
+    data = yaml.safe_load(target.read_text(encoding="utf-8"))
+    data["boost"]["topics"].append("agents")
+    target.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+
+    errors = validate_registry(tmp_path)
+    assert any("boost topic agents matches no selected source" in error for error in errors)
+
+
+def test_versioned_profile_schemas_are_published() -> None:
+    v1 = json.loads((ROOT / "schema/profile.v1.schema.json").read_text(encoding="utf-8"))
+    latest = json.loads((ROOT / "schema/profile.schema.json").read_text(encoding="utf-8"))
+    v2 = json.loads((ROOT / "schema/profile.v2.schema.json").read_text(encoding="utf-8"))
+
+    assert v1["properties"]["schema_version"]["const"] == 1
+    assert latest["properties"]["schema_version"]["const"] == 2
+    assert v2["properties"]["schema_version"]["const"] == 2
+    latest.pop("$id")
+    v2.pop("$id")
+    assert latest == v2

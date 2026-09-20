@@ -122,6 +122,7 @@ def validate_registry(root: Path) -> list[str]:
     languages = set(languages_data)
 
     source_ids: dict[str, Path] = {}
+    source_records: dict[str, dict[str, Any]] = {}
     feed_owners: dict[str, list[str]] = defaultdict(list)
     website_owners: dict[str, list[str]] = defaultdict(list)
 
@@ -145,6 +146,7 @@ def validate_registry(root: Path) -> list[str]:
                 f"{source_ids[source_id].relative_to(root)} and {path.relative_to(root)}"
             )
         source_ids[source_id] = path
+        source_records[source_id] = data
 
         language = data.get("language")
         if isinstance(language, str) and language not in languages:
@@ -182,6 +184,7 @@ def validate_registry(root: Path) -> list[str]:
             errors.append(f"duplicate website URL {url}: {', '.join(sorted(owners))}")
 
     collection_ids: set[str] = set()
+    collection_sources: dict[str, tuple[str, ...]] = {}
     for path in iter_yaml(root, "collections"):
         data = load_yaml(path)
         errors.extend(_schema_errors(collection_validator, data, path, root))
@@ -198,6 +201,10 @@ def validate_registry(root: Path) -> list[str]:
         source_refs = data.get("sources", [])
         if not isinstance(source_refs, list):
             source_refs = []
+        if isinstance(collection_id, str):
+            collection_sources[collection_id] = tuple(
+                str(source_id) for source_id in source_refs if isinstance(source_id, str)
+            )
         for source_id in source_refs:
             if source_id not in source_ids:
                 errors.append(f"{path.relative_to(root)}: unknown source {source_id}")
@@ -238,19 +245,85 @@ def validate_registry(root: Path) -> list[str]:
         if not isinstance(data, dict):
             continue
         profile_id = data.get("id")
+        prefix = str(path.relative_to(root))
         if isinstance(profile_id, str) and path.stem != profile_id:
-            errors.append(
-                f"{path.relative_to(root)}: filename must match profile id {profile_id!r}"
-            )
-        for collection_id in data.get("collections", []):
+            errors.append(f"{prefix}: filename must match profile id {profile_id!r}")
+
+        selected_collections = data.get("collections", [])
+        if not isinstance(selected_collections, list):
+            selected_collections = []
+        candidate_ids: list[str] = []
+        seen_candidates: set[str] = set()
+        for collection_id in selected_collections:
             if collection_id not in collection_ids:
-                errors.append(f"{path.relative_to(root)}: unknown collection {collection_id}")
-        for topic in data.get("boost_topics", []):
+                errors.append(f"{prefix}: unknown collection {collection_id}")
+                continue
+            for source_id in collection_sources.get(str(collection_id), ()):
+                if source_id not in seen_candidates:
+                    seen_candidates.add(source_id)
+                    candidate_ids.append(source_id)
+
+        boost = data.get("boost", {})
+        exclude = data.get("exclude", {})
+        if not isinstance(boost, dict):
+            boost = {}
+        if not isinstance(exclude, dict):
+            exclude = {}
+
+        boost_topics = boost.get("topics", [])
+        boost_traits = boost.get("traits", [])
+        exclude_topics = exclude.get("topics", [])
+        exclude_traits = exclude.get("traits", [])
+        exclude_sources = exclude.get("sources", [])
+        if not isinstance(boost_topics, list):
+            boost_topics = []
+        if not isinstance(boost_traits, list):
+            boost_traits = []
+        if not isinstance(exclude_topics, list):
+            exclude_topics = []
+        if not isinstance(exclude_traits, list):
+            exclude_traits = []
+        if not isinstance(exclude_sources, list):
+            exclude_sources = []
+
+        for topic in [*boost_topics, *exclude_topics]:
             if topic not in topics:
-                errors.append(f"{path.relative_to(root)}: unknown topic {topic}")
-        for trait in data.get("exclude_traits", []):
+                errors.append(f"{prefix}: unknown topic {topic}")
+        for trait in [*boost_traits, *exclude_traits]:
             if trait not in traits:
-                errors.append(f"{path.relative_to(root)}: unknown trait {trait}")
+                errors.append(f"{prefix}: unknown trait {trait}")
+        for source_id in exclude_sources:
+            if source_id not in source_ids:
+                errors.append(f"{prefix}: unknown excluded source {source_id}")
+            elif source_id not in seen_candidates:
+                errors.append(
+                    f"{prefix}: excluded source {source_id} is not selected by profile collections"
+                )
+
+        for topic in sorted(set(boost_topics).intersection(exclude_topics)):
+            errors.append(f"{prefix}: topic {topic} cannot be both boosted and excluded")
+        for trait in sorted(set(boost_traits).intersection(exclude_traits)):
+            errors.append(f"{prefix}: trait {trait} cannot be both boosted and excluded")
+
+        candidate_records = [
+            source_records[source_id] for source_id in candidate_ids if source_id in source_records
+        ]
+        for topic in boost_topics:
+            matches = any(topic in source.get("topics", []) for source in candidate_records)
+            if topic in topics and not matches:
+                errors.append(f"{prefix}: boost topic {topic} matches no selected source")
+        for trait in boost_traits:
+            matches = any(trait in source.get("traits", []) for source in candidate_records)
+            if trait in traits and not matches:
+                errors.append(f"{prefix}: boost trait {trait} matches no selected source")
+        for topic in exclude_topics:
+            matches = any(topic in source.get("topics", []) for source in candidate_records)
+            if topic in topics and not matches:
+                errors.append(f"{prefix}: exclude topic {topic} matches no selected source")
+        for trait in exclude_traits:
+            matches = any(trait in source.get("traits", []) for source in candidate_records)
+            if trait in traits and not matches:
+                errors.append(f"{prefix}: exclude trait {trait} matches no selected source")
 
     return errors
 

@@ -1,13 +1,21 @@
-schema_version: 1
+schema_version: 2
 id: ai-engineer
 name: AI Engineer
+description: >-
+  AI and ML engineering sources spanning model research, LLM practice, infrastructure,
+  systems, and databases.
 collections:
-- ai
-- systems
-- databases
-boost_topics:
-- llm
-- machine-learning
-- agents
-exclude_traits: []
-recommended_daily_budget: 15
+  - ai
+  - systems
+  - databases
+boost:
+  topics:
+    - llm
+    - machine-learning
+  traits: []
+exclude:
+  topics: []
+  traits: []
+  sources: []
+budget:
+  recommended_daily_items: 15
