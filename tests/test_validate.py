@@ -161,7 +161,6 @@ def test_yaml_dates_remain_json_schema_strings(tmp_path: Path) -> None:
     assert data == {"reviewed_at": "2026-09-20", "active": True, "count": 2}
 
 
-
 def test_profile_v2_rejects_dead_boost_policy(tmp_path: Path) -> None:
     from shutil import copytree
 
