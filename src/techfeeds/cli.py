@@ -92,11 +92,11 @@ def stats(root: str = typer.Option(".", help="Registry root.")) -> None:
 def export_command(
     root: str = typer.Option(".", help="Registry root."),
     collection: str | None = typer.Option(None, "--collection", help="Collection ID to export."),
-    topic: list[str] = typer.Option(
-        [], "--topic", help="Require a topic; repeat the option for AND filtering."
+    topic: list[str] | None = typer.Option(
+        None, "--topic", help="Require a topic; repeat the option for AND filtering."
     ),
-    trait: list[str] = typer.Option(
-        [], "--trait", help="Require a trait; repeat the option for AND filtering."
+    trait: list[str] | None = typer.Option(
+        None, "--trait", help="Require a trait; repeat the option for AND filtering."
     ),
     language: str | None = typer.Option(None, "--language", help="Language code filter."),
     kind: str | None = typer.Option(None, "--kind", help="Source kind filter."),
@@ -112,8 +112,8 @@ def export_command(
         sources = select_sources(
             _root(root),
             collection_id=collection,
-            topics=tuple(topic),
-            traits=tuple(trait),
+            topics=tuple(topic or ()),
+            traits=tuple(trait or ()),
             language=language,
             kind=kind,
         )
