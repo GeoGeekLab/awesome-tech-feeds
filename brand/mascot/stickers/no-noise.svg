@@ -1,85 +1,89 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
-  <title id="title">Geo Gecko mascot</title>
-  <desc id="desc">A flat vector gecko holding a terminal, with a curled RSS signal tail.</desc>
-  <defs>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#010409" flood-opacity=".24"/>
-    </filter>
-    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#E6FFFA"/>
-      <stop offset="1" stop-color="#B7F7E4"/>
-    </linearGradient>
-    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#58A6FF"/>
-      <stop offset="1" stop-color="#2F81F7"/>
-    </linearGradient>
-  </defs>
+<title id="title">Geo Gecko mascot</title>
+<desc id="desc">A cute cartoon gecko with big sparkling eyes, tiny paws, a laptop, and an RSS-shaped tail.</desc>
+<defs>
+  <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+    <stop stop-color="#CFFCEB"/>
+    <stop offset="1" stop-color="#8DE6C7"/>
+  </linearGradient>
+  <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1">
+    <stop stop-color="#FFFDF3"/>
+    <stop offset="1" stop-color="#E8FFF6"/>
+  </linearGradient>
+  <linearGradient id="tail" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#79C0FF"/>
+    <stop offset="1" stop-color="#388BFD"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+    <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#0D1117" flood-opacity=".18"/>
+  </filter>
+</defs>
 
-  <g filter="url(#shadow)">
-    <!-- tail -->
-    <path d="M430 392c79 7 130-25 132-81 1-44-37-70-72-56-24 9-37 32-27 52 9 18 34 20 47 8"
-          fill="none" stroke="#0D1117" stroke-width="42" stroke-linecap="round"/>
-    <path d="M430 392c79 7 130-25 132-81 1-44-37-70-72-56-24 9-37 32-27 52 9 18 34 20 47 8"
-          fill="none" stroke="url(#signal)" stroke-width="26" stroke-linecap="round"/>
+<g filter="url(#shadow)">
+  <path d="M424 430c84 26 151 5 166-53 12-46-18-84-56-86-31-2-56 22-55 50 1 23 20 40 43 37"
+        fill="none" stroke="#17212B" stroke-width="46" stroke-linecap="round"/>
+  <path d="M424 430c84 26 151 5 166-53 12-46-18-84-56-86-31-2-56 22-55 50 1 23 20 40 43 37"
+        fill="none" stroke="url(#tail)" stroke-width="30" stroke-linecap="round"/>
 
-    <!-- legs -->
-    <path d="M216 430c-30 35-39 81-5 108 26 20 69 13 84-17"
-          fill="none" stroke="#0D1117" stroke-width="42" stroke-linecap="round"/>
-    <path d="M424 430c30 35 39 81 5 108-26 20-69 13-84-17"
-          fill="none" stroke="#0D1117" stroke-width="42" stroke-linecap="round"/>
-    <path d="M216 430c-30 35-39 81-5 108 26 20 69 13 84-17"
-          fill="none" stroke="#B7F7E4" stroke-width="24" stroke-linecap="round"/>
-    <path d="M424 430c30 35 39 81 5 108-26 20-69 13-84-17"
-          fill="none" stroke="#B7F7E4" stroke-width="24" stroke-linecap="round"/>
+  <ellipse cx="232" cy="536" rx="68" ry="35" fill="url(#body)" stroke="#17212B" stroke-width="12"/>
+  <ellipse cx="408" cy="536" rx="68" ry="35" fill="url(#body)" stroke="#17212B" stroke-width="12"/>
+  <circle cx="205" cy="538" r="7" fill="#FFF"/>
+  <circle cx="229" cy="547" r="7" fill="#FFF"/>
+  <circle cx="253" cy="538" r="7" fill="#FFF"/>
+  <circle cx="381" cy="538" r="7" fill="#FFF"/>
+  <circle cx="405" cy="547" r="7" fill="#FFF"/>
+  <circle cx="429" cy="538" r="7" fill="#FFF"/>
 
-    <!-- body -->
-    <path d="M205 280c-26 54-21 166 15 208 23 27 64 40 100 40s77-13 100-40c36-42 41-154 15-208-24-49-70-72-115-72s-91 23-115 72Z"
-          fill="url(#body)" stroke="#0D1117" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M228 338c-28 47-24 123 4 170 24 40 65 54 88 54s64-14 88-54c28-47 32-123 4-170-20-34-54-54-92-54s-72 20-92 54Z"
+        fill="url(#body)" stroke="#17212B" stroke-width="13"/>
+  <ellipse cx="320" cy="438" rx="63" ry="83" fill="url(#belly)" opacity=".96"/>
 
-    <!-- head silhouette -->
-    <path d="M157 195c0-80 64-132 163-132s163 52 163 132c0 71-65 111-163 111S157 266 157 195Z"
-          fill="url(#body)" stroke="#0D1117" stroke-width="14"/>
+  <path d="M237 399c-35 7-57 29-58 60" fill="none" stroke="#17212B" stroke-width="34" stroke-linecap="round"/>
+  <path d="M237 399c-35 7-57 29-58 60" fill="none" stroke="#9AEACF" stroke-width="20" stroke-linecap="round"/>
+  <path d="M403 399c35 7 57 29 58 60" fill="none" stroke="#17212B" stroke-width="34" stroke-linecap="round"/>
+  <path d="M403 399c35 7 57 29 58 60" fill="none" stroke="#9AEACF" stroke-width="20" stroke-linecap="round"/>
 
-    <!-- eye housings -->
-    <path d="M176 152c5-48 35-78 76-78 39 0 66 30 66 72 0 46-25 79-70 79-48 0-76-28-72-73Z"
-          fill="#F0F6FC" stroke="#0D1117" stroke-width="12"/>
-    <path d="M464 152c-5-48-35-78-76-78-39 0-66 30-66 72 0 46 25 79 70 79 48 0 76-28 72-73Z"
-          fill="#F0F6FC" stroke="#0D1117" stroke-width="12"/>
+  <path d="M126 219c0-111 82-177 194-177s194 66 194 177c0 103-77 157-194 157S126 322 126 219Z"
+        fill="url(#body)" stroke="#17212B" stroke-width="14"/>
 
-    <!-- pupils -->
-    <ellipse cx="250" cy="153" rx="29" ry="39" fill="#0D1117"/>
-    <ellipse cx="390" cy="153" rx="29" ry="39" fill="#0D1117"/>
-    <circle cx="238" cy="139" r="9" fill="#58A6FF"/>
-    <circle cx="378" cy="139" r="9" fill="#58A6FF"/>
-    <rect x="242" y="183" width="17" height="6" rx="3" fill="#39D353"/>
-    <rect x="382" y="183" width="17" height="6" rx="3" fill="#39D353"/>
+  <path d="M240 71l15-29 21 28M304 54l17-31 18 31M367 68l18-27 18 31"
+        fill="#9AEACF" stroke="#17212B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
 
-    <!-- face -->
-    <circle cx="300" cy="231" r="5" fill="#0D1117"/>
-    <circle cx="340" cy="231" r="5" fill="#0D1117"/>
-    <path d="M282 250c24 18 52 18 76 0" fill="none" stroke="#0D1117" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="239" cy="207" rx="66" ry="72" fill="#FFF" stroke="#17212B" stroke-width="11"/>
+  <ellipse cx="401" cy="207" rx="66" ry="72" fill="#FFF" stroke="#17212B" stroke-width="11"/>
+  <ellipse cx="251" cy="217" rx="36" ry="45" fill="#17212B"/>
+  <ellipse cx="389" cy="217" rx="36" ry="45" fill="#17212B"/>
+  <circle cx="237" cy="198" r="13" fill="#FFF"/>
+  <circle cx="375" cy="198" r="13" fill="#FFF"/>
+  <circle cx="264" cy="236" r="6" fill="#79C0FF"/>
+  <circle cx="402" cy="236" r="6" fill="#79C0FF"/>
 
-    <!-- arms -->
-    <path d="M210 329c-39 9-67 38-74 73" fill="none" stroke="#0D1117" stroke-width="36" stroke-linecap="round"/>
-    <path d="M430 329c39 9 67 38 74 73" fill="none" stroke="#0D1117" stroke-width="36" stroke-linecap="round"/>
-    <path d="M210 329c-39 9-67 38-74 73" fill="none" stroke="#B7F7E4" stroke-width="20" stroke-linecap="round"/>
-    <path d="M430 329c39 9 67 38 74 73" fill="none" stroke="#B7F7E4" stroke-width="20" stroke-linecap="round"/>
+  <path d="M205 139c22-11 45-12 66-4M369 135c21-8 44-7 66 4"
+        fill="none" stroke="#17212B" stroke-width="9" stroke-linecap="round"/>
 
-    <!-- terminal -->
-    <rect x="164" y="350" width="312" height="166" rx="22" fill="#0D1117" stroke="#30363D" stroke-width="8"/>
-    <rect x="164" y="350" width="312" height="38" rx="22" fill="#161B22"/>
-    <circle cx="190" cy="369" r="7" fill="#FF7B72"/>
-    <circle cx="214" cy="369" r="7" fill="#D29922"/>
-    <circle cx="238" cy="369" r="7" fill="#3FB950"/>
-    <path d="M211 431l28 20-28 20" fill="none" stroke="#39D353" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M258 471h80" fill="none" stroke="#58A6FF" stroke-width="12" stroke-linecap="round"/>
-    <path d="M355 430h68M355 453h46" fill="none" stroke="#8B949E" stroke-width="9" stroke-linecap="round"/>
-  </g>
+  <ellipse cx="183" cy="282" rx="31" ry="17" fill="#FFB3C1" opacity=".75"/>
+  <ellipse cx="457" cy="282" rx="31" ry="17" fill="#FFB3C1" opacity=".75"/>
 
-  <!-- RSS spark -->
-  <g transform="translate(500 252)" fill="none" stroke="#58A6FF" stroke-width="12" stroke-linecap="round">
-    <circle cx="0" cy="56" r="7" fill="#58A6FF" stroke="none"/>
-    <path d="M0 31a25 25 0 0 1 25 25"/>
-    <path d="M0 2a54 54 0 0 1 54 54"/>
-  </g>
+  <circle cx="170" cy="242" r="7" fill="#65C6A8"/>
+  <circle cx="190" cy="230" r="5" fill="#65C6A8"/>
+  <circle cx="470" cy="242" r="7" fill="#65C6A8"/>
+  <circle cx="450" cy="230" r="5" fill="#65C6A8"/>
+
+  <circle cx="305" cy="275" r="5" fill="#17212B"/>
+  <circle cx="335" cy="275" r="5" fill="#17212B"/>
+  <path d="M287 294c11 17 22 25 33 25s22-8 33-25" fill="#FF8FA3" stroke="#17212B" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M307 311c7 4 19 4 26 0" fill="none" stroke="#FFF" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="225" y="423" width="190" height="112" rx="16" fill="#24292F" stroke="#17212B" stroke-width="9"/>
+  <rect x="210" y="524" width="220" height="22" rx="11" fill="#57606A" stroke="#17212B" stroke-width="7"/>
+  <circle cx="320" cy="479" r="24" fill="#0D1117"/>
+  <path d="M307 481c8-11 18-16 30-15M310 492c7-6 14-9 23-9" fill="none" stroke="#58A6FF" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="303" cy="494" r="4" fill="#58A6FF"/>
+</g>
+
+<g transform="translate(505 304)" fill="none" stroke="#58A6FF" stroke-width="10" stroke-linecap="round">
+  <circle cx="0" cy="43" r="6" fill="#58A6FF" stroke="none"/>
+  <path d="M0 23a20 20 0 0 1 20 20"/>
+  <path d="M0 1a42 42 0 0 1 42 42"/>
+</g>
 <g transform="translate(392 110)"><circle r="47" fill="#FFFFFF" stroke="#EF4444" stroke-width="10"/><path d="M-31 -31 L31 31" stroke="#EF4444" stroke-width="12" stroke-linecap="round"/><path d="M-18 0 C-5 -18 5 18 18 0" fill="none" stroke="#0F172A" stroke-width="8"/></g></svg>
