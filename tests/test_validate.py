@@ -150,7 +150,6 @@ def test_versioned_source_schemas_are_published() -> None:
     assert latest == v2
 
 
-
 def test_yaml_dates_remain_json_schema_strings(tmp_path: Path) -> None:
     target = tmp_path / "date.yaml"
     target.write_text(
