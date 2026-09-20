@@ -27,14 +27,14 @@ body:
     id: durable-signal
     attributes:
       label: Why is this source durable signal?
-      description: Explain the recurring value across multiple posts, not one viral article.
+      description: Explain the recurring value across multiple posts, what coverage it adds, and why it belongs in the registry.
     validations:
       required: true
   - type: textarea
     id: examples
     attributes:
       label: Representative posts
-      description: Provide 2–4 URLs that show the source's typical quality and scope.
+      description: Provide 2–4 first-party URLs that support identity, authorship, scope, or representative technical work.
     validations:
       required: true
   - type: textarea

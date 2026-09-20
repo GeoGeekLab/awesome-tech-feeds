@@ -4,7 +4,7 @@
 
 **The web has enough feeds. The scarce resource is attention.**
 
-Human-curated, machine-readable, continuously verified feeds for high-signal technical writing.
+Human-curated, machine-readable, continuously verified feeds for high-signal technical writing — with auditable curation and provenance.
 
 [![CI](https://github.com/GeoGeekLab/awesome-tech-feeds/actions/workflows/ci.yml/badge.svg)](https://github.com/GeoGeekLab/awesome-tech-feeds/actions/workflows/ci.yml)
 [![Feed Health](https://github.com/GeoGeekLab/awesome-tech-feeds/actions/workflows/feed-health.yml/badge.svg)](https://github.com/GeoGeekLab/awesome-tech-feeds/actions/workflows/feed-health.yml)
@@ -38,7 +38,9 @@ human curation
       │
       ├── feeds[] ───────── transport endpoints
       ├── topics[] ──────── controlled taxonomy
-      └── traits[] ──────── descriptive properties
+      ├── traits[] ──────── descriptive properties
+      ├── curation ───────── rationale + review lifecycle
+      └── provenance ─────── identity/feed evidence
       │
       ▼
  collections/ ───────────── editorial bundles
@@ -157,12 +159,13 @@ recommended_daily_budget: 15
 Each source has a permanent ID independent of its current domain or feed URL.
 
 ```yaml
-schema_version: 1
+schema_version: 2
 id: simon-willison
-name: Simon Willison's Weblog
+name: "Simon Willison’s Weblog"
 kind: individual
 language: en
 website: https://simonwillison.net/
+description: "Independent technical writing covering AI, LLMs, Python, databases, and the web."
 feeds:
   - url: https://simonwillison.net/atom/everything/
     format: atom
@@ -180,10 +183,25 @@ traits:
   - deep-dive
   - independent
   - high-frequency
+curation:
+  rationale: "Admitted for recurring practitioner writing with reproducible technical detail."
+  admission_basis:
+    - independent-practitioner
+  reviewer: GeoGeekLab
+  reviewed_at: 2026-09-20
+  review_after: 2026-12-19
+provenance:
+  added_by: GeoGeekLab
+  added_at: 2026-09-20
+  evidence:
+    - type: identity
+      url: https://simonwillison.net/
+    - type: feed
+      url: https://simonwillison.net/atom/everything/
 status: active
 ```
 
-`id` is identity. URL is location.
+`id` is identity. URL is location. `curation` explains why the source belongs; `provenance` records the evidence for identity and transport.
 
 If a domain changes, the ID stays stable. If a source is retired, the historical record can remain and point to a replacement.
 
@@ -209,6 +227,8 @@ Validation checks:
 - stable ID and filename agreement;
 - controlled topics, traits, and languages;
 - exactly one primary feed for every active source;
+- source curation rationale and review-window chronology;
+- provenance coverage for canonical identity and primary feed;
 - duplicate feed and website URLs;
 - collection references;
 - collection size budgets and required selection rationales;
@@ -218,6 +238,15 @@ Validation checks:
 A pull request should fail because the registry is inconsistent, not because a third-party website had a bad minute.
 
 Network health is checked separately.
+
+Editorial review scheduling is also queryable without making CI depend on wall-clock time:
+
+```bash
+techfeeds reviews --as-of 2026-12-19
+techfeeds reviews --as-of 2026-12-01 --within-days 30
+```
+
+The current full registry is contract v2; collection and profile component schemas remain v1. See [`docs/registry.md`](docs/registry.md) and the [v1→v2 migration guide](docs/migrations/source-v1-to-v2.md).
 
 ## Health is operational evidence, not editorial judgment
 

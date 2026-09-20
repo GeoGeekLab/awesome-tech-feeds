@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Annotated
 
@@ -154,6 +155,51 @@ def export_command(
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(content, encoding="utf-8")
     console.print(f"[green]exported[/green] {len(sources)} sources to {target}")
+
+
+@app.command()
+def reviews(
+    root: str = typer.Option(".", help="Registry root."),
+    as_of: str = typer.Option(..., "--as-of", help="Review date in YYYY-MM-DD form."),
+    within_days: int = typer.Option(
+        0,
+        "--within-days",
+        min=0,
+        max=366,
+        help="Also include reviews due within this many days after --as-of.",
+    ),
+) -> None:
+    """List active sources whose editorial review is due by a deterministic date."""
+    try:
+        as_of_date = date.fromisoformat(as_of)
+    except ValueError as exc:
+        console.print(f"[red]ERROR[/red] invalid --as-of date: {as_of}")
+        raise typer.Exit(2) from exc
+
+    cutoff = as_of_date + timedelta(days=within_days)
+    payload = compile_registry(_root(root), write=False)
+    due = []
+    for source in payload["sources"]:
+        if source["status"] != "active":
+            continue
+        review_after = date.fromisoformat(source["curation"]["review_after"])
+        if review_after <= cutoff:
+            due.append(source)
+
+    if not due:
+        console.print("[green]no reviews due[/green]")
+        return
+
+    table = Table("source", "reviewer", "reviewed", "review after")
+    for source in due:
+        curation = source["curation"]
+        table.add_row(
+            str(source["id"]),
+            str(curation["reviewer"]),
+            str(curation["reviewed_at"]),
+            str(curation["review_after"]),
+        )
+    console.print(table)
 
 
 @app.command()

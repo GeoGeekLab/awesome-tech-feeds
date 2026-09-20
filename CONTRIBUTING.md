@@ -21,12 +21,13 @@ Popularity is not an admission criterion.
 Create one YAML file under the appropriate `sources/` directory. The filename must equal `id`.
 
 ```yaml
-schema_version: 1
+schema_version: 2
 id: example-engineering
 name: Example Engineering
 kind: company
 language: en
 website: https://example.com/engineering/
+description: First-party engineering writing about distributed systems and production practice.
 feeds:
   - url: https://example.com/engineering/feed.xml
     format: atom
@@ -38,8 +39,25 @@ traits:
   - first-party
   - company-engineering
   - practitioner
+curation:
+  rationale: Explain the recurring technical value and what coverage this source adds.
+  admission_basis:
+    - first-party-engineering
+  reviewer: maintainer-name
+  reviewed_at: YYYY-MM-DD
+  review_after: YYYY-MM-DD
+provenance:
+  added_by: contributor-or-maintainer
+  added_at: YYYY-MM-DD
+  evidence:
+    - type: identity
+      url: https://example.com/engineering/
+    - type: feed
+      url: https://example.com/engineering/feed.xml
 status: active
 ```
+
+The source-level `curation.rationale` must explain durable registry admission, not merely repeat topics. `provenance.evidence` must include the canonical website as `identity` and the current primary endpoint as `feed`. Maintainers set or confirm review dates; review intervals must be 30–366 days.
 
 If the source belongs in an existing collection, update that collection in the same pull request.
 
@@ -74,6 +92,8 @@ pytest
 Never hand-edit generated JSON, OPML, or the generated catalog. Change registry inputs and run `techfeeds compile`.
 
 `generated/health.json` is dynamic probe output and is intentionally not committed.
+
+For source-schema compatibility and migration rules, see [`docs/migrations/source-v1-to-v2.md`](docs/migrations/source-v1-to-v2.md).
 
 ## Taxonomy changes
 

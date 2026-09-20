@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.0 - 2026-09-20
+
+Registry Contract 2.0.
+
+- Migrated all 50 source records to source schema v2.
+- Made source descriptions, admission rationales, admission basis, reviewer, and review dates mandatory.
+- Added structured provenance evidence with deterministic canonical-website and primary-feed checks.
+- Added deterministic review chronology rules and a `techfeeds reviews --as-of` workflow.
+- Published immutable source schema snapshots for v1 and v2 plus a latest-schema alias.
+- Bumped the compiled registry contract to v2 with explicit component schema versions.
+- Added a formal v1→v2 migration and compatibility policy.
+
 ## 0.2.0 - 2026-09-20
 
 Curation and consumption contracts.

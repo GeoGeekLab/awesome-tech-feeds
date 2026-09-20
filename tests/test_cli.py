@@ -135,3 +135,21 @@ def test_export_writes_opml_file(tmp_path: Path) -> None:
     content = output.read_text(encoding="utf-8")
     assert "<opml" in content
     assert 'techFeedsId="troy-hunt"' in content
+
+
+
+def test_reviews_command_uses_explicit_as_of_date() -> None:
+    result = RUNNER.invoke(app, ["reviews", "--root", str(ROOT), "--as-of", "2026-12-18"])
+    assert result.exit_code == 0
+    assert "no reviews due" in result.stdout
+
+    result = RUNNER.invoke(app, ["reviews", "--root", str(ROOT), "--as-of", "2026-12-19"])
+    assert result.exit_code == 0
+    assert "simon-willison" in result.stdout
+    assert "2026-12-19" in result.stdout
+
+
+def test_reviews_command_rejects_invalid_date() -> None:
+    result = RUNNER.invoke(app, ["reviews", "--root", str(ROOT), "--as-of", "not-a-date"])
+    assert result.exit_code == 2
+    assert "invalid --as-of date" in result.stdout

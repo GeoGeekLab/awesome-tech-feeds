@@ -23,6 +23,21 @@ A source should demonstrate recurring value across multiple publications. Review
 
 Popularity, employer prestige, posting frequency, and temporary feed health are not admission criteria.
 
+Every source now records this decision in `curation.rationale`, together with a schema-defined `admission_basis`, reviewer, and review window. The rationale is an auditable explanation, not a score.
+
+## Source review lifecycle
+
+A source review confirms that identity, scope, rationale, taxonomy, and provenance are still accurate. v2 source records contain `reviewed_at` and `review_after`. The next-review window must be between 30 and 366 days.
+
+CI validates chronology but does not depend on the current date. Maintainers can query review work with:
+
+```bash
+techfeeds reviews --as-of 2026-12-19
+techfeeds reviews --as-of 2026-12-01 --within-days 30
+```
+
+Reviewing a source does not require changing its feed URL or collection membership. Update only assertions that have actually changed.
+
 ## Collection policy
 
 Collections may declare deterministic policy in their YAML record.
@@ -49,4 +64,6 @@ When changing `essential`:
 
 ## Review evidence
 
-Editorial rationale belongs in review discussion and, for collections that require it, in `selection_rationale`. Network evidence belongs in the health probe. Machine validation checks consistency; maintainers retain the final editorial decision.
+Source-level admission rationale belongs in `curation.rationale`. Collection-specific rationale belongs in `selection_rationale`. Identity and transport provenance belong in `provenance.evidence`. Network reachability belongs in the health probe.
+
+These evidence classes must remain separate. Machine validation checks consistency; maintainers retain the final editorial decision.
