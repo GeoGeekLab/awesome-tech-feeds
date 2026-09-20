@@ -189,7 +189,6 @@ def test_serialized_query_contracts_validate_against_published_schemas() -> None
     Draft202012Validator(error_schema).validate(captured.value.to_dict())
 
 
-
 def test_profile_v2_resolution_is_explainable_and_budget_does_not_truncate() -> None:
     registry = Registry.from_file(REGISTRY_PATH)
     result = registry.resolve_profile("founder")
@@ -227,9 +226,7 @@ def test_unknown_profile_is_machine_readable() -> None:
 
 
 def test_profile_result_matches_published_schema() -> None:
-    schema = json.loads(
-        (ROOT / "schema/profile-result.v1.schema.json").read_text(encoding="utf-8")
-    )
+    schema = json.loads((ROOT / "schema/profile-result.v1.schema.json").read_text(encoding="utf-8"))
     registry = Registry.from_file(REGISTRY_PATH)
     result = registry.resolve_profile("developer")
     Draft202012Validator(schema).validate(result.to_dict())
