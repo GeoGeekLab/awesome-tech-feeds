@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="brand/mascot/hero.svg" alt="Awesome Tech Feeds with the cute cartoon Geo Gecko mascot" width="900">
-
 # Awesome Tech Feeds
 
 **RSS, but treated like infrastructure.**
@@ -16,6 +14,9 @@ A Git-native registry of technical RSS/Atom feeds with stable IDs, curated colle
 [![Data License](https://img.shields.io/badge/data-CC%20BY--SA%204.0-0969DA?style=flat-square)](DATA-LICENSE.md)
 
 [Catalog](generated/catalog.md) · [Registry JSON](generated/registry.json) · [Essential OPML](generated/essential.opml) · [SDK](docs/consumer-sdk.md) · [Curation](docs/curation.md) · [Contributing](CONTRIBUTING.md)
+
+<img src="brand/mascot/core.svg" alt="Geo Gecko, the Awesome Tech Feeds mascot" width="400">
+<sub><strong>Geo Gecko</strong> · git pull && read better feeds.</sub>
 
 </div>
 
