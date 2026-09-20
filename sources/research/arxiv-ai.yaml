@@ -21,12 +21,12 @@ curation:
   rationale: "Admitted as a primary high-frequency research stream for computer-science AI, giving consumers direct access to new papers without an editorial intermediary."
   admission_basis:
     - primary-research
-  reviewer: GeoGeekLab
-  reviewed_at: 2026-09-20
-  review_after: 2026-12-19
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
 provenance:
-  added_by: GeoGeekLab
-  added_at: 2026-09-20
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
   evidence:
     - type: identity
       url: https://arxiv.org/list/cs.AI/recent

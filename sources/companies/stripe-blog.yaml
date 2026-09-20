@@ -23,12 +23,12 @@ curation:
   rationale: "Admitted for first-party engineering and technical analysis spanning APIs, infrastructure, programming, product systems, reliability, and developer experience."
   admission_basis:
     - first-party-engineering
-  reviewer: GeoGeekLab
-  reviewed_at: 2026-09-20
-  review_after: 2026-12-19
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
 provenance:
-  added_by: GeoGeekLab
-  added_at: 2026-09-20
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
   evidence:
     - type: identity
       url: https://stripe.com/blog

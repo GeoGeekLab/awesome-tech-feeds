@@ -22,12 +22,12 @@ curation:
   rationale: "Admitted for independent deep writing on JavaScript, web development, programming abstractions, and software reasoning rather than high-frequency news coverage."
   admission_basis:
     - independent-analysis
-  reviewer: GeoGeekLab
-  reviewed_at: 2026-09-20
-  review_after: 2026-12-19
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
 provenance:
-  added_by: GeoGeekLab
-  added_at: 2026-09-20
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
   evidence:
     - type: identity
       url: https://overreacted.io/

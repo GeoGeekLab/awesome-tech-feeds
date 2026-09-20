@@ -24,12 +24,12 @@ curation:
   rationale: "Admitted as the registry's Chinese-language independent technical source, covering programming, web development, AI, and developer tools with sustained explanatory writing."
   admission_basis:
     - independent-analysis
-  reviewer: GeoGeekLab
-  reviewed_at: 2026-09-20
-  review_after: 2026-12-19
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
 provenance:
-  added_by: GeoGeekLab
-  added_at: 2026-09-20
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
   evidence:
     - type: identity
       url: https://www.ruanyifeng.com/blog/

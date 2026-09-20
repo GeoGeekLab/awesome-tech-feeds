@@ -22,12 +22,12 @@ curation:
   rationale: "Admitted as the official IPFS project source for distributed-systems, networking, open-source engineering, releases, and implementation updates."
   admission_basis:
     - official-project
-  reviewer: GeoGeekLab
-  reviewed_at: 2026-09-20
-  review_after: 2026-12-19
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
 provenance:
-  added_by: GeoGeekLab
-  added_at: 2026-09-20
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
   evidence:
     - type: identity
       url: https://blog.ipfs.tech/

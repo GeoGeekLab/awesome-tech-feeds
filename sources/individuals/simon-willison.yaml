@@ -26,12 +26,12 @@ curation:
   rationale: "Admitted for high-frequency independent practitioner writing connecting AI, language models, Python, databases, and the web with reproducible technical detail."
   admission_basis:
     - independent-practitioner
-  reviewer: GeoGeekLab
-  reviewed_at: 2026-09-20
-  review_after: 2026-12-19
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
 provenance:
-  added_by: GeoGeekLab
-  added_at: 2026-09-20
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
   evidence:
     - type: identity
       url: https://simonwillison.net/

@@ -22,12 +22,12 @@ curation:
   rationale: "Admitted for deep first-party production engineering on distributed systems, infrastructure, and web systems supporting large-scale collaboration workloads."
   admission_basis:
     - first-party-engineering
-  reviewer: GeoGeekLab
-  reviewed_at: 2026-09-20
-  review_after: 2026-12-19
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
 provenance:
-  added_by: GeoGeekLab
-  added_at: 2026-09-20
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
   evidence:
     - type: identity
       url: https://slack.engineering/
