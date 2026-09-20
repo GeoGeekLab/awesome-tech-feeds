@@ -137,7 +137,6 @@ def test_export_writes_opml_file(tmp_path: Path) -> None:
     assert 'techFeedsId="troy-hunt"' in content
 
 
-
 def test_reviews_command_uses_explicit_as_of_date() -> None:
     result = RUNNER.invoke(app, ["reviews", "--root", str(ROOT), "--as-of", "2026-12-18"])
     assert result.exit_code == 0
