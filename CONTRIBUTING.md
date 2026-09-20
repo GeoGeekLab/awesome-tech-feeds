@@ -43,6 +43,16 @@ status: active
 
 If the source belongs in an existing collection, update that collection in the same pull request.
 
+## Collection changes
+
+Collections are editorial products with explicit attention budgets, not arbitrary tags.
+
+When a collection declares `policy.max_sources`, a change that exceeds the cap is invalid. When `policy.require_rationale: true`, every member must have a non-empty entry in `selection_rationale`, and rationales may only reference members of that collection.
+
+For `essential`, preserve cross-discipline breadth and low redundancy. Adding an excellent source is not sufficient reason to expand the starter set; a replacement may be more appropriate.
+
+See [`docs/curation.md`](docs/curation.md) for the review contract.
+
 ## Validate locally
 
 Requires Python 3.12 or newer.

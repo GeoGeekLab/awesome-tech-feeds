@@ -15,3 +15,4 @@
 - [ ] `techfeeds compile --check`
 - [ ] `pytest`
 - [ ] Generated files were produced by `techfeeds compile`, not edited by hand.
+- [ ] If a capped/rationale-required collection changed, its policy and `selection_rationale` remain satisfied.

@@ -14,7 +14,7 @@ RUNNER = CliRunner()
 def test_version() -> None:
     result = RUNNER.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "0.1.0" in result.stdout
+    assert "0.2.0" in result.stdout
 
 
 def test_validate_compile_check_and_stats() -> None:
