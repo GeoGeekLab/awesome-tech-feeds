@@ -413,10 +413,7 @@ class Registry:
             str(item["id"]): tuple(str(source_id) for source_id in item["sources"])
             for item in collection_values
         }
-        self._profiles = {
-            str(item["id"]): ProfileRecord(item)
-            for item in profile_values
-        }
+        self._profiles = {str(item["id"]): ProfileRecord(item) for item in profile_values}
 
     @property
     def schema_version(self) -> int:
@@ -610,9 +607,7 @@ class Registry:
             registry_schema_version=self._registry_schema_version,
             component_schema_versions=self._component_schema_versions,
             budget={
-                "recommended_daily_items": int(
-                    profile_data["budget"]["recommended_daily_items"]
-                )
+                "recommended_daily_items": int(profile_data["budget"]["recommended_daily_items"])
             },
             candidate_count=candidate_count,
             excluded_count=excluded_count,
@@ -676,7 +671,6 @@ def _query_title(query: Query) -> str:
     if query.collection is not None:
         return f"Awesome Tech Feeds — {query.collection}"
     return "Awesome Tech Feeds — Query"
-
 
 
 def _sources_to_opml(title: str, sources: tuple[SourceRecord, ...]) -> str:
