@@ -165,11 +165,8 @@ def test_registry_from_url_uses_downloaded_bytes(monkeypatch: pytest.MonkeyPatch
     assert registry.get("simon-willison") is not None
 
 
-
 def test_serialized_query_contracts_validate_against_published_schemas() -> None:
-    query_schema = json.loads(
-        (ROOT / "schema/query.v1.schema.json").read_text(encoding="utf-8")
-    )
+    query_schema = json.loads((ROOT / "schema/query.v1.schema.json").read_text(encoding="utf-8"))
     result_schema = json.loads(
         (ROOT / "schema/query-result.v1.schema.json").read_text(encoding="utf-8")
     )
