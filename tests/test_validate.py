@@ -5,6 +5,7 @@ from pathlib import Path
 
 import yaml
 
+from techfeeds.io import load_yaml
 from techfeeds.validate import validate_registry
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -147,3 +148,15 @@ def test_versioned_source_schemas_are_published() -> None:
     latest.pop("$id")
     v2.pop("$id")
     assert latest == v2
+
+
+
+def test_yaml_dates_remain_json_schema_strings(tmp_path: Path) -> None:
+    target = tmp_path / "date.yaml"
+    target.write_text(
+        "reviewed_at: 2026-09-20\nactive: true\ncount: 2\n",
+        encoding="utf-8",
+    )
+
+    data = load_yaml(target)
+    assert data == {"reviewed_at": "2026-09-20", "active": True, "count": 2}
