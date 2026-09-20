@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 from pathlib import Path
+from typing import Annotated
 
 import typer
 from rich.console import Console
@@ -92,12 +93,14 @@ def stats(root: str = typer.Option(".", help="Registry root.")) -> None:
 def export_command(
     root: str = typer.Option(".", help="Registry root."),
     collection: str | None = typer.Option(None, "--collection", help="Collection ID to export."),
-    topic: list[str] | None = typer.Option(
-        None, "--topic", help="Require a topic; repeat the option for AND filtering."
-    ),
-    trait: list[str] | None = typer.Option(
-        None, "--trait", help="Require a trait; repeat the option for AND filtering."
-    ),
+    topic: Annotated[
+        list[str] | None,
+        typer.Option("--topic", help="Require a topic; repeat for AND filtering."),
+    ] = None,
+    trait: Annotated[
+        list[str] | None,
+        typer.Option("--trait", help="Require a trait; repeat for AND filtering."),
+    ] = None,
     language: str | None = typer.Option(None, "--language", help="Language code filter."),
     kind: str | None = typer.Option(None, "--kind", help="Source kind filter."),
     format: str = typer.Option("opml", "--format", help="Output format: opml or json."),
