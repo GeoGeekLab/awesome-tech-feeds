@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/profile-result.v1.schema.json",
+  "title": "Awesome Tech Feeds Profile Result Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "registry_schema_version",
+    "component_schema_versions",
+    "profile",
+    "budget",
+    "resolution",
+    "count",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "registry_schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "component_schema_versions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "schema_version",
+        "id",
+        "name",
+        "description"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 2
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recommended_daily_items"
+      ],
+      "properties": {
+        "recommended_daily_items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_count",
+        "excluded_count",
+        "selected_count",
+        "ordering",
+        "exclude_precedence"
+      ],
+      "properties": {
+        "candidate_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "excluded_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selected_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ordering": {
+          "const": "boost-score-desc-then-first-appearance"
+        },
+        "exclude_precedence": {
+          "const": "exclude-before-boost"
+        }
+      }
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "priority_score",
+          "matched_boost_topics",
+          "matched_boost_traits",
+          "source"
+        ],
+        "properties": {
+          "priority_score": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "matched_boost_topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "matched_boost_traits": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source": {
+            "type": "object",
+            "required": [
+              "schema_version",
+              "id",
+              "name",
+              "status"
+            ],
+            "properties": {
+              "schema_version": {
+                "const": 2
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "active",
+                  "retired"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

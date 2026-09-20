@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="2.0">
+  <head>
+    <title>Awesome Tech Feeds — Profile: AI Engineer</title>
+  </head>
+  <body>
+    <outline type="rss" text="Hugging Face Blog" title="Hugging Face Blog" xmlUrl="https://huggingface.co/blog/feed.xml" htmlUrl="https://huggingface.co/blog" techFeedsId="hugging-face" />
+    <outline type="rss" text="Simon Willison’s Weblog" title="Simon Willison’s Weblog" xmlUrl="https://simonwillison.net/atom/everything/" htmlUrl="https://simonwillison.net/" techFeedsId="simon-willison" />
+    <outline type="rss" text="swyx" title="swyx" xmlUrl="https://www.swyx.io/rss.xml" htmlUrl="https://www.swyx.io/" techFeedsId="swyx" />
+    <outline type="rss" text="OpenAI News" title="OpenAI News" xmlUrl="https://openai.com/news/rss.xml" htmlUrl="https://openai.com/news/" techFeedsId="openai-news" />
+    <outline type="rss" text="Anthropic" title="Anthropic" xmlUrl="https://www.anthropic.com/rss.xml" htmlUrl="https://www.anthropic.com/research" techFeedsId="anthropic" />
+    <outline type="rss" text="Google DeepMind" title="Google DeepMind" xmlUrl="https://deepmind.google/blog/rss.xml" htmlUrl="https://deepmind.google/discover/blog/" techFeedsId="google-deepmind" />
+    <outline type="rss" text="Berkeley Artificial Intelligence Research Blog" title="Berkeley Artificial Intelligence Research Blog" xmlUrl="https://bair.berkeley.edu/blog/feed.xml" htmlUrl="https://bair.berkeley.edu/blog/" techFeedsId="bair" />
+    <outline type="rss" text="arXiv cs.LG" title="arXiv cs.LG" xmlUrl="https://rss.arxiv.org/rss/cs.LG" htmlUrl="https://arxiv.org/list/cs.LG/recent" techFeedsId="arxiv-lg" />
+    <outline type="rss" text="arXiv cs.AI" title="arXiv cs.AI" xmlUrl="https://rss.arxiv.org/rss/cs.AI" htmlUrl="https://arxiv.org/list/cs.AI/recent" techFeedsId="arxiv-ai" />
+    <outline type="rss" text="Hacker News" title="Hacker News" xmlUrl="https://hnrss.org/frontpage" htmlUrl="https://news.ycombinator.com/" techFeedsId="hacker-news" />
+    <outline type="rss" text="Cloudflare Blog" title="Cloudflare Blog" xmlUrl="https://blog.cloudflare.com/rss/" htmlUrl="https://blog.cloudflare.com/" techFeedsId="cloudflare" />
+    <outline type="rss" text="Netflix TechBlog" title="Netflix TechBlog" xmlUrl="https://netflixtechblog.com/feed" htmlUrl="https://netflixtechblog.com/" techFeedsId="netflix-techblog" />
+    <outline type="rss" text="Uber Engineering" title="Uber Engineering" xmlUrl="https://www.uber.com/blog/engineering/rss/" htmlUrl="https://www.uber.com/blog/engineering/" techFeedsId="uber-engineering" />
+    <outline type="rss" text="Slack Engineering" title="Slack Engineering" xmlUrl="https://slack.engineering/feed/" htmlUrl="https://slack.engineering/" techFeedsId="slack-engineering" />
+    <outline type="rss" text="Discord Blog" title="Discord Blog" xmlUrl="https://discord.com/blog/rss.xml" htmlUrl="https://discord.com/blog/" techFeedsId="discord-engineering" />
+    <outline type="rss" text="Dropbox Tech" title="Dropbox Tech" xmlUrl="https://dropbox.tech/feed" htmlUrl="https://dropbox.tech/" techFeedsId="dropbox-tech" />
+    <outline type="rss" text="Fly.io Blog" title="Fly.io Blog" xmlUrl="https://fly.io/blog/feed.xml" htmlUrl="https://fly.io/blog/" techFeedsId="fly-io" />
+    <outline type="rss" text="Oxide Computer Company" title="Oxide Computer Company" xmlUrl="https://oxide.computer/blog/rss.xml" htmlUrl="https://oxide.computer/blog" techFeedsId="oxide-computer" />
+    <outline type="rss" text="Tailscale Blog" title="Tailscale Blog" xmlUrl="https://tailscale.com/blog/index.xml" htmlUrl="https://tailscale.com/blog/" techFeedsId="tailscale" />
+    <outline type="rss" text="Brendan Gregg" title="Brendan Gregg" xmlUrl="https://www.brendangregg.com/blog/rss.xml" htmlUrl="https://www.brendangregg.com/blog/" techFeedsId="brendan-gregg" />
+    <outline type="rss" text="antirez" title="antirez" xmlUrl="https://antirez.com/rss" htmlUrl="https://antirez.com/" techFeedsId="antirez" />
+    <outline type="rss" text="jOOQ Blog" title="jOOQ Blog" xmlUrl="https://blog.jooq.org/feed/" htmlUrl="https://blog.jooq.org/" techFeedsId="jooq-blog" />
+  </body>
+</opml>

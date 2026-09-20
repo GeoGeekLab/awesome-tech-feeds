@@ -1,12 +1,21 @@
-schema_version: 1
+schema_version: 2
 id: developer
 name: Developer
+description: >-
+  Broad software-development coverage emphasizing programming practice, developer tools,
+  systems, and durable engineering sources.
 collections:
-- essential
-- programming-languages
-- systems
-boost_topics:
-- programming
-- devtools
-exclude_traits: []
-recommended_daily_budget: 15
+  - essential
+  - programming-languages
+  - systems
+boost:
+  topics:
+    - programming
+    - devtools
+  traits: []
+exclude:
+  topics: []
+  traits: []
+  sources: []
+budget:
+  recommended_daily_items: 15

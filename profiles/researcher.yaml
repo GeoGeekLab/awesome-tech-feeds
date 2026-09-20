@@ -1,11 +1,20 @@
-schema_version: 1
+schema_version: 2
 id: researcher
 name: Researcher
+description: >-
+  Research-focused AI and machine-learning sources emphasizing primary research and
+  technical research explanations over community aggregation.
 collections:
-- ai
-boost_topics:
-- research
-- machine-learning
-exclude_traits:
-- community
-recommended_daily_budget: 12
+  - ai
+boost:
+  topics:
+    - research
+    - machine-learning
+  traits: []
+exclude:
+  topics: []
+  traits:
+    - community
+  sources: []
+budget:
+  recommended_daily_items: 12

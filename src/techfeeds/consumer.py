@@ -15,8 +15,10 @@ import httpx
 QUERY_SCHEMA_VERSION = 1
 QUERY_RESULT_SCHEMA_VERSION = 1
 QUERY_ERROR_SCHEMA_VERSION = 1
+PROFILE_RESULT_SCHEMA_VERSION = 1
 SUPPORTED_REGISTRY_SCHEMA_VERSION = 2
 SUPPORTED_SOURCE_SCHEMA_VERSION = 2
+SUPPORTED_PROFILE_SCHEMA_VERSION = 2
 DEFAULT_REGISTRY_URL = (
     "https://github.com/GeoGeekLab/awesome-tech-feeds/releases/latest/download/registry.json"
 )
@@ -251,29 +253,103 @@ class QueryResult:
 
     def to_opml(self, *, title: str | None = None) -> str:
         document_title = title or _query_title(self.query)
-        opml = Element("opml", {"version": "2.0"})
-        head = SubElement(opml, "head")
-        SubElement(head, "title").text = document_title
-        body = SubElement(opml, "body")
-        for source in self.sources:
-            data = source.to_dict()
-            feed = next(item for item in data["feeds"] if item["role"] == "primary")
-            SubElement(
-                body,
-                "outline",
-                {
-                    "type": "rss",
-                    "text": str(data["name"]),
-                    "title": str(data["name"]),
-                    "xmlUrl": str(feed["url"]),
-                    "htmlUrl": str(data["website"]),
-                    "techFeedsId": str(data["id"]),
-                },
-            )
-        indent(opml, space="  ")
-        buffer = BytesIO()
-        ElementTree(opml).write(buffer, encoding="utf-8", xml_declaration=True)
-        return buffer.getvalue().decode("utf-8")
+        return _sources_to_opml(document_title, self.sources)
+
+
+class ProfileRecord(Mapping[str, Any]):
+    """Read-only mapping wrapper around one profile policy."""
+
+    __slots__ = ("_data",)
+
+    def __init__(self, data: Mapping[str, Any]) -> None:
+        self._data = deepcopy(dict(data))
+
+    @property
+    def id(self) -> str:
+        return str(self._data["id"])
+
+    @property
+    def name(self) -> str:
+        return str(self._data["name"])
+
+    @property
+    def description(self) -> str:
+        return str(self._data["description"])
+
+    def to_dict(self) -> dict[str, Any]:
+        return deepcopy(self._data)
+
+    def __getitem__(self, key: str) -> Any:
+        return deepcopy(self._data[key])
+
+    def __iter__(self) -> Iterator[str]:
+        return iter(self._data)
+
+    def __len__(self) -> int:
+        return len(self._data)
+
+
+@dataclass(frozen=True, slots=True)
+class ProfileSource:
+    """A source resolved by a profile with explainable priority metadata."""
+
+    source: SourceRecord
+    priority_score: int
+    matched_boost_topics: tuple[str, ...]
+    matched_boost_traits: tuple[str, ...]
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "priority_score": self.priority_score,
+            "matched_boost_topics": list(self.matched_boost_topics),
+            "matched_boost_traits": list(self.matched_boost_traits),
+            "source": self.source.to_dict(),
+        }
+
+
+@dataclass(frozen=True, slots=True)
+class ProfileResult:
+    """Deterministic resolution of a Profile Contract v2 policy."""
+
+    profile: ProfileRecord
+    registry_schema_version: int
+    component_schema_versions: Mapping[str, int]
+    budget: Mapping[str, int]
+    candidate_count: int
+    excluded_count: int
+    sources: tuple[ProfileSource, ...]
+
+    @property
+    def count(self) -> int:
+        return len(self.sources)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "schema_version": PROFILE_RESULT_SCHEMA_VERSION,
+            "registry_schema_version": self.registry_schema_version,
+            "component_schema_versions": dict(self.component_schema_versions),
+            "profile": self.profile.to_dict(),
+            "budget": dict(self.budget),
+            "resolution": {
+                "candidate_count": self.candidate_count,
+                "excluded_count": self.excluded_count,
+                "selected_count": self.count,
+                "ordering": "boost-score-desc-then-first-appearance",
+                "exclude_precedence": "exclude-before-boost",
+            },
+            "count": self.count,
+            "sources": [item.to_dict() for item in self.sources],
+        }
+
+    def to_json(self) -> str:
+        return json.dumps(self.to_dict(), ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+
+    def to_opml(self, *, title: str | None = None) -> str:
+        document_title = title or f"Awesome Tech Feeds — Profile: {self.profile.name}"
+        return _sources_to_opml(
+            document_title,
+            tuple(item.source for item in self.sources),
+        )
 
 
 class Registry:
@@ -282,6 +358,8 @@ class Registry:
     __slots__ = (
         "_collections",
         "_component_schema_versions",
+        "_profile_schema_version",
+        "_profiles",
         "_registry_schema_version",
         "_sources",
     )
@@ -308,6 +386,7 @@ class Registry:
 
         source_values = data.get("sources")
         collection_values = data.get("collections")
+        profile_values = data.get("profiles")
         if not isinstance(source_values, list) or not all(
             isinstance(item, dict) for item in source_values
         ):
@@ -316,6 +395,10 @@ class Registry:
             isinstance(item, dict) for item in collection_values
         ):
             raise RegistryLoadError("registry collections must be an array of objects")
+        if not isinstance(profile_values, list) or not all(
+            isinstance(item, dict) for item in profile_values
+        ):
+            raise RegistryLoadError("registry profiles must be an array of objects")
 
         self._registry_schema_version = registry_version
         try:
@@ -324,10 +407,15 @@ class Registry:
             }
         except (TypeError, ValueError) as exc:
             raise RegistryLoadError("component schema versions must be integers") from exc
+        self._profile_schema_version = self._component_schema_versions.get("profile", 1)
         self._sources = tuple(SourceRecord(item) for item in source_values)
         self._collections = {
             str(item["id"]): tuple(str(source_id) for source_id in item["sources"])
             for item in collection_values
+        }
+        self._profiles = {
+            str(item["id"]): ProfileRecord(item)
+            for item in profile_values
         }
 
     @property
@@ -345,6 +433,16 @@ class Registry:
     @property
     def sources(self) -> tuple[SourceRecord, ...]:
         return tuple(SourceRecord(source.to_dict()) for source in self._sources)
+
+    @property
+    def profiles(self) -> tuple[str, ...]:
+        return tuple(sorted(self._profiles))
+
+    def profile(self, profile_id: str) -> ProfileRecord | None:
+        profile = self._profiles.get(profile_id)
+        if profile is None:
+            return None
+        return ProfileRecord(profile.to_dict())
 
     @classmethod
     def from_mapping(cls, payload: Mapping[str, Any]) -> Self:
@@ -432,6 +530,95 @@ class Registry:
             sources=tuple(selected),
         )
 
+    def resolve_profile(self, profile_id: str) -> ProfileResult:
+        """Resolve Profile Contract v2 into an ordered, explainable active-source set."""
+        if self._profile_schema_version != SUPPORTED_PROFILE_SCHEMA_VERSION:
+            raise RegistryCompatibilityError(
+                component="profile",
+                expected=SUPPORTED_PROFILE_SCHEMA_VERSION,
+                actual=self._profile_schema_version,
+            )
+        profile = self._profiles.get(profile_id)
+        if profile is None:
+            raise UnknownFilterValueError(
+                field="profile",
+                value=profile_id,
+                choices=tuple(sorted(self._profiles)),
+            )
+
+        profile_data = profile.to_dict()
+        by_id = {source.id: source for source in self._sources}
+        candidate_ids: list[str] = []
+        seen: set[str] = set()
+        for collection_id in profile_data["collections"]:
+            members = self._collections.get(str(collection_id))
+            if members is None:
+                raise RegistryLoadError(
+                    f"profile {profile_id} references unknown collection {collection_id}"
+                )
+            for source_id in members:
+                if source_id not in seen:
+                    seen.add(source_id)
+                    candidate_ids.append(source_id)
+
+        boost = profile_data["boost"]
+        exclude = profile_data["exclude"]
+        boost_topics = tuple(str(value) for value in boost["topics"])
+        boost_traits = tuple(str(value) for value in boost["traits"])
+        exclude_topics = set(str(value) for value in exclude["topics"])
+        exclude_traits = set(str(value) for value in exclude["traits"])
+        exclude_sources = set(str(value) for value in exclude["sources"])
+
+        candidate_count = 0
+        excluded_count = 0
+        ranked: list[tuple[int, ProfileSource]] = []
+        for position, source_id in enumerate(candidate_ids):
+            source = by_id.get(source_id)
+            if source is None:
+                continue
+            data = source.to_dict()
+            if data["status"] != "active":
+                continue
+            candidate_count += 1
+            source_topics = set(str(value) for value in data["topics"])
+            source_traits = set(str(value) for value in data["traits"])
+            if (
+                source_id in exclude_sources
+                or source_topics.intersection(exclude_topics)
+                or source_traits.intersection(exclude_traits)
+            ):
+                excluded_count += 1
+                continue
+
+            matched_topics = tuple(value for value in boost_topics if value in source_topics)
+            matched_traits = tuple(value for value in boost_traits if value in source_traits)
+            ranked.append(
+                (
+                    position,
+                    ProfileSource(
+                        source=SourceRecord(data),
+                        priority_score=len(matched_topics) + len(matched_traits),
+                        matched_boost_topics=matched_topics,
+                        matched_boost_traits=matched_traits,
+                    ),
+                )
+            )
+
+        ranked.sort(key=lambda item: (-item[1].priority_score, item[0]))
+        return ProfileResult(
+            profile=ProfileRecord(profile_data),
+            registry_schema_version=self._registry_schema_version,
+            component_schema_versions=self._component_schema_versions,
+            budget={
+                "recommended_daily_items": int(
+                    profile_data["budget"]["recommended_daily_items"]
+                )
+            },
+            candidate_count=candidate_count,
+            excluded_count=excluded_count,
+            sources=tuple(item for _, item in ranked),
+        )
+
     def _validate_query(self, query: Query) -> None:
         dimensions: tuple[tuple[str, tuple[str, ...], tuple[str, ...]], ...] = (
             ("topic", query.topics, self._known_values("topics")),
@@ -489,3 +676,30 @@ def _query_title(query: Query) -> str:
     if query.collection is not None:
         return f"Awesome Tech Feeds — {query.collection}"
     return "Awesome Tech Feeds — Query"
+
+
+
+def _sources_to_opml(title: str, sources: tuple[SourceRecord, ...]) -> str:
+    opml = Element("opml", {"version": "2.0"})
+    head = SubElement(opml, "head")
+    SubElement(head, "title").text = title
+    body = SubElement(opml, "body")
+    for source in sources:
+        data = source.to_dict()
+        feed = next(item for item in data["feeds"] if item["role"] == "primary")
+        SubElement(
+            body,
+            "outline",
+            {
+                "type": "rss",
+                "text": str(data["name"]),
+                "title": str(data["name"]),
+                "xmlUrl": str(feed["url"]),
+                "htmlUrl": str(data["website"]),
+                "techFeedsId": str(data["id"]),
+            },
+        )
+    indent(opml, space="  ")
+    buffer = BytesIO()
+    ElementTree(opml).write(buffer, encoding="utf-8", xml_declaration=True)
+    return buffer.getvalue().decode("utf-8")

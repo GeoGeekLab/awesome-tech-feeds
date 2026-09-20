@@ -132,7 +132,7 @@ def compile_registry(root: Path, *, write: bool = True) -> dict[str, Any]:
 
     payload: dict[str, Any] = {
         "schema_version": 2,
-        "component_schema_versions": {"source": 2, "collection": 1, "profile": 1},
+        "component_schema_versions": {"source": 2, "collection": 1, "profile": 2},
         "counts": {
             "sources": len(sources),
             "collections": len(collections),
@@ -184,6 +184,16 @@ def compile_registry(root: Path, *, write: bool = True) -> dict[str, Any]:
             f"Awesome Tech Feeds — {collection['name']}",
             selected,
             generated / f"{collection['id']}.opml",
+        )
+
+    consumer_registry = Registry.from_mapping(payload)
+    for profile in profiles:
+        profile_id = str(profile["id"])
+        result = consumer_registry.resolve_profile(profile_id)
+        dump_json(generated / f"profile-{profile_id}.json", result.to_dict())
+        (generated / f"profile-{profile_id}.opml").write_text(
+            result.to_opml(),
+            encoding="utf-8",
         )
 
     _catalog(sources, collections, generated / "catalog.md")

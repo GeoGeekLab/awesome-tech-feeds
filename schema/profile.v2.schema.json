@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/profile.schema.json",
+  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/profile.v2.schema.json",
   "title": "Awesome Tech Feeds Profile Contract v2",
   "type": "object",
   "additionalProperties": false,

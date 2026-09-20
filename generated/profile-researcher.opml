@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="2.0">
+  <head>
+    <title>Awesome Tech Feeds — Profile: Researcher</title>
+  </head>
+  <body>
+    <outline type="rss" text="Google DeepMind" title="Google DeepMind" xmlUrl="https://deepmind.google/blog/rss.xml" htmlUrl="https://deepmind.google/discover/blog/" techFeedsId="google-deepmind" />
+    <outline type="rss" text="Berkeley Artificial Intelligence Research Blog" title="Berkeley Artificial Intelligence Research Blog" xmlUrl="https://bair.berkeley.edu/blog/feed.xml" htmlUrl="https://bair.berkeley.edu/blog/" techFeedsId="bair" />
+    <outline type="rss" text="arXiv cs.LG" title="arXiv cs.LG" xmlUrl="https://rss.arxiv.org/rss/cs.LG" htmlUrl="https://arxiv.org/list/cs.LG/recent" techFeedsId="arxiv-lg" />
+    <outline type="rss" text="OpenAI News" title="OpenAI News" xmlUrl="https://openai.com/news/rss.xml" htmlUrl="https://openai.com/news/" techFeedsId="openai-news" />
+    <outline type="rss" text="Anthropic" title="Anthropic" xmlUrl="https://www.anthropic.com/rss.xml" htmlUrl="https://www.anthropic.com/research" techFeedsId="anthropic" />
+    <outline type="rss" text="Hugging Face Blog" title="Hugging Face Blog" xmlUrl="https://huggingface.co/blog/feed.xml" htmlUrl="https://huggingface.co/blog" techFeedsId="hugging-face" />
+    <outline type="rss" text="arXiv cs.AI" title="arXiv cs.AI" xmlUrl="https://rss.arxiv.org/rss/cs.AI" htmlUrl="https://arxiv.org/list/cs.AI/recent" techFeedsId="arxiv-ai" />
+    <outline type="rss" text="Simon Willison’s Weblog" title="Simon Willison’s Weblog" xmlUrl="https://simonwillison.net/atom/everything/" htmlUrl="https://simonwillison.net/" techFeedsId="simon-willison" />
+    <outline type="rss" text="swyx" title="swyx" xmlUrl="https://www.swyx.io/rss.xml" htmlUrl="https://www.swyx.io/" techFeedsId="swyx" />
+  </body>
+</opml>

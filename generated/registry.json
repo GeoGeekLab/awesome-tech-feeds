@@ -173,7 +173,7 @@
   ],
   "component_schema_versions": {
     "collection": 1,
-    "profile": 1,
+    "profile": 2,
     "source": 2
   },
   "counts": {
@@ -183,72 +183,111 @@
   },
   "profiles": [
     {
-      "boost_topics": [
-        "llm",
-        "machine-learning",
-        "agents"
-      ],
+      "boost": {
+        "topics": [
+          "llm",
+          "machine-learning"
+        ],
+        "traits": []
+      },
+      "budget": {
+        "recommended_daily_items": 15
+      },
       "collections": [
         "ai",
         "systems",
         "databases"
       ],
-      "exclude_traits": [],
+      "description": "AI and ML engineering sources spanning model research, LLM practice, infrastructure, systems, and databases.",
+      "exclude": {
+        "sources": [],
+        "topics": [],
+        "traits": []
+      },
       "id": "ai-engineer",
       "name": "AI Engineer",
-      "recommended_daily_budget": 15,
-      "schema_version": 1
+      "schema_version": 2
     },
     {
-      "boost_topics": [
-        "programming",
-        "devtools"
-      ],
+      "boost": {
+        "topics": [
+          "programming",
+          "devtools"
+        ],
+        "traits": []
+      },
+      "budget": {
+        "recommended_daily_items": 15
+      },
       "collections": [
         "essential",
         "programming-languages",
         "systems"
       ],
-      "exclude_traits": [],
+      "description": "Broad software-development coverage emphasizing programming practice, developer tools, systems, and durable engineering sources.",
+      "exclude": {
+        "sources": [],
+        "topics": [],
+        "traits": []
+      },
       "id": "developer",
       "name": "Developer",
-      "recommended_daily_budget": 15,
-      "schema_version": 1
+      "schema_version": 2
     },
     {
-      "boost_topics": [
-        "startup",
-        "product",
-        "ai"
-      ],
+      "boost": {
+        "topics": [
+          "startup",
+          "product",
+          "ai"
+        ],
+        "traits": []
+      },
+      "budget": {
+        "recommended_daily_items": 10
+      },
       "collections": [
         "essential",
         "ai",
         "company-engineering"
       ],
-      "exclude_traits": [
-        "release-notes"
-      ],
+      "description": "Technical product and company-building coverage combining durable engineering, AI, product, startup, and production-system sources.",
+      "exclude": {
+        "sources": [],
+        "topics": [],
+        "traits": [
+          "release-notes"
+        ]
+      },
       "id": "founder",
       "name": "Technical Founder",
-      "recommended_daily_budget": 10,
-      "schema_version": 1
+      "schema_version": 2
     },
     {
-      "boost_topics": [
-        "research",
-        "machine-learning"
-      ],
+      "boost": {
+        "topics": [
+          "research",
+          "machine-learning"
+        ],
+        "traits": []
+      },
+      "budget": {
+        "recommended_daily_items": 12
+      },
       "collections": [
         "ai"
       ],
-      "exclude_traits": [
-        "community"
-      ],
+      "description": "Research-focused AI and machine-learning sources emphasizing primary research and technical research explanations over community aggregation.",
+      "exclude": {
+        "sources": [],
+        "topics": [],
+        "traits": [
+          "community"
+        ]
+      },
       "id": "researcher",
       "name": "Researcher",
-      "recommended_daily_budget": 12,
-      "schema_version": 1
+      "schema_version": 2
     }
   ],
   "schema_version": 2,
