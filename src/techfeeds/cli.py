@@ -13,8 +13,8 @@ from . import __version__
 from .compile import (
     compile_registry,
     opml_as_text,
-    stale_generated_files,
     select_sources,
+    stale_generated_files,
 )
 from .probe import probe_registry
 from .validate import validate_registry
