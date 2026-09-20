@@ -306,9 +306,7 @@ def validate_registry(root: Path) -> list[str]:
             errors.append(f"{prefix}: trait {trait} cannot be both boosted and excluded")
 
         candidate_records = [
-            source_records[source_id]
-            for source_id in candidate_ids
-            if source_id in source_records
+            source_records[source_id] for source_id in candidate_ids if source_id in source_records
         ]
         for topic in boost_topics:
             matches = any(topic in source.get("topics", []) for source in candidate_records)
