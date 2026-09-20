@@ -130,6 +130,13 @@ Filters are available for collection, topic, trait, language, and source kind. U
 
 Version 0.4 exposes a typed Python consumer API over compiled `registry.json`. Consumers no longer need to understand the repository's YAML layout.
 
+Install the pinned v0.4 package directly from the GitHub Release wheel:
+
+```bash
+python -m pip install \
+  https://github.com/GeoGeekLab/awesome-tech-feeds/releases/download/v0.4.1/awesome_tech_feeds-0.4.1-py3-none-any.whl
+```
+
 ```python
 from techfeeds import Query, Registry
 

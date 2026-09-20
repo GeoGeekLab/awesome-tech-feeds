@@ -55,6 +55,11 @@ jobs:
         run: |
           techfeeds validate
           techfeeds compile --check
+      - name: Build SDK artifacts
+        run: |
+          python -m pip install build twine
+          python -m build
+          python -m twine check dist/*
       - name: Checksums
         run: |
           sha256sum \
@@ -67,6 +72,8 @@ jobs:
             schema/query.v1.schema.json \
             schema/query-result.v1.schema.json \
             schema/query-error.v1.schema.json \
+            dist/*.whl \
+            dist/*.tar.gz \
             > generated/SHA256SUMS
       - name: Build release notes
         shell: bash
@@ -100,3 +107,5 @@ jobs:
             schema/query.v1.schema.json
             schema/query-result.v1.schema.json
             schema/query-error.v1.schema.json
+            dist/*.whl
+            dist/*.tar.gz

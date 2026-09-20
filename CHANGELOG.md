@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.1 - 2026-09-20
+
+Consumer SDK distribution patch.
+
+- Added wheel and source-distribution builds to the GitHub release workflow.
+- Added package artifacts to release SHA-256 checksums.
+- Added a pinned wheel installation path for consumers that do not want a repository checkout.
+
 ## 0.4.0 - 2026-09-20
 
 Consumer SDK and Query Contract.
