@@ -64,11 +64,11 @@ curation:
   admission_basis:
     - independent-practitioner
   reviewer: GeoGeekLab
-  reviewed_at: 2026-09-20
-  review_after: 2026-12-19
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
 provenance:
   added_by: GeoGeekLab
-  added_at: 2026-09-20
+  added_at: "2026-09-20"
   evidence:
     - type: identity
       url: https://simonwillison.net/
