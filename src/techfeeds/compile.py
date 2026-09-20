@@ -144,11 +144,7 @@ def select_sources(
         if collection is None:
             raise ValueError(f"unknown collection: {collection_id}")
         by_id = {str(source["id"]): source for source in all_sources}
-        sources = [
-            by_id[source_id]
-            for source_id in collection["sources"]
-            if source_id in by_id
-        ]
+        sources = [by_id[source_id] for source_id in collection["sources"] if source_id in by_id]
 
     required_topics = set(topics)
     required_traits = set(traits)
