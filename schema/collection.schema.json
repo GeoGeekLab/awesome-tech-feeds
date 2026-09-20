@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/collection.schema.json",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -32,7 +33,28 @@
     },
     "policy": {
       "type": "object",
-      "additionalProperties": true
+      "additionalProperties": false,
+      "properties": {
+        "max_sources": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "require_rationale": {
+          "type": "boolean"
+        },
+        "review_interval_days": {
+          "type": "integer",
+          "minimum": 30
+        }
+      }
+    },
+    "selection_rationale": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 20,
+        "maxLength": 500
+      }
     },
     "maintainers": {
       "type": "array",
@@ -40,6 +62,5 @@
         "type": "string"
       }
     }
-  },
-  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/collection.schema.json"
+  }
 }

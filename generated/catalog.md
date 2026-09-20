@@ -47,58 +47,26 @@ Database internals, data systems, query languages, and production practice.
 
 ## Essential Tech Sources
 
-A compact, high-signal starting set spanning independent writers, engineering teams, research labs, and technical communities.
+A deliberately small, high-signal starting set spanning independent writers, production engineering, security, systems, AI research, and a focused technical community.
 
-- [Simon Willison’s Weblog](https://simonwillison.net/) — `simon-willison`
-- [Julia Evans](https://jvns.ca/) — `julia-evans`
-- [Martin Fowler](https://martinfowler.com/) — `martin-fowler`
-- [Dan Luu](https://danluu.com/) — `dan-luu`
-- [antirez](https://antirez.com/) — `antirez`
-- [Brendan Gregg](https://www.brendangregg.com/blog/) — `brendan-gregg`
-- [Mitchell Hashimoto](https://mitchellh.com/) — `mitchell-hashimoto`
-- [Eli Bendersky](https://eli.thegreenplace.net/) — `eli-bendersky`
-- [Troy Hunt](https://www.troyhunt.com/) — `troy-hunt`
-- [Schneier on Security](https://www.schneier.com/) — `bruce-schneier`
-- [Krebs on Security](https://krebsonsecurity.com/) — `krebsonsecurity`
-- [Overreacted](https://overreacted.io/) — `overreacted`
-- [swyx](https://www.swyx.io/) — `swyx`
-- [阮一峰的网络日志](https://www.ruanyifeng.com/blog/) — `ruanyifeng`
-- [Cloudflare Blog](https://blog.cloudflare.com/) — `cloudflare`
-- [GitHub Engineering](https://github.blog/engineering/) — `github-engineering`
-- [Netflix TechBlog](https://netflixtechblog.com/) — `netflix-techblog`
-- [Uber Engineering](https://www.uber.com/blog/engineering/) — `uber-engineering`
-- [Stripe Blog](https://stripe.com/blog) — `stripe-blog`
-- [Slack Engineering](https://slack.engineering/) — `slack-engineering`
-- [Discord Blog](https://discord.com/blog/) — `discord-engineering`
-- [Dropbox Tech](https://dropbox.tech/) — `dropbox-tech`
-- [Airbnb Engineering & Data Science](https://medium.com/airbnb-engineering) — `airbnb-engineering`
-- [Meta Engineering](https://engineering.fb.com/) — `meta-engineering`
-- [Google Online Security Blog](https://security.googleblog.com/) — `google-security`
-- [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/) — `microsoft-dotnet`
-- [Shopify Engineering](https://shopify.engineering/) — `shopify-engineering`
-- [Spotify Engineering](https://engineering.atspotify.com/) — `spotify-engineering`
-- [Fly.io Blog](https://fly.io/blog/) — `fly-io`
-- [Oxide Computer Company](https://oxide.computer/blog) — `oxide-computer`
-- [Tailscale Blog](https://tailscale.com/blog/) — `tailscale`
-- [Datadog Blog](https://www.datadoghq.com/blog/) — `datadog`
-- [Mozilla Hacks](https://hacks.mozilla.org/) — `mozilla-hacks`
-- [Kubernetes Blog](https://kubernetes.io/blog/) — `kubernetes-blog`
-- [The Go Blog](https://go.dev/blog/) — `go-blog`
-- [Rust Blog](https://blog.rust-lang.org/) — `rust-blog`
-- [Kotlin Blog](https://blog.jetbrains.com/kotlin/) — `kotlin-blog`
-- [IPFS Blog & News](https://blog.ipfs.tech/) — `ipfs-blog`
-- [jOOQ Blog](https://blog.jooq.org/) — `jooq-blog`
-- [OpenAI News](https://openai.com/news/) — `openai-news`
-- [Anthropic](https://www.anthropic.com/research) — `anthropic`
-- [Google DeepMind](https://deepmind.google/discover/blog/) — `google-deepmind`
-- [Hugging Face Blog](https://huggingface.co/blog) — `hugging-face`
-- [Berkeley Artificial Intelligence Research Blog](https://bair.berkeley.edu/blog/) — `bair`
-- [arXiv cs.AI](https://arxiv.org/list/cs.AI/recent) — `arxiv-ai`
-- [arXiv cs.LG](https://arxiv.org/list/cs.LG/recent) — `arxiv-lg`
-- [Hacker News](https://news.ycombinator.com/) — `hacker-news`
-- [Lobsters](https://lobste.rs/) — `lobsters`
-- [InfoQ](https://www.infoq.com/) — `infoq`
-- [The New Stack](https://thenewstack.io/) — `the-new-stack`
+- [Simon Willison’s Weblog](https://simonwillison.net/) — `simon-willison` — High-frequency practitioner writing that connects AI, Python, databases, and the web with reproducible technical detail.
+- [Julia Evans](https://jvns.ca/) — `julia-evans` — Exceptionally clear systems, networking, and developer-tool explanations grounded in hands-on debugging and learning.
+- [Martin Fowler](https://martinfowler.com/) — `martin-fowler` — Durable software architecture and design writing that remains useful well beyond individual framework cycles.
+- [Dan Luu](https://danluu.com/) — `dan-luu` — Evidence-driven long-form analysis of systems, performance, engineering practice, and technology organizations.
+- [Brendan Gregg](https://www.brendangregg.com/blog/) — `brendan-gregg` — Authoritative production performance and observability material from a practitioner who develops widely used methods and tools.
+- [Mitchell Hashimoto](https://mitchellh.com/) — `mitchell-hashimoto` — Deep practitioner perspective on infrastructure, developer tools, systems software, and open-source engineering.
+- [Troy Hunt](https://www.troyhunt.com/) — `troy-hunt` — Practical first-hand coverage of web security, identity, breaches, and defensive engineering for working developers.
+- [Schneier on Security](https://www.schneier.com/) — `bruce-schneier` — Long-running security and privacy analysis that adds policy, threat-model, and research context to practitioner feeds.
+- [Cloudflare Blog](https://blog.cloudflare.com/) — `cloudflare` — First-party internet infrastructure, networking, performance, and security engineering with unusually detailed production write-ups.
+- [Netflix TechBlog](https://netflixtechblog.com/) — `netflix-techblog` — Production-scale distributed-systems and data-platform engineering with concrete architecture and operational lessons.
+- [Stripe Blog](https://stripe.com/blog) — `stripe-blog` — High-quality engineering and product-infrastructure writing spanning APIs, systems design, reliability, and developer experience.
+- [Tailscale Blog](https://tailscale.com/blog/) — `tailscale` — Practitioner-heavy networking and security writing that explains modern protocols, identity, and infrastructure trade-offs clearly.
+- [Oxide Computer Company](https://oxide.computer/blog) — `oxide-computer` — Deep systems engineering across hardware, operating systems, networking, and infrastructure with strong first-principles analysis.
+- [Kubernetes Blog](https://kubernetes.io/blog/) — `kubernetes-blog` — First-party source for Kubernetes engineering, releases, ecosystem changes, and operational guidance.
+- [Anthropic](https://www.anthropic.com/research) — `anthropic` — First-party frontier AI research and engineering updates with direct relevance to LLM systems and model behavior.
+- [Google DeepMind](https://deepmind.google/discover/blog/) — `google-deepmind` — First-party AI research coverage spanning frontier models, scientific applications, and research methodology.
+- [Hugging Face Blog](https://huggingface.co/blog) — `hugging-face` — Open-source AI and machine-learning engineering from a central ecosystem for models, datasets, tooling, and practitioner workflows.
+- [Lobsters](https://lobste.rs/) — `lobsters` — A technically focused community feed that broadens discovery while maintaining substantially lower topical noise than general news feeds.
 
 ## Independent Writers
 
@@ -154,3 +122,4 @@ Distributed systems, networking, infrastructure, observability, and performance.
 - [Oxide Computer Company](https://oxide.computer/blog) — `oxide-computer`
 - [Tailscale Blog](https://tailscale.com/blog/) — `tailscale`
 - [Brendan Gregg](https://www.brendangregg.com/blog/) — `brendan-gregg`
+

@@ -79,9 +79,15 @@ def _catalog(
                 "",
             ]
         )
+        rationales = collection.get("selection_rationale")
         for source_id in collection["sources"]:
             source = by_id[source_id]
-            lines.append(f"- [{source['name']}]({source['website']}) — `{source['id']}`")
+            line = f"- [{source['name']}]({source['website']}) — `{source['id']}`"
+            if isinstance(rationales, dict):
+                rationale = rationales.get(source_id)
+                if isinstance(rationale, str):
+                    line += f" — {rationale}"
+            lines.append(line)
         lines.append("")
     output.write_text("\n".join(lines), encoding="utf-8")
 

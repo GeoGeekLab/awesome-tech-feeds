@@ -11,6 +11,10 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_compile_counts() -> None:
     payload = compile_registry(ROOT, write=False)
     assert payload["counts"] == {"sources": 50, "collections": 8, "profiles": 4}
+    essential = next(item for item in payload["collections"] if item["id"] == "essential")
+    assert len(essential["sources"]) == 18
+    assert essential["policy"]["max_sources"] == 20
+    assert set(essential["selection_rationale"]) == set(essential["sources"])
 
 
 def test_committed_generated_artifacts_are_current(tmp_path: Path) -> None:

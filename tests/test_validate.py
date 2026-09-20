@@ -47,3 +47,36 @@ def test_duplicate_feed_is_detected(tmp_path: Path) -> None:
 
     errors = validate_registry(tmp_path)
     assert any("duplicate feed URL" in error for error in errors)
+
+
+def test_collection_policy_is_enforced(tmp_path: Path) -> None:
+    from shutil import copytree
+
+    for name in ("sources", "collections", "profiles", "registry", "schema"):
+        copytree(ROOT / name, tmp_path / name)
+
+    target = tmp_path / "collections/essential.yaml"
+    content = target.read_text(encoding="utf-8").replace("max_sources: 20", "max_sources: 1")
+    target.write_text(content, encoding="utf-8")
+
+    errors = validate_registry(tmp_path)
+    assert any("exceeds policy max_sources=1" in error for error in errors)
+
+
+def test_required_collection_rationale_is_enforced(tmp_path: Path) -> None:
+    from shutil import copytree
+
+    for name in ("sources", "collections", "profiles", "registry", "schema"):
+        copytree(ROOT / name, tmp_path / name)
+
+    target = tmp_path / "collections/essential.yaml"
+    content = target.read_text(encoding="utf-8").replace(
+        "  simon-willison: >-\n"
+        "    High-frequency practitioner writing that connects AI, Python, databases, and the web "
+        "with reproducible technical detail.\n",
+        "",
+    )
+    target.write_text(content, encoding="utf-8")
+
+    errors = validate_registry(tmp_path)
+    assert any("missing selection rationale for simon-willison" in error for error in errors)
