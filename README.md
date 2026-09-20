@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="brand/mascot/hero.svg" alt="Awesome Tech Feeds terminal banner with Geo Gecko" width="900">
+<img src="brand/mascot/hero.svg" alt="Awesome Tech Feeds with the cute cartoon Geo Gecko mascot" width="900">
 
 # Awesome Tech Feeds
 

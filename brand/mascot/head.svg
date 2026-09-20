@@ -1,30 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
-  <title id="title">Geo Gecko head mark</title>
-  <desc id="desc">A flat gecko head with scanner eyes and a small RSS signal.</desc>
-  <defs>
-    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#E6FFFA"/>
-      <stop offset="1" stop-color="#B7F7E4"/>
-    </linearGradient>
-  </defs>
-  <path d="M77 253c0-126 77-192 179-192s179 66 179 192c0 113-79 169-179 169S77 366 77 253Z"
-        fill="url(#body)" stroke="#0D1117" stroke-width="18"/>
-  <path d="M104 194c4-71 45-113 100-113 53 0 91 43 91 104 0 66-35 112-96 112-64 0-99-39-95-103Z"
-        fill="#F0F6FC" stroke="#0D1117" stroke-width="16"/>
-  <path d="M408 194c-4-71-45-113-100-113-53 0-91 43-91 104 0 66 35 112 96 112 64 0 99-39 95-103Z"
-        fill="#F0F6FC" stroke="#0D1117" stroke-width="16"/>
-  <ellipse cx="199" cy="194" rx="39" ry="54" fill="#0D1117"/>
-  <ellipse cx="313" cy="194" rx="39" ry="54" fill="#0D1117"/>
-  <circle cx="184" cy="174" r="12" fill="#58A6FF"/>
-  <circle cx="298" cy="174" r="12" fill="#58A6FF"/>
-  <rect x="188" y="236" width="23" height="8" rx="4" fill="#39D353"/>
-  <rect x="302" y="236" width="23" height="8" rx="4" fill="#39D353"/>
-  <circle cx="237" cy="322" r="6" fill="#0D1117"/>
-  <circle cx="275" cy="322" r="6" fill="#0D1117"/>
-  <path d="M214 346c27 22 57 22 84 0" fill="none" stroke="#0D1117" stroke-width="10" stroke-linecap="round"/>
-  <g transform="translate(382 336)" fill="none" stroke="#2F81F7" stroke-width="11" stroke-linecap="round">
-    <circle cx="0" cy="54" r="7" fill="#2F81F7" stroke="none"/>
-    <path d="M0 30a24 24 0 0 1 24 24"/>
-    <path d="M0 3a51 51 0 0 1 51 51"/>
-  </g>
+<title id="title">Geo Gecko head</title>
+<desc id="desc">A cute cartoon gecko face with big sparkling eyes, rosy cheeks, and a tiny RSS signal.</desc>
+<defs>
+  <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+    <stop stop-color="#CFFCEB"/>
+    <stop offset="1" stop-color="#8DE6C7"/>
+  </linearGradient>
+</defs>
+<path d="M62 247c0-133 83-202 194-202s194 69 194 202c0 120-78 185-194 185S62 367 62 247Z"
+      fill="url(#body)" stroke="#17212B" stroke-width="16"/>
+<path d="M166 78l15-29 22 29M238 57l18-32 19 32M310 76l18-28 20 31"
+      fill="#9AEACF" stroke="#17212B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="183" cy="227" rx="70" ry="78" fill="#FFF" stroke="#17212B" stroke-width="12"/>
+<ellipse cx="329" cy="227" rx="70" ry="78" fill="#FFF" stroke="#17212B" stroke-width="12"/>
+<ellipse cx="195" cy="239" rx="39" ry="49" fill="#17212B"/>
+<ellipse cx="317" cy="239" rx="39" ry="49" fill="#17212B"/>
+<circle cx="179" cy="217" r="14" fill="#FFF"/>
+<circle cx="301" cy="217" r="14" fill="#FFF"/>
+<circle cx="210" cy="260" r="7" fill="#79C0FF"/>
+<circle cx="332" cy="260" r="7" fill="#79C0FF"/>
+<path d="M146 151c23-12 47-13 68-5M298 146c21-8 45-7 68 5"
+      fill="none" stroke="#17212B" stroke-width="10" stroke-linecap="round"/>
+<ellipse cx="112" cy="316" rx="34" ry="18" fill="#FFB3C1" opacity=".78"/>
+<ellipse cx="400" cy="316" rx="34" ry="18" fill="#FFB3C1" opacity=".78"/>
+<circle cx="99" cy="272" r="7" fill="#65C6A8"/>
+<circle cx="120" cy="259" r="5" fill="#65C6A8"/>
+<circle cx="413" cy="272" r="7" fill="#65C6A8"/>
+<circle cx="392" cy="259" r="5" fill="#65C6A8"/>
+<circle cx="241" cy="319" r="5" fill="#17212B"/>
+<circle cx="271" cy="319" r="5" fill="#17212B"/>
+<path d="M221 339c12 19 23 27 35 27s23-8 35-27" fill="#FF8FA3" stroke="#17212B" stroke-width="8" stroke-linejoin="round"/>
+<g transform="translate(385 352)" fill="none" stroke="#58A6FF" stroke-width="10" stroke-linecap="round">
+  <circle cx="0" cy="42" r="6" fill="#58A6FF" stroke="none"/>
+  <path d="M0 22a20 20 0 0 1 20 20"/>
+  <path d="M0 0a42 42 0 0 1 42 42"/>
+</g>
 </svg>
