@@ -122,4 +122,3 @@ Distributed systems, networking, infrastructure, observability, and performance.
 - [Oxide Computer Company](https://oxide.computer/blog) — `oxide-computer`
 - [Tailscale Blog](https://tailscale.com/blog/) — `tailscale`
 - [Brendan Gregg](https://www.brendangregg.com/blog/) — `brendan-gregg`
-
