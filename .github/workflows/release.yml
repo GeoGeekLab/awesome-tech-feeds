@@ -72,6 +72,10 @@ jobs:
             schema/query.v1.schema.json \
             schema/query-result.v1.schema.json \
             schema/query-error.v1.schema.json \
+            schema/profile.schema.json \
+            schema/profile.v1.schema.json \
+            schema/profile.v2.schema.json \
+            schema/profile-result.v1.schema.json \
             dist/*.whl \
             dist/*.tar.gz \
             > generated/SHA256SUMS
@@ -107,5 +111,9 @@ jobs:
             schema/query.v1.schema.json
             schema/query-result.v1.schema.json
             schema/query-error.v1.schema.json
+            schema/profile.schema.json
+            schema/profile.v1.schema.json
+            schema/profile.v2.schema.json
+            schema/profile-result.v1.schema.json
             dist/*.whl
             dist/*.tar.gz

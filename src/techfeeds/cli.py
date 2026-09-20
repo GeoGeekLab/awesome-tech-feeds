@@ -204,6 +204,41 @@ def query_command(
     typer.echo(result.to_json(), nl=False)
 
 
+@app.command(name="profile")
+def profile_command(
+    profile_id: str = typer.Argument(..., help="Profile ID to resolve."),
+    root: str = typer.Option(".", help="Registry root when --registry is not supplied."),
+    registry_file: str | None = typer.Option(
+        None,
+        "--registry",
+        help="Compiled registry.json file; avoids requiring a repository checkout.",
+    ),
+    format: str = typer.Option("json", "--format", help="Output format: json or opml."),
+    output: str = typer.Option("-", "--output", "-o", help="'-' for stdout or a file path."),
+) -> None:
+    """Resolve Profile Contract v2 into deterministic JSON or OPML."""
+    if format not in {"json", "opml"}:
+        console.print(f"[red]ERROR[/red] unsupported profile format: {format}")
+        raise typer.Exit(2)
+
+    try:
+        registry = _consumer_registry(root, registry_file)
+        result = registry.resolve_profile(profile_id)
+    except ConsumerError as exc:
+        typer.echo(exc.to_json(), err=True, nl=False)
+        raise typer.Exit(2) from exc
+
+    content = result.to_json() if format == "json" else result.to_opml()
+    if output == "-":
+        typer.echo(content, nl=False)
+        return
+
+    target = Path(output).resolve()
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(content, encoding="utf-8")
+    console.print(f"[green]resolved[/green] profile {profile_id} to {target}")
+
+
 @app.command()
 def reviews(
     root: str = typer.Option(".", help="Registry root."),

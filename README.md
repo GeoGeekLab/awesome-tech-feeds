@@ -174,9 +174,9 @@ Success is Query Result Contract v1 JSON. Query failures are Query Error Contrac
 
 See [`docs/consumer-sdk.md`](docs/consumer-sdk.md) for request/result/error schemas, ordering guarantees, and compatibility rules.
 
-## Profiles
+## Profiles 2.0
 
-Profiles combine collections for common roles without creating a recommendation engine.
+Profiles are executable, inspectable consumption policies — not hidden personalization models.
 
 ```text
 developer
@@ -185,22 +185,51 @@ founder
 researcher
 ```
 
-A profile is an inspectable policy file, not a hidden personalization model.
+A v2 profile unions collections, applies explicit exclusions, computes explainable boost priority, and preserves deterministic tie order.
 
 ```yaml
-schema_version: 1
-id: ai-engineer
-name: AI Engineer
+schema_version: 2
+id: researcher
+name: Researcher
+description: >-
+  Research-focused AI and machine-learning sources emphasizing primary research and
+  technical research explanations over community aggregation.
 collections:
   - ai
-  - systems
-  - databases
-boost_topics:
-  - llm
-  - machine-learning
-  - infrastructure
-recommended_daily_budget: 15
+boost:
+  topics:
+    - research
+    - machine-learning
+  traits: []
+exclude:
+  topics: []
+  traits:
+    - community
+  sources: []
+budget:
+  recommended_daily_items: 12
 ```
+
+The daily-item budget is downstream reading/article-processing metadata; it does not truncate the source set.
+
+Resolve a profile directly:
+
+```bash
+techfeeds profile researcher --registry registry.json
+techfeeds profile developer --registry registry.json --format opml -o developer.opml
+```
+
+Or through Python:
+
+```python
+registry = Registry.from_url()
+result = registry.resolve_profile("researcher")
+
+for item in result.sources:
+    print(item.source.id, item.priority_score, item.matched_boost_topics)
+```
+
+See [`docs/profiles.md`](docs/profiles.md) for resolution semantics and generated artifacts.
 
 ## Registry contract
 
@@ -332,6 +361,8 @@ The latest machine-readable snapshot is available at:
 | [`all.opml`](generated/all.opml) | All active primary feeds |
 | [`essential.opml`](generated/essential.opml) | Starter pack for feed readers |
 | topic OPML files | Collection-specific imports |
+| `profile-*.json` | Resolved profile policy with explainable priority metadata |
+| `profile-*.opml` | Resolved profile imports for feed readers |
 | [`catalog.md`](generated/catalog.md) | Human-readable generated catalog |
 | `health.json` | Dynamic probe output; not committed, with the latest snapshot published at the stable `health-latest` release URL |
 

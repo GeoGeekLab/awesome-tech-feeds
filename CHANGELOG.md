@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.5.0 - 2026-09-20
+
+Profiles 2.0.
+
+- Migrated all four role profiles to Profile Contract v2.
+- Defined deterministic collection-union, exclusion, boost-priority, and stable tie-break semantics.
+- Separated downstream daily-item budget metadata from source-set truncation.
+- Added source-level explainability for profile priority through matched boost topics and traits.
+- Added semantic validation for dead boost/exclude rules, contradictory policy, and invalid source exclusions.
+- Added public `ProfileRecord`, `ProfileSource`, `ProfileResult`, and `Registry.resolve_profile()` SDK surfaces.
+- Added `techfeeds profile` with JSON and OPML output.
+- Added generated JSON and OPML artifacts for every profile.
+- Published immutable profile v1/v2 schemas and Profile Result Contract v1.
+- Removed the ineffective `agents` boost from `ai-engineer` because no selected source currently carries that topic.
+
 ## 0.4.1 - 2026-09-20
 
 Consumer SDK distribution patch.

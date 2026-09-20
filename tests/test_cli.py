@@ -14,7 +14,7 @@ RUNNER = CliRunner()
 def test_version() -> None:
     result = RUNNER.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "0.4.1" in result.stdout
+    assert "0.5.0" in result.stdout
 
 
 def test_validate_compile_check_and_stats() -> None:
@@ -209,3 +209,61 @@ def test_query_command_emits_machine_readable_error() -> None:
     assert payload["schema_version"] == 1
     assert payload["error"]["code"] == "unknown_filter_value"
     assert payload["error"]["field"] == "topic"
+
+
+
+def test_profile_command_resolves_compiled_registry() -> None:
+    result = RUNNER.invoke(
+        app,
+        [
+            "profile",
+            "researcher",
+            "--registry",
+            str(ROOT / "generated/registry.json"),
+        ],
+    )
+    assert result.exit_code == 0
+    payload = json.loads(result.stdout)
+    assert payload["schema_version"] == 1
+    assert payload["profile"]["schema_version"] == 2
+    assert payload["profile"]["id"] == "researcher"
+    assert payload["budget"]["recommended_daily_items"] == 12
+    ids = [item["source"]["id"] for item in payload["sources"]]
+    assert "hacker-news" not in ids
+
+
+def test_profile_command_writes_opml(tmp_path: Path) -> None:
+    output = tmp_path / "developer.opml"
+    result = RUNNER.invoke(
+        app,
+        [
+            "profile",
+            "developer",
+            "--registry",
+            str(ROOT / "generated/registry.json"),
+            "--format",
+            "opml",
+            "--output",
+            str(output),
+        ],
+    )
+    assert result.exit_code == 0
+    content = output.read_text(encoding="utf-8")
+    assert "Awesome Tech Feeds — Profile: Developer" in content
+    assert "techFeedsId=" in content
+
+
+def test_profile_command_returns_machine_readable_unknown_profile_error() -> None:
+    result = RUNNER.invoke(
+        app,
+        [
+            "profile",
+            "does-not-exist",
+            "--registry",
+            str(ROOT / "generated/registry.json"),
+        ],
+    )
+    assert result.exit_code == 2
+    payload = json.loads(result.stderr)
+    assert payload["error"]["code"] == "unknown_filter_value"
+    assert payload["error"]["field"] == "profile"

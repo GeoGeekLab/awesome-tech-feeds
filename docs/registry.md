@@ -11,9 +11,9 @@ The current compiled registry contract is version 2.
 | Compiled registry bundle | 2 |
 | Source record | 2 |
 | Collection record | 1 |
-| Profile record | 1 |
+| Profile record | 2 |
 
-Stable source schema snapshots are published as `schema/source.v1.schema.json` and `schema/source.v2.schema.json`. `schema/source.schema.json` is the latest source-schema alias.
+Stable source schema snapshots are published as `schema/source.v1.schema.json` and `schema/source.v2.schema.json`. Stable profile snapshots are published as `schema/profile.v1.schema.json` and `schema/profile.v2.schema.json`. The unversioned `source.schema.json` and `profile.schema.json` files are latest aliases.
 
 A released versioned schema is immutable. A future incompatible source contract must publish a new versioned schema rather than rewriting v2 semantics.
 
@@ -128,7 +128,7 @@ A failed network probe never automatically retires a source.
   "component_schema_versions": {
     "source": 2,
     "collection": 1,
-    "profile": 1
+    "profile": 2
   }
 }
 ```
@@ -136,3 +136,10 @@ A failed network probe never automatically retires a source.
 Consumers should branch on these version fields rather than infer capabilities from field presence.
 
 See [`docs/migrations/source-v1-to-v2.md`](migrations/source-v1-to-v2.md) for the v1 migration and compatibility policy.
+
+
+## Profile contract v2
+
+Profiles are deterministic consumer policies over collections. Profile v2 separates collection selection, boost rules, exclusion rules, and downstream item budget. The compiled registry publishes `component_schema_versions.profile: 2`.
+
+Profile resolution semantics are documented in [`docs/profiles.md`](profiles.md), with migration guidance in [`docs/migrations/profile-v1-to-v2.md`](migrations/profile-v1-to-v2.md).

@@ -6,6 +6,9 @@ from .consumer import (
     Query,
     QueryContractError,
     QueryResult,
+    ProfileRecord,
+    ProfileResult,
+    ProfileSource,
     Registry,
     RegistryCompatibilityError,
     RegistryIntegrityError,
@@ -14,7 +17,7 @@ from .consumer import (
     UnknownFilterValueError,
 )
 
-__version__ = "0.4.1"
+__version__ = "0.5.0"
 
 __all__ = [
     "DEFAULT_REGISTRY_URL",
@@ -22,6 +25,9 @@ __all__ = [
     "Query",
     "QueryContractError",
     "QueryResult",
+    "ProfileRecord",
+    "ProfileResult",
+    "ProfileSource",
     "Registry",
     "RegistryCompatibilityError",
     "RegistryIntegrityError",
