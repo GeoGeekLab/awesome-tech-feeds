@@ -1,44 +1,43 @@
 {
-  "core": [
-    "core.svg",
-    "head.svg"
-  ],
-  "states": [
-    "broken",
-    "degraded",
-    "fetching",
-    "healthy",
-    "idle",
-    "scanning",
-    "stale",
-    "thinking",
-    "verified"
-  ],
-  "profiles": [
-    "ai-engineer",
-    "developer",
-    "founder",
-    "researcher"
-  ],
-  "stickers": [
-    "feed-found",
-    "no-noise",
-    "stay-curious",
-    "verified"
-  ],
-  "social": [
-    "github-avatar",
-    "social-card"
-  ],
-  "icons": [
-    16,
-    32,
-    64,
-    128,
-    256,
-    512
-  ],
-  "hero": [
-    "hero-3d.jpg"
+  "version": 2,
+  "canonical": {
+    "hero": "hero.svg",
+    "core": "core.svg",
+    "head": "head.svg"
+  },
+  "extended": {
+    "states": [
+      "broken",
+      "degraded",
+      "fetching",
+      "healthy",
+      "idle",
+      "scanning",
+      "stale",
+      "thinking",
+      "verified"
+    ],
+    "profiles": [
+      "ai-engineer",
+      "developer",
+      "founder",
+      "researcher"
+    ],
+    "stickers": [
+      "feed-found",
+      "no-noise",
+      "stay-curious",
+      "verified"
+    ],
+    "social": [
+      "github-avatar",
+      "social-card"
+    ],
+    "icons": [16, 32, 64, 128, 256, 512]
+  },
+  "legacy_raster": [
+    "hero-3d.jpg",
+    "core.png",
+    "head.png"
   ]
 }

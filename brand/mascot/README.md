@@ -1,16 +1,25 @@
-# Geo Gecko assets
+# Geo Gecko
 
-Production mascot package for GeoGeekLab / Awesome Tech Feeds.
+Geo Gecko is the project mascot for Awesome Tech Feeds.
 
-- `hero-3d.jpg`: primary README and brand presentation image.
-- `core.svg`, `head.svg`: canonical flat/vector mascot marks.
-- `states/`: operational states.
-- `profiles/`: Developer, AI Engineer, Founder, Researcher variants.
-- `stickers/`: expressive secondary assets.
-- `icons/`: favicon/app icon exports.
-- `social/`: GitHub avatar and 1200×630 social card.
-- `spec/`: palette and construction reference.
-- `mascot-spec.md`: semantic and usage rules.
-- `tokens.json`, `manifest.json`: machine-readable design metadata.
+The v2 art direction is intentionally flat and repo-native: GitHub-dark terminal chrome, mint gecko body, blue feed signal, and a literal `>_` prompt. It is designed to survive README rendering, issue comments, tiny icons, and SVG diffs without looking like a generic 3D character render.
 
-The 3D hero is the primary presentation image. The SVG system remains the canonical source for icons, operational states, profile variants, stickers, and generated raster exports.
+## Canonical assets
+
+- `hero.svg` — primary README/banner artwork.
+- `core.svg` — full mascot with terminal and RSS tail.
+- `head.svg` — compact mark for small surfaces.
+- `tokens.json` — palette and construction tokens.
+- `mascot-spec.md` — usage rules.
+
+SVG is the source of truth. Existing raster and extended variant assets are retained for compatibility, but new project surfaces should start from the v2 SVG set above.
+
+## Visual checksum
+
+A full Geo Gecko should read as the same character even at a glance:
+
+```text
+scanner eyes + terminal prompt + RSS tail
+```
+
+Keep the silhouette friendly and technical. Prefer flat geometry and UI-like details over glossy rendering, photorealism, or decorative effects that disappear at small sizes.
