@@ -85,7 +85,9 @@ def _source_contract_errors(data: dict[str, Any], path: Path, root: Path) -> lis
         and isinstance(item.get("url"), str)
     }
     if isinstance(website, str) and _canonical_url(website) not in identity_urls:
-        errors.append(\n            f"{prefix}: provenance evidence must include the canonical website as identity"\n        )
+        errors.append(
+            f"{prefix}: provenance evidence must include the canonical website as identity"
+        )
 
     primary_urls = {
         _canonical_url(feed["url"])
