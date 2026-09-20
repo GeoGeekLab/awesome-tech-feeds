@@ -29,7 +29,9 @@ def test_duplicate_feed_is_detected(tmp_path: Path) -> None:
         "kind": "individual",
         "language": "en",
         "website": "https://example.com/",
-        "description": (\n            "Independent technical writing covering programming and software engineering."\n        ),
+        "description": (
+            "Independent technical writing covering programming and software engineering."
+        ),
         "feeds": [
             {
                 "url": "https://example.com/feed.xml",
