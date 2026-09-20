@@ -56,7 +56,15 @@ jobs:
           techfeeds validate
           techfeeds compile --check
       - name: Checksums
-        run: sha256sum generated/*.json generated/*.opml generated/catalog.md > generated/SHA256SUMS
+        run: |
+          sha256sum \
+            generated/*.json \
+            generated/*.opml \
+            generated/catalog.md \
+            schema/source.schema.json \
+            schema/source.v1.schema.json \
+            schema/source.v2.schema.json \
+            > generated/SHA256SUMS
       - name: Build release notes
         shell: bash
         run: |
@@ -83,3 +91,6 @@ jobs:
             generated/*.opml
             generated/catalog.md
             generated/SHA256SUMS
+            schema/source.schema.json
+            schema/source.v1.schema.json
+            schema/source.v2.schema.json
