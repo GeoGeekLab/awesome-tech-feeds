@@ -10,7 +10,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_compile_counts() -> None:
     payload = compile_registry(ROOT, write=False)
+    assert payload["schema_version"] == 2
+    assert payload["component_schema_versions"] == {"source": 2, "collection": 1, "profile": 1}
     assert payload["counts"] == {"sources": 50, "collections": 8, "profiles": 4}
+    assert all(source["schema_version"] == 2 for source in payload["sources"])
+    assert all("curation" in source and "provenance" in source for source in payload["sources"])
     essential = next(item for item in payload["collections"] if item["id"] == "essential")
     assert len(essential["sources"]) == 18
     assert essential["policy"]["max_sources"] == 20

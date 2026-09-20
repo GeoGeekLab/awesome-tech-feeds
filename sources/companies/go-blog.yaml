@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: go-blog
 name: "The Go Blog"
 kind: project
 language: en
 website: https://go.dev/blog/
+description: "Official project publication covering go, programming."
 feeds:
   - url: https://go.dev/blog/feed.atom
     format: atom
@@ -16,4 +17,21 @@ traits:
   - first-party
   - release-notes
   - tutorial
+curation:
+  rationale: "Admitted as the official Go project publication for language evolution, releases, tooling, and practical programming guidance directly from the project ecosystem."
+  admission_basis:
+    - official-project
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
+provenance:
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
+  evidence:
+    - type: identity
+      url: https://go.dev/blog/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://go.dev/blog/feed.atom
+      note: "Primary subscription endpoint published by the source."
 status: active

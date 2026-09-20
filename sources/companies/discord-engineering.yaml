@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: discord-engineering
 name: "Discord Blog"
 kind: company
 language: en
 website: https://discord.com/blog/
+description: "First-party technical publication covering distributed-systems, infrastructure, performance."
 feeds:
   - url: https://discord.com/blog/rss.xml
     format: rss
@@ -17,4 +18,21 @@ traits:
   - first-party
   - company-engineering
   - practitioner
+curation:
+  rationale: "Admitted for first-party production lessons on distributed systems, infrastructure, and performance from a latency-sensitive large-scale communications platform."
+  admission_basis:
+    - first-party-engineering
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
+provenance:
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
+  evidence:
+    - type: identity
+      url: https://discord.com/blog/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://discord.com/blog/rss.xml
+      note: "Primary subscription endpoint published by the source."
 status: active

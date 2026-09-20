@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: fly-io
 name: "Fly.io Blog"
 kind: company
 language: en
 website: https://fly.io/blog/
+description: "First-party technical publication covering infrastructure, distributed-systems, networking, devtools."
 feeds:
   - url: https://fly.io/blog/feed.xml
     format: rss
@@ -19,4 +20,21 @@ traits:
   - company-engineering
   - deep-dive
   - practitioner
+curation:
+  rationale: "Admitted for practitioner-heavy first-party writing on infrastructure, distributed systems, networking, and developer tooling, with strong implementation detail."
+  admission_basis:
+    - first-party-engineering
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
+provenance:
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
+  evidence:
+    - type: identity
+      url: https://fly.io/blog/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://fly.io/blog/feed.xml
+      note: "Primary subscription endpoint published by the source."
 status: active

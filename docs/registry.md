@@ -1,63 +1,138 @@
 # Registry contract
 
-The JSON Schemas in [`schema/`](../schema/) are the executable contract. This document explains the semantics that a schema alone cannot express.
+The JSON Schemas in [`schema/`](../schema/) are the executable data contract. This document defines the semantics and compatibility rules that schema validation alone cannot express.
 
-## Source IDs
+## Contract versions
 
-`id` is a permanent public identity.
+The current compiled registry contract is version 2.
 
-- lowercase ASCII letters, digits, and hyphens;
-- stable after merge;
-- equal to the YAML filename;
-- independent from current domain ownership or feed URL.
+| Component | Current schema |
+| --- | ---: |
+| Compiled registry bundle | 2 |
+| Source record | 2 |
+| Collection record | 1 |
+| Profile record | 1 |
 
-Do not rename an ID merely because branding or domains change.
+Stable source schema snapshots are published as `schema/source.v1.schema.json` and `schema/source.v2.schema.json`. `schema/source.schema.json` is the latest source-schema alias.
 
-## Kinds
+A released versioned schema is immutable. A future incompatible source contract must publish a new versioned schema rather than rewriting v2 semantics.
 
-Supported source kinds are:
+## Source identity
 
-- `individual`
-- `company`
-- `research`
-- `community`
-- `publication`
-- `project`
+`id` is a permanent public identity. It is lowercase ASCII letters, digits, and hyphens; it matches the YAML filename; and it does not change merely because a domain, brand, or feed URL changes.
 
-Kind describes who publishes the source. It is not a quality tier.
+A source is not a feed. A feed is a transport endpoint attached to a durable source identity.
+
+## Source contract v2
+
+Every source record requires four groups of information:
+
+1. identity and transport;
+2. descriptive taxonomy;
+3. editorial curation;
+4. provenance.
+
+Example:
+
+```yaml
+schema_version: 2
+id: simon-willison
+name: "Simon Willison’s Weblog"
+kind: individual
+language: en
+website: https://simonwillison.net/
+description: "Independent technical writing covering AI, LLMs, Python, databases, and the web."
+feeds:
+  - url: https://simonwillison.net/atom/everything/
+    format: atom
+    role: primary
+    official: true
+topics:
+  - ai
+  - llm
+  - python
+  - databases
+  - web
+traits:
+  - original
+  - practitioner
+  - deep-dive
+  - independent
+  - high-frequency
+curation:
+  rationale: "Admitted for recurring practitioner writing with reproducible technical detail."
+  admission_basis:
+    - independent-practitioner
+  reviewer: GeoGeekLab
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
+provenance:
+  added_by: GeoGeekLab
+  added_at: "2026-09-20"
+  evidence:
+    - type: identity
+      url: https://simonwillison.net/
+    - type: feed
+      url: https://simonwillison.net/atom/everything/
+status: active
+```
+
+## Curation
+
+`curation.rationale` explains why the source belongs in the registry. It is source-level and must not be confused with a collection-specific `selection_rationale`.
+
+`admission_basis` uses a small schema-controlled vocabulary: `first-party-engineering`, `first-party-technical`, `independent-practitioner`, `independent-analysis`, `primary-research`, `official-project`, `technical-community`, or `technical-publication`.
+
+`reviewed_at` records the editorial review represented by the current rationale. `review_after` schedules the next review. Validation requires a review interval of 30–366 days. CI does not compare these dates with wall-clock time; use `techfeeds reviews --as-of YYYY-MM-DD` to query due reviews deterministically.
+
+## Provenance
+
+`provenance` records where the registry's identity and transport assertions came from.
+
+Every v2 source must include at least two evidence entries. Semantic validation requires:
+
+- an `identity` evidence URL matching the canonical `website`;
+- a `feed` evidence URL matching the current primary feed.
+
+Additional evidence types are `representative-work`, `about`, and `repository`.
+
+`added_at` may not be later than `curation.reviewed_at`.
+
+Provenance evidence is not feed-health evidence. Reachability and parse status remain in `health.json`.
 
 ## Feeds
 
-Every active source must expose exactly one `primary` feed.
+Every active source must expose exactly one `primary` feed. In v2 every feed also declares a `format`.
 
-Additional feeds may be added with other roles when they represent a meaningful partition of the same source.
+`official: true` means the endpoint is published or controlled by the source. A community-maintained endpoint may be primary when necessary, but it must be marked `false`.
 
-`official: true` means the endpoint is published or controlled by the source itself. A community-maintained bridge such as an RSSHub route should be marked `false` and, where appropriate, described as a fallback.
+## Topics and traits
 
-## Topics
+Topics and traits remain controlled vocabularies in [`registry/`](../registry/). Topics describe subject matter. Traits describe recurring properties such as `deep-dive`, `practitioner`, or `company-engineering`.
 
-Topics are controlled in [`registry/topics.yaml`](../registry/topics.yaml). They describe subject matter.
+They are descriptive metadata, not quality scores.
 
-Do not use topics as praise, criticism, audience level, or publishing frequency.
+## Status and retirement
 
-## Traits
+`active` means the registry expects the source identity to remain consumable. `retired` preserves history when a source has ended, merged, or moved to another identity and requires `redirect_to`.
 
-Traits are controlled in [`registry/traits.yaml`](../registry/traits.yaml). They describe recurring properties such as `deep-dive`, `practitioner`, `independent`, or `company-engineering`.
+A failed network probe never automatically retires a source.
 
-Avoid subjective superlatives such as `best`, `excellent`, or `must-read`.
+## Compiled registry v2
 
-## Status
+`generated/registry.json` now declares:
 
-`active` means the registry currently expects the source to be consumable.
+```json
+{
+  "schema_version": 2,
+  "component_schema_versions": {
+    "source": 2,
+    "collection": 1,
+    "profile": 1
+  }
+}
+```
 
-`retired` preserves historical identity when the source has intentionally ended, merged, or moved to a replacement identity. Retirement is an editorial decision; a transient failed probe is not sufficient evidence.
+Consumers should branch on these version fields rather than infer capabilities from field presence.
 
-## Collections
-
-Collections are curated bundles of source IDs. They can express a narrower editorial point of view than the source records themselves.
-
-A source may belong to multiple collections.
-
-## Profiles
-
-Profiles combine collections and optional topic preferences for common reader roles. They are starting points, not personalized ranking models.
+See [`docs/migrations/source-v1-to-v2.md`](migrations/source-v1-to-v2.md) for the v1 migration and compatibility policy.

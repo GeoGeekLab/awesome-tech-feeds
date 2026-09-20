@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/source.schema.json",
+  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/source.v2.schema.json",
   "type": "object",
   "additionalProperties": false,
   "required": [

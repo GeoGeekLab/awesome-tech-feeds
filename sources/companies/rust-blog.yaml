@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: rust-blog
 name: "Rust Blog"
 kind: project
 language: en
 website: https://blog.rust-lang.org/
+description: "Official project publication covering rust, programming, open-source."
 feeds:
   - url: https://blog.rust-lang.org/feed.xml
     format: rss
@@ -17,4 +18,21 @@ traits:
   - first-party
   - release-notes
   - analysis
+curation:
+  rationale: "Admitted as the official Rust project publication for language and ecosystem releases, open-source development, and technical analysis."
+  admission_basis:
+    - official-project
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
+provenance:
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
+  evidence:
+    - type: identity
+      url: https://blog.rust-lang.org/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://blog.rust-lang.org/feed.xml
+      note: "Primary subscription endpoint published by the source."
 status: active

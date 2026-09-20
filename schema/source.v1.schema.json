@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/source.schema.json",
+  "$id": "https://raw.githubusercontent.com/GeoGeekLab/awesome-tech-feeds/main/schema/source.v1.schema.json",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -10,17 +10,14 @@
     "kind",
     "language",
     "website",
-    "description",
     "feeds",
     "topics",
     "traits",
-    "curation",
-    "provenance",
     "status"
   ],
   "properties": {
     "schema_version": {
-      "const": 2
+      "const": 1
     },
     "id": {
       "type": "string",
@@ -52,7 +49,6 @@
     },
     "description": {
       "type": "string",
-      "minLength": 40,
       "maxLength": 500
     },
     "feeds": {
@@ -63,7 +59,6 @@
         "additionalProperties": false,
         "required": [
           "url",
-          "format",
           "role",
           "official"
         ],
@@ -152,67 +147,12 @@
         "type": "string"
       }
     },
-    "curation": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "rationale",
-        "admission_basis",
-        "reviewer",
-        "reviewed_at",
-        "review_after"
-      ],
-      "properties": {
-        "rationale": {
-          "type": "string",
-          "minLength": 60,
-          "maxLength": 800
-        },
-        "admission_basis": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": {
-            "enum": [
-              "first-party-engineering",
-              "first-party-technical",
-              "independent-practitioner",
-              "independent-analysis",
-              "primary-research",
-              "official-project",
-              "technical-community",
-              "technical-publication"
-            ]
-          }
-        },
-        "reviewer": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 120
-        },
-        "reviewed_at": {
-          "type": "string",
-          "format": "date"
-        },
-        "review_after": {
-          "type": "string",
-          "format": "date"
-        }
-      }
-    },
     "provenance": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "added_by",
-        "added_at",
-        "evidence"
-      ],
       "properties": {
         "added_by": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 120
+          "type": "string"
         },
         "added_at": {
           "type": "string",
@@ -220,42 +160,15 @@
         },
         "evidence": {
           "type": "array",
-          "minItems": 2,
-          "uniqueItems": true,
           "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "type",
-              "url"
-            ],
-            "properties": {
-              "type": {
-                "enum": [
-                  "identity",
-                  "feed",
-                  "representative-work",
-                  "about",
-                  "repository"
-                ]
-              },
-              "url": {
-                "type": "string",
-                "format": "uri",
-                "pattern": "^https?://"
-              },
-              "note": {
-                "type": "string",
-                "maxLength": 240
-              }
-            }
+            "type": "string",
+            "format": "uri"
           }
         }
       }
     },
     "maintainers": {
       "type": "array",
-      "uniqueItems": true,
       "items": {
         "type": "string"
       }
@@ -267,8 +180,7 @@
       ]
     },
     "redirect_to": {
-      "type": "string",
-      "pattern": "^[a-z0-9][a-z0-9-]{1,63}$"
+      "type": "string"
     }
   },
   "allOf": [

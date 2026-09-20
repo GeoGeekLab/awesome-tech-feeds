@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: ruanyifeng
 name: "阮一峰的网络日志"
 kind: individual
 language: zh-CN
 website: https://www.ruanyifeng.com/blog/
+description: "Independent technical writing covering programming, web, ai, devtools."
 feeds:
   - url: https://www.ruanyifeng.com/blog/atom.xml
     format: atom
@@ -19,4 +20,21 @@ traits:
   - analysis
   - tutorial
   - independent
+curation:
+  rationale: "Admitted as the registry's Chinese-language independent technical source, covering programming, web development, AI, and developer tools with sustained explanatory writing."
+  admission_basis:
+    - independent-analysis
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
+provenance:
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
+  evidence:
+    - type: identity
+      url: https://www.ruanyifeng.com/blog/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://www.ruanyifeng.com/blog/atom.xml
+      note: "Primary subscription endpoint published by the source."
 status: active

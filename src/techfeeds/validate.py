@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from collections import defaultdict
+from datetime import date
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit, urlunsplit
@@ -39,6 +40,74 @@ def _schema_errors(validator: Draft202012Validator, data: Any, path: Path, root:
     return errors
 
 
+def _date_value(value: Any) -> date | None:
+    if not isinstance(value, str):
+        return None
+    try:
+        return date.fromisoformat(value)
+    except ValueError:
+        return None
+
+
+def _source_contract_errors(data: dict[str, Any], path: Path, root: Path) -> list[str]:
+    errors: list[str] = []
+    prefix = str(path.relative_to(root))
+    curation = data.get("curation")
+    provenance = data.get("provenance")
+    if not isinstance(curation, dict) or not isinstance(provenance, dict):
+        return errors
+
+    reviewed_at = _date_value(curation.get("reviewed_at"))
+    review_after = _date_value(curation.get("review_after"))
+    added_at = _date_value(provenance.get("added_at"))
+
+    if reviewed_at is not None and review_after is not None:
+        interval = (review_after - reviewed_at).days
+        if interval < 30 or interval > 366:
+            errors.append(
+                f"{prefix}: review_after must be 30 to 366 days after reviewed_at; "
+                f"found {interval} days"
+            )
+    if added_at is not None and reviewed_at is not None and added_at > reviewed_at:
+        errors.append(f"{prefix}: provenance added_at must not be after curation reviewed_at")
+
+    evidence = provenance.get("evidence")
+    if not isinstance(evidence, list):
+        return errors
+
+    website = data.get("website")
+    identity_urls = {
+        _canonical_url(item["url"])
+        for item in evidence
+        if isinstance(item, dict)
+        and item.get("type") == "identity"
+        and isinstance(item.get("url"), str)
+    }
+    if isinstance(website, str) and _canonical_url(website) not in identity_urls:
+        errors.append(
+            f"{prefix}: provenance evidence must include the canonical website as identity"
+        )
+
+    primary_urls = {
+        _canonical_url(feed["url"])
+        for feed in data.get("feeds", [])
+        if isinstance(feed, dict)
+        and feed.get("role") == "primary"
+        and isinstance(feed.get("url"), str)
+    }
+    feed_urls = {
+        _canonical_url(item["url"])
+        for item in evidence
+        if isinstance(item, dict)
+        and item.get("type") == "feed"
+        and isinstance(item.get("url"), str)
+    }
+    if primary_urls and not primary_urls.intersection(feed_urls):
+        errors.append(f"{prefix}: provenance evidence must include the primary feed URL")
+
+    return errors
+
+
 def validate_registry(root: Path) -> list[str]:
     errors: list[str] = []
     source_validator = _validator(root, "source.schema.json")
@@ -61,6 +130,7 @@ def validate_registry(root: Path) -> list[str]:
         errors.extend(_schema_errors(source_validator, data, path, root))
         if not isinstance(data, dict):
             continue
+        errors.extend(_source_contract_errors(data, path, root))
 
         source_id = data.get("id")
         if not isinstance(source_id, str):

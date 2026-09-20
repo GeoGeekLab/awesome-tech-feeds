@@ -15,7 +15,7 @@ registry/ taxonomy
 
 The boundaries are deliberate.
 
-- `sources/` describes durable identity and subscription endpoints.
+- `sources/` describes durable identity, subscription endpoints, source-level curation, and provenance.
 - `collections/` expresses human curation.
 - `profiles/` combines collections for a role.
 - `registry/` prevents uncontrolled taxonomy drift.
@@ -30,11 +30,19 @@ A source is the durable identity of a person, organization, project, publication
 
 One source may have multiple feeds. An endpoint may move without changing source identity.
 
+### Curation is auditable metadata
+
+Source admission has explicit rationale, admission basis, reviewer, and review dates. Provenance records the evidence for canonical identity and feed location. These fields are editorial records; they do not become numerical quality scores.
+
 ### Health is not quality
 
 Operational reachability is measured. Editorial quality is curated.
 
 The health probe may say `broken`; it may not say a source is low quality.
+
+### Review scheduling is not wall-clock validation
+
+The registry validates the ordering and bounded interval of review dates, but CI does not fail merely because today's date passed `review_after`. Operational review queries use an explicit `--as-of` date.
 
 ### Registry validation is deterministic
 

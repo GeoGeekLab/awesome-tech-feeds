@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: bair
 name: "Berkeley Artificial Intelligence Research Blog"
 kind: research
 language: en
 website: https://bair.berkeley.edu/blog/
+description: "Primary research and research-engineering source covering ai, machine-learning, research."
 feeds:
   - url: https://bair.berkeley.edu/blog/feed.xml
     format: rss
@@ -17,4 +18,21 @@ traits:
   - first-party
   - research
   - deep-dive
+curation:
+  rationale: "Admitted for first-party academic AI and machine-learning research explanations that connect published research with deeper technical context from the researchers."
+  admission_basis:
+    - primary-research
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
+provenance:
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
+  evidence:
+    - type: identity
+      url: https://bair.berkeley.edu/blog/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://bair.berkeley.edu/blog/feed.xml
+      note: "Primary subscription endpoint published by the source."
 status: active

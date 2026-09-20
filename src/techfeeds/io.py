@@ -8,9 +8,23 @@ from typing import Any
 import yaml
 
 
+class RegistryLoader(yaml.SafeLoader):
+    """YAML loader whose scalar semantics stay compatible with JSON Schema."""
+
+
+RegistryLoader.yaml_implicit_resolvers = {
+    key: [
+        resolver
+        for resolver in resolvers
+        if resolver[0] != "tag:yaml.org,2002:timestamp"
+    ]
+    for key, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
+}
+
+
 def load_yaml(path: Path) -> Any:
     with path.open(encoding="utf-8") as handle:
-        return yaml.safe_load(handle)
+        return yaml.load(handle, Loader=RegistryLoader)
 
 
 def dump_json(path: Path, value: Any, *, compact: bool = False) -> None:

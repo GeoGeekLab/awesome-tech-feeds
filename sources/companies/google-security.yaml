@@ -1,9 +1,10 @@
-schema_version: 1
+schema_version: 2
 id: google-security
 name: "Google Online Security Blog"
 kind: company
 language: en
 website: https://security.googleblog.com/
+description: "First-party technical publication covering security, privacy."
 feeds:
   - url: https://security.googleblog.com/feeds/posts/default
     format: atom
@@ -16,4 +17,21 @@ traits:
   - first-party
   - security-research
   - analysis
+curation:
+  rationale: "Admitted for first-party security research and defensive analysis from teams operating widely deployed software and internet services."
+  admission_basis:
+    - first-party-technical
+  reviewer: "GeoGeekLab"
+  reviewed_at: "2026-09-20"
+  review_after: "2026-12-19"
+provenance:
+  added_by: "GeoGeekLab"
+  added_at: "2026-09-20"
+  evidence:
+    - type: identity
+      url: https://security.googleblog.com/
+      note: "Canonical source home page."
+    - type: feed
+      url: https://security.googleblog.com/feeds/posts/default
+      note: "Primary subscription endpoint published by the source."
 status: active
