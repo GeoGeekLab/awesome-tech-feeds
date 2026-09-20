@@ -1,6 +1,12 @@
 name: Feed Health
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "sources/**"
+      - "src/techfeeds/probe.py"
+      - ".github/workflows/feed-health.yml"
   schedule:
     - cron: "23 */6 * * *"
   workflow_dispatch:
